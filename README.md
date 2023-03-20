@@ -7,11 +7,13 @@
 **Date:** November 9<sup>th</sup>, 2022 (task 4)
 
 ## Members
-- Lê Tuấn Hưng (2052508)
-- Mai Hữu Nghĩa (2052612)
-- Trần Trí Đạt (2052443)
-- Đinh Xuân Phú (2052650)
-- Dương Gia An (1952163)
+- Nguyễn Phúc Tiến - 2014725 
+- Nguyễn Minh Tiến - 2014722 
+- Nguyễn Văn Thịnh - 2014603
+- Nguyễn Xuân Triều - 2110610 
+- Lê Viễn Du - 1912860
+- Phạm Duy Quang  -  2011899
+- Nguyễn Hữu Hiếu  -  201314
 
 ## Task 1
 ### Task 1.1
