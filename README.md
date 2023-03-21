@@ -47,49 +47,52 @@ Management will be a part of the solution.
 
 
 ### Task 1.2
-#### Functional Requirement
+####1.2.1 Yêu cầu chức năng
 1. Back officers
-- View calendar
-- View detailed information and manage the vehicle
-- Get information about the MCPs
-- Assign vehicles to collectors and janitors
-- Assign collectors and janitors to MCPs
-- Create route for each collectors
-- Communicate with collectors and janitors
+- Xem và tạo lịch làm việc cho Collectors và Janitors.
+- Xem thông tin chi tiết về các phương tiện (khối lượng, sức chứa, nhiên liệu tiêu thụ,...).
+- Xem thông tin về sức chứa hiện tại ở các MCP.
+- Lựa chọn và cung cấp phương tiện cho Collectors.
+- Chỉ định các MCP làm việc cho Janitors và Collectors.
+- Chỉ định tuyến đường cho mỗi Collectors và tuyến đường này phải tối ưu về đường đi cũng như nhiên liệu tiêu thụ.
+- Có thể gửi tin nhắn cho Collectors \& Janitors.
 2. Collector and Janitors
-- Check in and check out
-- View calendar
-- View tasks (daily, weekly)
-- Get information about the MCPs
-- Communicate with other collectors, other janitors and back officers
+- Có thể theo dõi lịch trình làm việc tổng quan của mình.
+- Có một cái nhìn chi tiết về các nhiệm vụ của họ hàng ngày và hàng tuần.
+- Thông tin được hiển thị sao cho người dùng không cần cuộn màn hình xuống để xem.
+- Giao tiếp được với nhau và với Back officers.
+- Check-in và check-out các task hàng ngày.
+- Nhận được thông báo khi các điểm MCP đã đầy (> 95\% dung lượng tải tối đa). 
 
-#### Non-Functional Requirement
-1. Usability requirement
-- Janitors and collectors can easily use basic functions immediately
-- The back officers can use after 15 minutes training.
-- Interfaces in Vietnamese, with an opportunity to switch to English.
-2. Performance requirement
-- The system must respond in less than 30 seconds. After 30 seconds, the system will notify the user.
-- Can handle real-time data.
-- Allow at least 100 users access at the same time without crashing.
-- The task’s status has to be updated in 5 seconds when the janitors or collectors update it.
-- MCPs information must be updated every 15 minutes.
-3. Space requirement
-- The system can handle 500 concurrent visits without any effect on the system efficiency.
-- The system should be able to handle data from at least 1000 MCPs at the
-moment and 10.000 MCPs in five years.
-4. Availability requirement
-- Working time of the system all days of the week, from 4am to 12pm.
-- The system should not be down more than 10 minutes continuously, maximum 30 minutes a day.
-5. Environmental requirement
-- The system runs on internet browsing.
-6. Security requirement
-- Password require when login
-- Encryption ensure with MD5
-- Ensure not leak user information
-7. Operational requirements
-- System data is backed up every month to prevent data loss
-
+####1.2.2 Yêu cầu phi chức năng
+1. Hiệu suất:
+- Khởi động nhanh, mất ít hơn 30 giây để khởi động lại toàn bộ hệ thống.
+- Hệ thống có khả năng xử lý đồng thời thông tin của ít nhất 1000 bãi tập kết rác (MCP) trong thời gian thực.
+- Thông tin về tình trạng của MCPs phải được cập nhật liên tục mỗi 15 phút với 95\% lượng thông tin là khả dụng trong thời gian hoạt động.
+- Trạng thái của MCPs, Tasks, Depot khi được chủ động cập nhật có độ trễ thấp hơn 5 giây.
+- Chức năng giao tiếp giữa Janitors, Collectors và Back Officers có độ trễ ít hơn 1 giây.
+-  Chức năng của từng thao tác có độ phản hồi ít hơn 1 giây.
+2. Khả năng mở rộng:
+- Hệ thống có khả năng xử lý thông tin của ít nhất 10000 bãi tập kết rác trong khoảng thời gian 5 năm.
+- Hỗ trợ thêm ngôn ngữ tiếng Anh.
+3. Dễ sử dụng:
+- Janitors và Collectors có thể dễ dàng sử dụng ngay lập tức các chức năng cơ bản.
+- Back officer có thể sử dụng sau 15 - 30 phút training.
+4. Độ tin cậy:
+- Thời gian bảo trì hệ thống dưới 24 giờ.
+- Hệ thống có khả năng phục hồi dữ liệu nhanh trong khoảng 10 - 20 phút.
+-  Hệ thống UWC 2.0 phải tương thích được với hệ thống UWC 1.0 đã có từ trước.
+5. Khả năng sẵn sàng:
+- Hệ thống làm việc tất cả các ngày trong tuần (từ 4am đến 12pm).
+6. Bảo mật:
+- Chỉ Back Officers mới có thể quản lý và thay đổi các thông tin.
+- Sử dụng MD5 để mã hóa mật khẩu người dùng.
+- Bảo trì hệ thống định kỳ (3 tháng/lần) để có thể hoạt động ổn định.
+7. Hướng phát triển:
+- Phát triển cho bên khách hàng có nhu cầu sử dụng (trả phí hàng tháng).
+- Có thể sử dụng ứng dụng trên các hệ điều hành IOS và Android.
+- Cung cấp các API để tương tác với các ứng dụng khác.
+- Có thể phát triển phần mềm ra nhiều khu vực khác nhau.
 #### Use-case diagram for the whole system
 ![Use case diagram for WholeSysTem](/Picture/Task%201.2.png?raw=true)
 
