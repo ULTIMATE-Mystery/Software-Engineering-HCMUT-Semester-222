@@ -125,11 +125,53 @@ chọn.
 8. View gửi ngày, phương tiện và nhân viên được chỉ định tới Model để lưu trữ vào database.
 9. Sau khi lưu thành công, View sẽ hiển thị thông báo "Đã giao thành công tới Back officer"
 ### Task 2.3
-In the class diagram, our group decided that there are 2 interface classes in the
-Task Assignment Module called AssignTask and AssigningView (InfoView interfaces are
-not included in Task Assignment Module, we draw it to make the system more
-comprehensive).
 #### Class diagram for Task Assignment module
 ![Class diagram for Task Assignment module](/Picture/Task2ClassDiagram.png?raw=true)
-
-Task Controller is the bridge between User and private elements in Task. When we create task, there are 4 elements requires: worker information, date of assignment, route information (get from Google API), vehicle information.
+#### Diagram description:
+### Đối với Back Officer
+* Đầu tiên Back Officer sẽ ở trạng thái Tổng quan ban đầu, tiếp đến Back Officer sẽ tiến
+hành chọn Task (Tổng quan nhiệm vụ), ở đây hiển thị 2 chế độ Create Task và View Task.
+* Ở task list khi ta chọn Create Task:
+  * Xem được tình trạng của tất cả MCP. Mỗi MCP được thể hiện ở 3 trạng thái:
+    ```cpp
+    Trạng thái 1: Dưới 50% so với sức chứa tối đa
+    Trạng thái 2: Trên 50% đến không lớn hơn 95% so với sức chứa tối đa
+    Trạng thái 3: Trên 95% sức chứa tối đa
+    ```
+  * Back Officer sẽ có thể View map để xem bản đồ và chọn MCPs.
+  * Tiếp đến hệ thống hiển thị các area trên bản đồ, Back Officer tiếp tục chỉ định các
+khu vực cho Janitor.
+  * Sau đó hệ thống hiển thị các troller có thể chọn để Back Officer tiến hành chọn troller
+cho công việc
+  * Tiếp theo hệ thống hiển thị danh sách Janitor có thể giao việc được, Back Officer sẽ
+tiến hành chọn Janitor phù hợp với công việc.
+  * Cuối cùng Back Officer chọn thời gian cho công việc.
+  * Tiếp đến ta sẽ xác nhận việc tạo task:
+    ```cpp
+    Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Janitor về chi
+    tiết của task
+    Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan
+    nhiệm vụ (Task)
+    ```
+* Ở Task nếu ta chọn View Task
+  * Hệ thống sẽ hiển thị danh sách thông tin các Task dưới dạng tối giản hóa, Ta sẽ chọn
+task cần xem thông tin chi tiết, nhấn vào xem chi tiết (View Detail) của ID task tương
+ứng , tiếp đến có hai lựa chọn là không chỉnh sửa (No Edit) và Chỉnh sửa task (Edit
+task).
+  * Khi Back Officer nhấn vào Edit task:
+Back Officer sẽ chỉnh sửa những mục cần thiết trong Task và cuối cùng ta sẽ xác nhận
+việc chỉnh sửa Task
+    ```cpp
+    Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Collector về chi
+    tiết của task.
+    Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan ban
+    đầu (task list).
+    ```
+  * Khi Back Officer nhấn vào "No Edit" hệ thống trở về tổng quan nhiệm vụ (Task)
+Đối với Janitor
+* Khi có thông báo về task được gửi đến từ hệ thống thì Collector sẽ thực hiện xác nhận
+đã nhận task (Check in task) và bắt đầu thực hiện công việc. Khi Janitor đang làm việc
+thì trạng thái gửi về Back Officer là In Progress. Sau khi đã hoàn thành công việc (task
+done) thì Janitor sẽ xác nhận hoàn thành task (Check out task) để Back Officer xác nhận
+Janitor đã hoàn thành task (task completed).
+* Nếu không có thông báo về task thì Janitor sẽ không phải làm việc.
