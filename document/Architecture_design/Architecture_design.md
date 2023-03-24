@@ -33,13 +33,15 @@ Nhóm lựa chọn mô hình MVC vì các lợi ích mà mô hình này đem l�
 ![Architectural Diagram](/Picture/archi_diagram.png?raw=true)
 #### Plan for project
 - Đối với lớp Presentation layer: Nhóm sẽ sử dụng ReactJS, một thư viện rất phổ biến của Javascript được phát triển bởi Facebook và tạo ra để xây dựng giao diện người dùng có khả năng tương tác tốt và nhanh chóng cho các ứng dụng web và di động. Nó là một thư viện mã nguồn mở, xây dựng dựa trên các component, giao diện người dùng chỉ chịu trách nhiệm cho tầng view của ứng dụng.
-- Đối với lớp Application layer: Nhóm dự định sử dụng RESTful API (\url{https://restfulapi.net/}) để xử lý các yêu cầu và thực thi xử lý nghiệp vụ (business logic). Vì đây là một kiểu kiến trúc được sử dụng rộng rãi và đã được thiết lập tốt để xây dựng các web với các ưu điểm chính như sau:
+- Đối với lớp Application layer: Nhóm dự định sử dụng RESTful API https://restfulapi.net để xử lý các yêu cầu và thực thi xử lý nghiệp vụ (business logic). Vì đây là một kiểu kiến trúc được sử dụng rộng rãi và đã được thiết lập tốt để xây dựng các web với các ưu điểm chính như sau:
     + Giúp cho ứng dụng rõ ràng hơn.
     + REST URL đại diện cho resource chứ không phải hành động.
     + Dữ liệu được trả về với nhiều định dạng khác nhau như: xml, html, json.
     + Code đơn giản và ngắn gọn.
     + REST chú trọng vào tài nguyên của hệ thống.
+
 ![RESTfulAPI](/Picture/restfulAPI3?raw=true)
+
 - Đối với lớp Data access layer: Nhóm có thể sử dụng đến Firebase, một dịch vụ lưu trữ dữ liệu NoSQL được cung cấp bởi Google. Các lý do chính mà nhóm quyết định sử dụng Firebase là:
     + Sử dụng dễ dàng: Những người dùng có thể đăng ký một tài khoản Firebase thông qua tài khoản Google. Đồng thời, người cùng cũng có thể sử dụng nền tảng này trong quá trình phát triển ứng dụng một cách đơn giản nhất. 
     + Xây dựng ứng dụng nhanh chóng mà không tốn thời gian, nhân lực để quản lý hệ thống và cơ sơ sở hạ tầng phía sau: Firebase cung cấp cho ta rất nhiều chức năng như phân tích, cơ sở dữ liệu, báo cáo hoạt động và báo cáo các sự cố lỗi để bạn có thể dễ dàng phát triển, định hướng ứng dụng của mình vào người sử dụng nhằm đem lại các trải nghiệm tốt nhất cho họ. 
