@@ -130,6 +130,6 @@ Task Assignment Module called AssignTask and AssigningView (InfoView interfaces 
 not included in Task Assignment Module, we draw it to make the system more
 comprehensive).
 #### Class diagram for Task Assignment module
-![Class diagram for Task Assignment module](/Picture/Task%202.3.png?raw=true)
+![Class diagram for Task Assignment module](/Picture/Task2ClassDiagram.png?raw=true)
 
 Task Controller is the bridge between User and private elements in Task. When we create task, there are 4 elements requires: worker information, date of assignment, route information (get from Google API), vehicle information.
