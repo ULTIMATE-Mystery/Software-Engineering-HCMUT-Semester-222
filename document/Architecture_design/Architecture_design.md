@@ -40,7 +40,7 @@ Nhóm lựa chọn mô hình MVC vì các lợi ích mà mô hình này đem l�
     + Code đơn giản và ngắn gọn.
     + REST chú trọng vào tài nguyên của hệ thống.
 
-![RESTfulAPI](/Picture/restfulAPI3?raw=true)
+![Restful API](/Picture/restfulAPI3.png?raw=true)
 
 - Đối với lớp Data access layer: Nhóm có thể sử dụng đến Firebase, một dịch vụ lưu trữ dữ liệu NoSQL được cung cấp bởi Google. Các lý do chính mà nhóm quyết định sử dụng Firebase là:
     + Sử dụng dễ dàng: Những người dùng có thể đăng ký một tài khoản Firebase thông qua tài khoản Google. Đồng thời, người cùng cũng có thể sử dụng nền tảng này trong quá trình phát triển ứng dụng một cách đơn giản nhất. 
