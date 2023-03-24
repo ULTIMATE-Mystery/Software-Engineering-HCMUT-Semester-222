@@ -22,9 +22,7 @@ Quá trình thu gom rác trước đây chưa được quản lý một cách hi
 
 ## Sơ lược về dự án
 Dự án cần có một sự đồng bộ, thống nhất và hiệu quả trong việc quản lý, phân công, vận chuyển, thu gom rác thải...
-
 Phạm vi dự án:
-
 - Hệ thống hỗ trợ tương tác giữa Collectors, Janitors, Back Officers, nhân viên của công ty thông qua chức năng nhắn tin (chức năng này không hỗ trợ cho đối tượng là các hộ dân cư.
 - Back Officers được phân chia theo từng Quận, Huyện, Thị xã của 1 Tỉnh/Thành phố, theo đó Janitors và Collectors sẽ hoạt động dưới sự quản lý của Back Officers tại khu vực tương ứng.
 - MCPs là những địa điểm tập kết rác được chính quyền địa phương bố trí, Collectors và Janitors sẽ đến những khu vực chỉ định và thu gom rác ở những địa điểm này.
@@ -37,7 +35,6 @@ Phạm vi dự án:
 ## Nhu cầu của các bên liên quan
 - Công ty Y: Cung cấp Back Officers, Collectors & Janitors đã được đào tạo để quản lý và thực hiện quy trình thu gom rác.
 - Back Officers: Cập nhật thông tin về mức độ rác ở MCPs. Lên kế hoạch chỉ định phương tiện và tuyến đường cho các collectors theo từng tháng. Sắp xếp lịch làm việc của collectors và janitors hàng tuần, đồng thời mỗi ngày sẽ gửi tin nhắn về thông tin công việc cần làm cho các Collectors và Janitors.
-
 - Collectors và Janitors: Nắm được lịch làm việc, nắm rõ nhiệm vụ, có thể liên lạc được với nhau và với Back Officers, được thông báo khi MCPs đầy rác.
 Lợi ích về việc sử dụng UWC 2.0
 - Đối với công ty hỗ trợ cung cấp dịch vụ Y.
