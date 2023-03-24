@@ -1,7 +1,5 @@
 # Task 2
-## Task 2.1
-
-### Acitivity diagram for Task Assignment Module
+## 2.1. Acitivity diagram for Task Assignment Module
 #### Activity diagram for Collector
 ![Activity diagram for Task Assignment](/Picture/Task2ActivityCollector.png?raw=true)
 #### Diagram description:
@@ -12,9 +10,9 @@ hành chọn Task (Tổng quan nhiệm vụ), ở đây hiển thị 2 chế đ�
 * Ở task list khi ta chọn Create Task:
   * Xem được tình trạng của tất cả MCP. Mỗi MCP được thể hiện ở 3 trạng thái:
     ```cpp
-    Trạng thái 1: Dưới 50% so với sức chứa tối đa
-    Trạng thái 2: Trên 50% đến không lớn hơn 95% so với sức chứa tối đa
-    Trạng thái 3: Trên 95% sức chứa tối đa
+    - Trạng thái 1: Dưới 50% so với sức chứa tối đa
+    - Trạng thái 2: Trên 50% đến không lớn hơn 95% so với sức chứa tối đa
+    - Trạng thái 3: Trên 95% sức chứa tối đa
     ```
   * Back Officer sẽ có thể View map để xem bản đồ và chọn MCPs.
   * Tiếp đến hệ thống hiển thị các tuyến đường tuyến ưu và Back Officer tiếp tục chỉ
@@ -26,9 +24,9 @@ sẽ tiến hành chọn Collector phù hợp với công việc.
   * Cuối cùng Back Officer chọn thời gian cho công việc.
   * Tiếp đến ta sẽ xác nhận việc tạo task:
     ```cpp
-    Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Collector về chi
+    - Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Collector về chi
     tiết của task
-    Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan
+    - Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan
     nhiệm vụ (Task)
     ```
 * Ở Task nếu ta chọn View Task
@@ -40,9 +38,9 @@ task).
 Back Officer sẽ chỉnh sửa những mục cần thiết trong Task và cuối cùng ta sẽ xác nhận
 việc chỉnh sửa Task
     ```cpp
-    Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Collector về chi
+    - Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Collector về chi
     tiết của task.
-    Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan ban
+    - Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan ban
     đầu (task list).
     ```
   * Khi Back Officer nhấn vào "No Edit" hệ thống trở về tổng quan nhiệm vụ (Task
@@ -63,9 +61,9 @@ hành chọn Task (Tổng quan nhiệm vụ), ở đây hiển thị 2 chế đ�
 * Ở task list khi ta chọn Create Task:
   * Xem được tình trạng của tất cả MCP. Mỗi MCP được thể hiện ở 3 trạng thái:
     ```cpp
-    Trạng thái 1: Dưới 50% so với sức chứa tối đa
-    Trạng thái 2: Trên 50% đến không lớn hơn 95% so với sức chứa tối đa
-    Trạng thái 3: Trên 95% sức chứa tối đa
+    - Trạng thái 1: Dưới 50% so với sức chứa tối đa
+    - Trạng thái 2: Trên 50% đến không lớn hơn 95% so với sức chứa tối đa
+    - Trạng thái 3: Trên 95% sức chứa tối đa
     ```
   * Back Officer sẽ có thể View map để xem bản đồ và chọn MCPs.
   * Tiếp đến hệ thống hiển thị các area trên bản đồ, Back Officer tiếp tục chỉ định các
@@ -77,9 +75,9 @@ tiến hành chọn Janitor phù hợp với công việc.
   * Cuối cùng Back Officer chọn thời gian cho công việc.
   * Tiếp đến ta sẽ xác nhận việc tạo task:
     ```cpp
-    Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Janitor về chi
+    - Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Janitor về chi
     tiết của task
-    Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan
+    - Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan
     nhiệm vụ (Task)
     ```
 * Ở Task nếu ta chọn View Task
@@ -91,9 +89,9 @@ task).
 Back Officer sẽ chỉnh sửa những mục cần thiết trong Task và cuối cùng ta sẽ xác nhận
 việc chỉnh sửa Task
     ```cpp
-    Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Collector về chi
+    - Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Collector về chi
     tiết của task.
-    Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan ban
+    - Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan ban
     đầu (task list).
     ```
   * Khi Back Officer nhấn vào "No Edit" hệ thống trở về tổng quan nhiệm vụ (Task)
@@ -104,8 +102,7 @@ thì trạng thái gửi về Back Officer là In Progress. Sau khi đã hoàn t
 done) thì Janitor sẽ xác nhận hoàn thành task (Check out task) để Back Officer xác nhận
 Janitor đã hoàn thành task (task completed).
 * Nếu không có thông báo về task thì Janitor sẽ không phải làm việc.
-### Task 2.2
-#### Sequence diagram for back officer to assign vehicle
+### 2.2. Sequence diagram for back officer to assign vehicle
 ![Sequence diagram for route planning](/Picture/Task2Seq.png?raw=true)
 #### Mô tả
 1. Đầu tiên Back Officer chọn ngày muốn giao xe.
@@ -124,8 +121,8 @@ nhân viên từ danh sách.
 chọn.
 8. View gửi ngày, phương tiện và nhân viên được chỉ định tới Model để lưu trữ vào database.
 9. Sau khi lưu thành công, View sẽ hiển thị thông báo "Đã giao thành công tới Back officer"
-### Task 2.3
-#### Class diagram for Task Assignment module
+
+### 2.3. Class diagram for Task Assignment module
 ![Class diagram for Task Assignment module](/Picture/Task2ClassDiagram.png?raw=true)
 #### Diagram description
 Class Diagram của nhóm được vẽ theo mô hình MVC bao gồm các tầng sau:
