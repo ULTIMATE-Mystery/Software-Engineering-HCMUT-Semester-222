@@ -163,7 +163,7 @@ route.
 ![Class diagram for Task Assignment module](/Picture/Task2ClassDiagram.png?raw=true)
 #### Diagram description
 Class Diagram của nhóm được vẽ theo mô hình MVC bao gồm các tầng sau:
-#### Model
+##### Model
 Tầng Model sẽ quản lý tất cả dữ liệu cũng như việc xử lý logic liên quan đến dữ liệu. Ở tầng này ta có thể thêm, sửa, xoá, lấy dữ liệu trực tiếp.
 - MCP: Model của các điểm MCP có các thuộc tính như: mcpID, capacity, status và các phương thức như:
     + getStatus(): Lấy trạng thái hiện tại của MCP.
@@ -188,11 +188,11 @@ Tầng Model sẽ quản lý tất cả dữ liệu cũng như việc xử lý l
 - Collector: là lớp nhân viên Collector - nhân viên lái xe thu gom rác thải, thừa hưởng thuộc tính từ lớp Woker, đồng thời có thêm các thuộc tính đặc trưng; Route: vector<route> : thể hiện các tuyển đường mà Collector được giao; vechicle: Vehicle - phương tiện mà Collector đó sử dụng.
 - Janitor: là lớp nhân viên Janitor - nhân viên sử dụng xe đẩy thu gom rác trong 1 khu vực, thừa hưởng thuộc tính từ lớp Woker, đồng thời có thêm các thuộc tính đặc trưng; areaWork: map - thể hiện khu vực mà Janitor đó được giao.
 - TimeTable: thể hiện đối tượng bảng biểu thời gian, bao gồm các thuộc tính date (ngày), hour (giờ), week (tuần). và có các phương thức: getDate() - lọc ngày, getHour - lọc giờ, getWeek() - lọc tuần, addDate(date) thêm ngày vào bảng biểu, addHour(hour) thêm giờ vào bảng biểu. addWeek(week) thêm tuần vào bảng biểu làm việc.
-#### Controller
+##### Controller
 Tầng controller là tầng trung gian để kết nối giữa tầng View và tầng Model, tầng controller dùng để kiểm soát các luồng thực thi liên quan đến việc thao tác với các dữ liệu liên quan đến tuyến đường, MCP, thông báo, người dùng, và nhiệm vụ...tầng controller sẽ gọi đến tầng Model các yêu cầu cần thực hiện từ thao tác của người dùng trên giao diện người dùng ở tầng View, cũng như trả về dữ liệu gọi từ tầng Model để tầng View tiến hành render.
 - MCPController: Quản lý các chức năng, luồng thực thi liên quan MCP.
 - BackOfficerManageController: : Model có chức năng quản lý các hành động của Back Officer.
-#### View
+##### View
 Tầng view được sử dụng để kiểm soát logic toàn bộ giao diện người dùng của hệ thống, Back Officer sẽ tương tác với các như dropdowns, searchbar, button trong lúc tìm kiếm, phân công tuyến đường, phương tiện, nhân viên...
 - BackOfficerManageView: Model thể hiện giao diện người dùng có các phương thức như: showWorkerList(): để hiển thị danh sách nhân viên, showWorKerInfo(): để hiện thị thông tin của nhân viên, hay showSelectWorker(): hiển thị nhân viên được chọn,...
 
