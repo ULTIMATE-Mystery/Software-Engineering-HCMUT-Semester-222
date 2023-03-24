@@ -1,8 +1,11 @@
 # Mô tả dự án
 ## Bối cảnh dự án
 Xã hội ngày nay, nhân loại không ngừng phát triển. Cuộc sống đổi mới liên tục, những công việc trước kia phải sử dụng các phương pháp thủ công, thô sơ giờ đây đang dần được thay thế bằng các phương pháp hiện đại hơn, dùng máy móc, các hệ thống quản lý,… giúp nâng cao hiệu suất công việc và giảm thiểu rủi ro do lao động thủ công gây ra.
+
 Quản lý rác thải đô thị là một trong những vấn đề quan trọng mà nhiều quốc gia trên thế giới phải đối mặt. Rác thải do con người thải ra ngày càng nhiều, tuy nhiên chưa có biện pháp xử lý triệt để lượng rác thải thải ra ngày một lớn. Ở các thành phố, khu đô thị, quản lý chất thải rắn là tốn kém và không hiệu quả.
+
 Do đó, quản lý rác thải đô thị được coi là một trong những điểm quan trọng cần cải thiện trong Mục tiêu Phát triển bền vững (Sustainable Development Goals - SDG) mục 11: Thành phố và cộng đồng bền vững & mục 6: Nước sạch và vệ sinh.
+
 ## Thực trạng rác thải tại TP.HCM
 Theo số liệu thống kê từ trang chinhphu.vn, TP.HCM thải ra khoảng 9.500 tấn rác thải sinh hoạt mỗi ngày. Lượng rác thải khổng lồ trên chủ yếu được xử lý bằng phương pháp chôn lấp, chiếm đến 69%. Phương pháp ủ phân hữu cơ và tái chế chiếm 31%, trong đó tái chế rác thải nhựa chỉ chiếm 1%. TPHCM đã có chính sách hỗ trợ cho người dân phân loại rác tại nguồn. Tuy nhiên, những chính sách đã có chưa đủ độ hấp dẫn nhằm thúc đẩy người dân tự giác tham gia. Trong khi đó, cơ chế thúc đẩy xã hội hoá công tác thu gom, tái chế, xử lý chất thái rắn sinh hoạt còn thiếu, chưa thu hút được các nguồn lực đầu tư. Vì vậy, dự án lần này là một dự án rất cần thiết, trọng điểm mà ta có thể đóng góp cho cộng đồng.
 ## Vấn đề hiện tại của các bên liên quan
