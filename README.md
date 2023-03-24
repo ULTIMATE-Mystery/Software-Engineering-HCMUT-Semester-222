@@ -169,7 +169,7 @@ Tầng Model sẽ quản lý tất cả dữ liệu cũng như việc xử lý l
     + getStatus(): Lấy trạng thái hiện tại của MCP.
     + getCapacity(): Lấy sức chứa của MCP.
     + updateStatus(mcpID): Cập nhật sức chứa của MCP. 
-- Map: Model của Map có các thuộc tính như street kiểu vector<string>, mcps kiểu vector<MCP>. Các phương thức như:
+- Map: Model của Map có các thuộc tính như street kiểu vector\<string\>, mcps kiểu vector<MCP>. Các phương thức như:
     + displaySelectedMCPs(mpcs: MCP): hiển thi các điểm MCP đã được lựa chọn
     + getSelectedMCPs(): Lấy các điểm MCPs từ database
     + calculateDistance(street: vector<string>): Tính toán khoảng cách giữa các MCP
