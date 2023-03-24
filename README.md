@@ -111,9 +111,32 @@ Phạm vi dự án:
 - Có thể sử dụng ứng dụng trên các hệ điều hành IOS và Android.
 - Cung cấp các API để tương tác với các ứng dụng khác.
 - Có thể phát triển phần mềm ra nhiều khu vực khác nhau.
+#### 1.2.3 Use-case diagram cho toàn bộ hệ thống
+##### Use-case diagram
+![Use-case diagram for the whole system](/Picture/ucDiagram.png?raw=true)
+##### Job description
+|No.|Use-case | Job Description|
+| --- | ---| --- |
+|1|View employee information|Dùng để Back officer xem thông tin của tất các nhân viên|
+|2| Dùng để Back officer xem thông tin của tất các nhân viên |Dùng để Back officer xem thông tin của tất các nhân viên|
+|3 |Manage vehicle | Dùng để Back officer quản lý tất cả các phương tiện.|
+|4|Vehicle coordination |Dùng để Back officer điều phối phương tiện di chuyển|
+|5| Manage depo |Dùng để Back officer quản lý kho bãi chứa các phương tiện.|
+|6 | Assign task | Dùng để Back officer giao nhiệm vụ cho Collectors và Janitors.|
+|7 | Change task status | Dùng để Back officer thay đổi trạng thái của nhiệm vụ được giao|
+|8 |View task | Dùng để Back officer xem tổng quan các task đã giao.|
+|9 |View Collector’s task |Dùng để xem cụ thể task của các Collector|
+|10 |View Janitor’s task| Dùng để xem cụ thể task của các Janitor.|
+|11|Manage MCP| Dùng để Back officer quản lý thông tin về các MCPs|
+|12|Update capacity| Dùng để Back officer chủ động cập nhật thông tin về sức chứa của MCPs|
+|13|Real-time communication| Dùng để gửi tin nhắn giao tiếp giữa Back officer & Janitor & Collector.|
+|14|Check in |Check out Dùng để các nhân viên làm việc điểm danh|
+|15|View work information| Dùng để xem thông tin làm việc|
+|16|Report vehicle |Dùng để các nhân viên làm việc report lại tình trạng của xe |
+|17|MCPs capacity warning |Nhân viên làm việc nhận được thông báo khi điểm MCPs đầy (> 95% dung lượng tải tối đa).|
 ### 1.3 Use-case diagram cho Task assignment
 #### 1.3.1 Use-case diagram
-![Use-case diagram](/Picture/ucDiagram.png?raw=true)
+![Use-case diagram](/Picture/taskAssignment.png?raw=true)
 #### 1.3.2 Job Description
 |No.|Use-case | Job Description|
 | --- | ---| --- |
