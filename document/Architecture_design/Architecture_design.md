@@ -115,14 +115,39 @@ Module Management:
         * updateVehicleState(VehiclesID, detail): Chức năng cập nhật trạng thái sử dụng của phương tiện khi được gán cho một nhân viên nào đó hoặc nhân viên đó hoàn thành xong nhiệm vụ và đưa xe về depot.
         * deleteVehicle(VehiclesID): Chức năng xóa thông tin về một phương tiện khỏi hệ thống.
         * addVehicles(detail): Chức năng thêm thông tin về một phương tiện mới vào hệ thống.
-### Task 3.2
-#### Implementation diagram for Task Assignment module
-The diagram contains 1 application (Client), 1 main components (Server) and 1 component for calling Google API:
-- Client: contains the **Browser** which will receive the requests from **Server** or send requests to **Server**.
-- Server: consists of models interacting with database, view and controller parts.
-- Google API: to create routes from MCPs
+## Task 3.2
+### Component Diagram
 
-![Implementation diagram for Task Assignment module](/Picture/Task%203.2.png?raw=true)
+![Component Diagram](/Picture/ComponentDiagram.png?raw=true)
 
-#### Diagram flow
-When users assign new task. Browser requests the assign form from the Task controller. Task controller gathers info from the models and manages to make Task view display the form (and lists when requested). In the assigning process, Task view will update and display new data which are set and gotten by Task model. Finally, when MCPs are chosen, the controller will request routes from Google API for the user to pick. 
+### Description of Component Diagram
+
+Hệ thống gồm 3 Components chính: nhóm View, nhóm Controller, nhóm Model
+- Nhóm View chứa component *Back officer Interface* bao gồm:
+    + Component *Route View* dành cho Back Offices xem và chọn tuyến đường
+    + Component *Task Manager View*  gồm các giao diện để back officer tạo task dành cho Collector (Assign Task Collector View), Janitor (Assign Task Janitor View) và Task View.
+
+- Nhóm Controller:
+    + Component *Assign Task for Controller Controller* khối điều khiển tạo công việc cho Collector
+    + Component *Assign Task for  JanitorController* khối điều khiển tạo công việc cho Janitor
+    + Component *Task Controller*, khối điều khiển task, sử dụng để cung cấp chỉnh sửa và cập nhật task.
+
+- Nhóm Model:
+    + Component *Collector*
+        * Cung cấp interface Request Collector list cho component Assign Task Collector View trong nhóm View.
+        * Yêu cầu  interface Update Collector từ  Assign Task Collector Controller trong nhóm Controller.
+    + Component *Janitor* 
+        * Cung cấp interface Request Janitor  list cho component Assign Task Collector View trong nhóm View.
+        * Yêu cầu  interface Update Janitor từ  Assign Task Janitor Controller trong nhóm Controller.
+    + Component *MCP*
+        * Cung cấp interface Request MCP List cho component   Assign Task Collector View và  Assign Task Janitor View trong nhóm View. 
+        *  Yêu cầu   Update MCP từ component Assign Task Collector Controller trong nhóm Controller.
+    + Component *Vehicle*
+        * Cung cấp interface Request Vehicle List cho Assign Task Collector View và Request troller list cho Assgin Task Janitor View trong nhóm View.
+        *  Yêu cầu  interface Update Vehicle  từ  Assign Task Collector Controller  và Assign Task Janitor Controller trong nhóm Controller.
+    + Component *Route*
+        * Cung cấp Request  Route List cho  Assign Task Collector View,  Assgin Task Janitor View và Route View trong nhóm View.
+        *  Yêu cầu interface  Update Route từ   Assign Task Collector Controller  và Assign Task Janitor Controller trong nhóm Controller.
+    + Component *Task*
+        * Cung cấp interface Request Task list cho component Task View trong nhóm View.
+        *  Yêu cầu interface Update Task từ Assign Task Collector Controller, Assign Task Janitor Controller và Task Controller  trong nhóm Controller.
