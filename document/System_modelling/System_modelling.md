@@ -129,9 +129,9 @@ chọn.
 ![Class diagram for Task Assignment module](/Picture/Task2ClassDiagram.png?raw=true)
 #### Diagram description
 Class Diagram của nhóm được vẽ theo mô hình MVC bao gồm các tầng sau:
-#### Đối với Back Officer
-Module Monitoring (View):
-- Input:  1 User (Back Officer, Collector, Janitor).
+#### Model
+Tầng Model sẽ quản lý tất cả dữ liệu cũng như việc xử lý logic liên quan đến dữ liệu. Ở tầng này ta có thể thêm, sửa, xoá, lấy dữ liệu trực tiếp.
+- MCP: Model của các điểm MCP có các thuộc tính như: mcpID, capacity, status và các phương thức như:
 - Output: Hiển thị những thông tin cần thiết phục vụ cho công việc của họ:
     + Back Officer: Các task đã giao và tiến trình hoàn thành. Thông tin về các Collector và Janitors.
     + Collector: Thông báo về task được giao, xem lịch làm việc, mô tả công việc (tuyến đường, phương tiện).
