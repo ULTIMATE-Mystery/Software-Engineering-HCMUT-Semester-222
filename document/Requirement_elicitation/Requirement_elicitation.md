@@ -134,6 +134,7 @@ Phạm vi dự án:
 |7 | Assign areas & Chỉ định các khu vực thu gom rác cho Janitor.|
 |8 |Coordinate workers | Back officer phân phối nhân viên để làm việc.|
 #### 1.3.3 Use-case scenario
+#### 1.3.3 Use-case scenario
 ##### Assign Task for Collector
 |Use-case Name | Task Assignment for Collector|
 |---|---|
@@ -150,14 +151,12 @@ Phạm vi dự án:
 |---|---|
 |Actor| Back Officer, Map System|
 |Trigger| Back Officer nhấn vào danh mục "Tạo và gán công việc"|
-|Description| Tạo và sắp xếp lịch cho Janitor. Từ đó các nhân viên sẽ nhận được thông tin
-chi tiết của công việc (thời gian, phương tiện, MCP,. . . )|
+|Description| Tạo và sắp xếp lịch cho Janitor. Từ đó các nhân viên sẽ nhận được thông tin chi tiết của công việc (thời gian, phương tiện, MCP,. . . )|
 |Preconditions| Người dùng đăng nhập vào tài khoản Back Officer và đang ở giao diện "Tổng quan nhiệm vụ"|
 |Postconditions |POST-1: Thành công giao nhiệm vụ chi tiết công việc đến các Janitor.<br>POST-2: Thông báo đến nhân viên được giao.<br>POST-3: Lưu lại task đã tạo vào database.|
-|Normal flow| 1. Hệ thống hiển thị các danh mục:<br>- Nhiệm vụ<br>- Xem route<br>2. Back officer chọn mục "Nhiệm vụ".<br>3. Back officer chọn mục "Tạo và gán công việc".<br>4. Ở mục "Loại hình nhân viên", Back officer chọn loại hình Janitor.<br>5. Back officer chọn MCP.<br>6. Back officer chỉ định các khu vực thu gom rác cho Janitor.<br>7. Back officer chọn nhân viên.<br>8. Back officer chọn troller làm việc cho nhân viên.<br>9. Back officer chọn ngày, giờ làm việc.<br>10. Back officer chọn xác nhận giao việc.<br>11. Hệ thống gửi thông báo đến nhân viên đã được giao nhiệm vụ và trở về
-giao diện ban đầu.|
+|Normal flow| 1. Hệ thống hiển thị các danh mục:<br>- Nhiệm vụ<br>- Xem route<br> 2. Back officer chọn mục "Nhiệm vụ".<br>3. Back officer chọn mục "Tạo và gán công việc".<br>4. Ở mục "Loại hình nhân viên", Back officer chọn loại hình Janitor.<br>5. Back officer chọn MCP.<br>6. Back officer chỉ định các khu vực thu gom rác cho Janitor.<br>7. Back officer chọn nhân viên.<br>8. Back officer chọn troller làm việc cho nhân viên.<br>9. Back officer chọn ngày, giờ làm việc.<br>10. Back officer chọn xác nhận giao việc.<br>11. Hệ thống gửi thông báo đến nhân viên đã được giao nhiệm vụ và trở về giao diện ban đầu.|
 |Alternative flows| 5.a. Back officers xem thông tin các MCP.<br>5.b. Back officers chọn MCP.|
-|Exceptions Exception 1: Tại bước 5, tất cả MCPs đều vượt quá giới hạn chứa (>95%).<br>Exception 2: Tại bước 7, không có nhân viên nào sẵn sàng làm việc.<br>Exception 3: Tại bước 10, Back officer bấm nút hủy giao việc (CANCEL) →trở về lại bước 4 ở Normal flow|
+|Exceptions| Exception 1: Tại bước 5, tất cả MCPs đều vượt quá giới hạn chứa (>95%).<br>Exception 2: Tại bước 7, không có nhân viên nào sẵn sàng làm việc.<br>Exception 3: Tại bước 10, Back officer bấm nút hủy giao việc (CANCEL) →trở về lại bước 4 ở Normal flow|
 ##### Assign vehicles
 |Use-Case Name| Assign vehicle|
 |---|---|
@@ -166,9 +165,7 @@ giao diện ban đầu.|
 |Description |Back Officer thực hiện chọn phương tiện cho công việc.|
 |Preconditions| Người dùng đăng nhập vào tài khoản Back Officer và đang ở giao diện "Tạo và gán công việc"|
 |Postconditions| Back Officer chọn thành công phương tiện cho công việc|
-|Normal flow| 1. Back Officer nhấn vào hộp chọn "Phương tiện".
-<br>2. Hệ thống hiển thị ra danh sách các phương tiện có thể sử dụng.
-<br>3. Back Officer chọn phương tiện phù hợp với công việc.|
+|Normal flow| 1. Back Officer nhấn vào hộp chọn "Phương tiện".<br>2. Hệ thống hiển thị ra danh sách các phương tiện có thể sử dụng.<br>3. Back Officer chọn phương tiện phù hợp với công việc.|
 |Alternative flows| None|
 |Exceptions |Tại bước 2, không có phương tiện nào có thể chỉ định để làm nhiệm vụ|
 
@@ -176,7 +173,7 @@ giao diện ban đầu.|
 |Use-Case Name |Assign routes|
 |---|---|
 |Actor| Back Officer, Map System , Route Calculator Map|
-|Trigger| Back Officer nhấn chọn hộp chọn "ID Route"||
+|Trigger| Back Officer nhấn chọn hộp chọn "ID Route"|
 |Description |Back Officer thực hiện chỉ định tuyến đường cho công việc|
 |Preconditions| Người dùng đăng nhập vào tài khoản Back Officer và đang ở giao diện "Tạo và gán công việc"|
 |Postconditions| Back Officer chỉ định thành công Route cho công việc|
