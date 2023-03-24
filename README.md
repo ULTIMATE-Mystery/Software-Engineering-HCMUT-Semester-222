@@ -16,7 +16,7 @@
 - Nguyễn Hữu Hiếu  -  201314
 
 ## Task 1
-### Task 1.1: Mô tả dự án
+### 1.1 Mô tả dự án
 
 #### Bối cảnh dự án
 
@@ -64,8 +64,8 @@ Phạm vi dự án:
   + Được hỗ trợ về việc chọn lựa tuyến đường và phương tiện tối ưu về sức chứa, nhiên liệu, công suất…
   + Quản lý các tác vụ dễ dàng, trực quan và chính xác hơn.
 
-### Task 1.2
-####1.2.1 Yêu cầu chức năng
+### 1.2 Yêu cầu chức năng và phi chức năng
+#### 1.2.1 Yêu cầu chức năng
 1. Back officers
 - Xem và tạo lịch làm việc cho Collectors và Janitors.
 - Xem thông tin chi tiết về các phương tiện (khối lượng, sức chứa, nhiên liệu tiêu thụ,...).
@@ -82,7 +82,7 @@ Phạm vi dự án:
 - Check-in và check-out các task hàng ngày.
 - Nhận được thông báo khi các điểm MCP đã đầy (> 95\% dung lượng tải tối đa). 
 
-####1.2.2 Yêu cầu phi chức năng
+#### 1.2.2 Yêu cầu phi chức năng
 1. Hiệu suất:
 - Khởi động nhanh, mất ít hơn 30 giây để khởi động lại toàn bộ hệ thống.
 - Hệ thống có khả năng xử lý đồng thời thông tin của ít nhất 1000 bãi tập kết rác (MCP) trong thời gian thực.
@@ -131,7 +131,7 @@ Phạm vi dự án:
 ![Use case diagram for Task Assignment](/Picture/Task%201.3.png?raw=true)
 
 ## Task 2
-### Task 2.1
+### 2.1
 First, we need to determine the process steps in Task Assignment.
 In task 1.3, we have drawn the Task Assignment Module by Use-case diagram.
 Process steps:
@@ -157,7 +157,7 @@ notification to Back Officer and Assigned Worker. (They can watch this
 notification on their devices.)
 7. End
 
-### Task 2.2
+### 2.2
 #### Conceptual solution for route planning task
 Our conceptual solution will be illustrated as the following step:
 1. The back officer request to the controller to create a new route
@@ -176,7 +176,7 @@ route.
 #### Sequence diagram for route planning task
 ![Sequence diagram for route planning](/Picture/Task%202.2.png?raw=true)
 
-### Task 2.3
+### 2.3
 #### Class diagram for Task Assignment module
 ![Class diagram for Task Assignment module](/Picture/Task2ClassDiagram.png?raw=true)
 #### Diagram description
@@ -215,7 +215,7 @@ Tầng view được sử dụng để kiểm soát logic toàn bộ giao diện
 - BackOfficerManageView: Model thể hiện giao diện người dùng có các phương thức như: showWorkerList(): để hiển thị danh sách nhân viên, showWorKerInfo(): để hiện thị thông tin của nhân viên, hay showSelectWorker(): hiển thị nhân viên được chọn,...
 
 ## Task 3
-### Task 3.1 
+### 3.1 Layered Architecture
 ####  Introduction
 ##### Three-layer Architecture
 
@@ -333,7 +333,7 @@ Module Management:
         * addVehicles(detail): Chức năng thêm thông tin về một phương tiện mới vào hệ thống.
 
 
-## Task 3.2
+## 3.2 Component Diagram
 ### Component Diagram
 
 ![Component Diagram](/Picture/ComponentDiagram.png?raw=true)
