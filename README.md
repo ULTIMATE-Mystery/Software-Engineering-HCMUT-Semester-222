@@ -169,23 +169,23 @@ Tầng Model sẽ quản lý tất cả dữ liệu cũng như việc xử lý l
     + getStatus(): Lấy trạng thái hiện tại của MCP.
     + getCapacity(): Lấy sức chứa của MCP.
     + updateStatus(mcpID): Cập nhật sức chứa của MCP. 
-- Map: Model của Map có các thuộc tính như street kiểu vector\<string\>, mcps kiểu vector<MCP>. Các phương thức như:
+- Map: Model của Map có các thuộc tính như street kiểu vector\<string\>, mcps kiểu vector\<MCP\>. Các phương thức như:
     + displaySelectedMCPs(mpcs: MCP): hiển thi các điểm MCP đã được lựa chọn
     + getSelectedMCPs(): Lấy các điểm MCPs từ database
-    + calculateDistance(street: vector<string>): Tính toán khoảng cách giữa các MCP
-    + findBestRoute(street: vector<string>,mcps: vector<MCP>, vehicle: Vehicle): Tìm tuyến đường tốt nhất
-- Route: Model tuyến đường có thuộc tính street kiểu vector<string> và phương thức là hàm displayRoute(): để hiển thị các tuyến đường lên bản đồ.
+    + calculateDistance(street: vector\<string\>): Tính toán khoảng cách giữa các MCP
+    + findBestRoute(street: vector\<string\>,mcps: vector\<MCP\>, vehicle: Vehicle): Tìm tuyến đường tốt nhất
+- Route: Model tuyến đường có thuộc tính street kiểu vector\<string\> và phương thức là hàm displayRoute(): để hiển thị các tuyến đường lên bản đồ.
 - BackOfficer: Model các BackOfficer có thuộc tính adminID kiểu int và name kiểu string.
 - BackOfficerManageModel: Mô hình BackOffcierManageModel để BackOfficer quản lý các task. Có các thuộc tính: adminManageView, adminManageController, vehicle map. Và các phương thức:
     + updateView(): để cập nhật giao diện hiển thị
-    + assignRouteForCollectors(vector<Worker>, route: Route, vehicle: Vehicle, date: string, hour: string, week: string): gán các tuyến đường cho các Collector.
-    + assignAreaForJanitors(vector<Worker>, street:(vector<string>,date: string, hour: string, week: string): gán các khu vực thu gom rác cho các Janitor.
+    + assignRouteForCollectors(vector\<Worker\>, route: Route, vehicle: Vehicle, date: string, hour: string, week: string): gán các tuyến đường cho các Collector.
+    + assignAreaForJanitors(vector\<Worker\>, street:(vector\<string\>,date: string, hour: string, week: string): gán các khu vực thu gom rác cho các Janitor.
 - Vehicle: thể hiện đối tượng là Vehicle(phương tiện) bao gồm các thuộc tính như : vehicleID: mã phương tiện, weight: trọng lượng, capacity: sức chứa,... và có các phương thức: getWeight(): lấy trọng lượng phương tiện, getCapacity(): lấy thông tin sức chứa, getFuel(): lấy thông tin nhiên liệu, getStatus(): xem tình trạng phương tiện, setStatus(status: bool): sửa đổi tình trạng phương tiện.
 - VehicleList: thể hiện đối tượng là Vehicle list có chức năng hiển thị danh sách phương tiện.
 - VehicleContoller: Model có chức năng kiểm soát và thay đổi các thông tin của đổi tượng Vehicle thông qua các phương thức như : updateStatus(): cập nhật tình trạng, getVehicleList(): xem danh sách phương tiện.
 - Worker: thể hiện đối tượng Worker(nhân viên), có các thuộc tính : workerID: mã nhân viên, name: tên, type: loại(Janiter hay Collector), timeTable: lịch làm việc của nhân viên. Các phương thức: getName(): xem tên, getTimeTable(): xem lịch làm việc, getType(): xem loại nhân viên, showTimeTable(): hiển thi lịch làm việc, checkIn() và checkOut(): để chấm công.
-- WorkerList: thể hiện danh sách tất cả các Worker
-- Collector: là lớp nhân viên Collector - nhân viên lái xe thu gom rác thải, thừa hưởng thuộc tính từ lớp Woker, đồng thời có thêm các thuộc tính đặc trưng; Route: vector<route> : thể hiện các tuyển đường mà Collector được giao; vechicle: Vehicle - phương tiện mà Collector đó sử dụng.
+- WorkerList: thể hiện danh sách tất cả các Worker.
+- Collector: là lớp nhân viên Collector - nhân viên lái xe thu gom rác thải, thừa hưởng thuộc tính từ lớp Woker, đồng thời có thêm các thuộc tính đặc trưng; Route: vector\<route\> : thể hiện các tuyển đường mà Collector được giao; vechicle: Vehicle - phương tiện mà Collector đó sử dụng.
 - Janitor: là lớp nhân viên Janitor - nhân viên sử dụng xe đẩy thu gom rác trong 1 khu vực, thừa hưởng thuộc tính từ lớp Woker, đồng thời có thêm các thuộc tính đặc trưng; areaWork: map - thể hiện khu vực mà Janitor đó được giao.
 - TimeTable: thể hiện đối tượng bảng biểu thời gian, bao gồm các thuộc tính date (ngày), hour (giờ), week (tuần). và có các phương thức: getDate() - lọc ngày, getHour - lọc giờ, getWeek() - lọc tuần, addDate(date) thêm ngày vào bảng biểu, addHour(hour) thêm giờ vào bảng biểu. addWeek(week) thêm tuần vào bảng biểu làm việc.
 ##### Controller
