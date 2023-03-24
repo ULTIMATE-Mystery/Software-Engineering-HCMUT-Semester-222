@@ -128,7 +128,8 @@ chọn.
 #### Class diagram for Task Assignment module
 ![Class diagram for Task Assignment module](/Picture/Task2ClassDiagram.png?raw=true)
 #### Diagram description:
-### Đối với Back Officer
+
+#### Đối với Back Officer
 * Đầu tiên Back Officer sẽ ở trạng thái Tổng quan ban đầu, tiếp đến Back Officer sẽ tiến
 hành chọn Task (Tổng quan nhiệm vụ), ở đây hiển thị 2 chế độ Create Task và View Task.
 * Ở task list khi ta chọn Create Task:
@@ -139,23 +140,23 @@ hành chọn Task (Tổng quan nhiệm vụ), ở đây hiển thị 2 chế đ�
     Trạng thái 3: Trên 95% sức chứa tối đa
     ```
   * Back Officer sẽ có thể View map để xem bản đồ và chọn MCPs.
-  * Tiếp đến hệ thống hiển thị các area trên bản đồ, Back Officer tiếp tục chỉ định các
-khu vực cho Janitor.
-  * Sau đó hệ thống hiển thị các troller có thể chọn để Back Officer tiến hành chọn troller
-cho công việc
-  * Tiếp theo hệ thống hiển thị danh sách Janitor có thể giao việc được, Back Officer sẽ
-tiến hành chọn Janitor phù hợp với công việc.
+  * Tiếp đến hệ thống hiển thị các tuyến đường tuyến ưu và Back Officer tiếp tục chỉ
+định tuyến đường cho công việc.
+  * Sau đó hệ thống hiển thị các phương tiện có thể chọn để Back Officer tiến hành chọn
+phương tiện cho công việc
+  * Tiếp theo hệ thống hiển thị danh sách Collector có thể giao việc được, Back Officer
+sẽ tiến hành chọn Collector phù hợp với công việc.
   * Cuối cùng Back Officer chọn thời gian cho công việc.
   * Tiếp đến ta sẽ xác nhận việc tạo task:
     ```cpp
-    Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Janitor về chi
+    Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Collector về chi
     tiết của task
     Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan
     nhiệm vụ (Task)
     ```
 * Ở Task nếu ta chọn View Task
   * Hệ thống sẽ hiển thị danh sách thông tin các Task dưới dạng tối giản hóa, Ta sẽ chọn
-task cần xem thông tin chi tiết, nhấn vào xem chi tiết (View Detail) của ID task tương
+task cần xem thông tin chi tiết, nhấn vào xem chi tiết(View Detail) của ID task tương
 ứng , tiếp đến có hai lựa chọn là không chỉnh sửa (No Edit) và Chỉnh sửa task (Edit
 task).
   * Khi Back Officer nhấn vào Edit task:
@@ -167,11 +168,11 @@ việc chỉnh sửa Task
     Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan ban
     đầu (task list).
     ```
-  * Khi Back Officer nhấn vào "No Edit" hệ thống trở về tổng quan nhiệm vụ (Task)
-Đối với Janitor
+  * Khi Back Officer nhấn vào "No Edit" hệ thống trở về tổng quan nhiệm vụ (Task
+#### Đối với Collector
 * Khi có thông báo về task được gửi đến từ hệ thống thì Collector sẽ thực hiện xác nhận
-đã nhận task (Check in task) và bắt đầu thực hiện công việc. Khi Janitor đang làm việc
+đã nhận task (Check in task) và bắt đầu thực hiện công việc. Khi Collector đang làm việc
 thì trạng thái gửi về Back Officer là In Progress. Sau khi đã hoàn thành công việc (task
-done) thì Janitor sẽ xác nhận hoàn thành task (Check out task) để Back Officer xác nhận
-Janitor đã hoàn thành task (task completed).
-* Nếu không có thông báo về task thì Janitor sẽ không phải làm việc.
+done) thì Collector sẽ xác nhận hoàn thành task (Check out task) để Back Officer xác nhận
+Collector đã hoàn thành task (task completed).
+* Nếu không có thông báo về task thì Collector sẽ không phải làm việc.
