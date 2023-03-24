@@ -409,7 +409,8 @@ Tầng controller là tầng trung gian để kết nối giữa tầng View và
 ##### View
 Tầng view được sử dụng để kiểm soát logic toàn bộ giao diện người dùng của hệ thống, Back Officer sẽ tương tác với các như dropdowns, searchbar, button trong lúc tìm kiếm, phân công tuyến đường, phương tiện, nhân viên...
 - BackOfficerManageView: Model thể hiện giao diện người dùng có các phương thức như: showWorkerList(): để hiển thị danh sách nhân viên, showWorKerInfo(): để hiện thị thông tin của nhân viên, hay showSelectWorker(): hiển thị nhân viên được chọn,...
-
+### 2.4. Develop MVP
+Nhóm sử dụng \href{https://www.figma.com/}{figma} làm framework để vẽ UI. \textbf{Workspace của nhóm}: \href{https://www.figma.com/file/kMaVVqk9uUcuh2ktasVn2Q/Untitled?node-id=103%3A878&t=ADBENGbisbK883IU-1}{workspace link}
 ## Task 3
 ### 3.1 Layered Architecture
 ####  Introduction
