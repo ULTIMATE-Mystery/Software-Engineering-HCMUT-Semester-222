@@ -1,96 +1,51 @@
 ## Task 1
-### Task 1.1
-#### Context of Project
-Service provider Y has hired Organization X to create the UWC 2.0 information
-management system in order to increase the effectiveness of rubbish collection. Task
-Management will be a part of the solution.
+### 1.1 Mô tả dự án
 
-#### Relevent Stakeholder
--  Back Office
-- Collectors and janitors
-- Organization X
-- Service provider Y
+#### Bối cảnh dự án
 
-#### Expected jobs
-- Back officer
-1. Have an overview of janitors and collectors, their work calendar
-2. Have an overview of vehicles and their technical details (weight, capacity, fuel consumptions, etc)
-3. Have an overview of all MCPs and information about their capacity. Information should be updated from MCPs every 15 minutes with the availability of at least 95% of their operating time.
-4. Assign vehicles to janitors and collectors
-5. Assign janitors and collectors to MCPs (task)
-6. Create a route for each collector. Assigned route is optimized in term of fuel consumption and travel distance.\
-7. Be able to send message to collectors and janitors
+Xã hội ngày nay, nhân loại không ngừng phát triển. Cuộc sống đổi mới liên tục, những công việc trước kia phải sử dụng các phương pháp thủ công, thô sơ giờ đây đang dần được thay thế bằng các phương pháp hiện đại hơn, dùng máy móc, các hệ thống quản lý,… giúp nâng cao hiệu suất công việc và giảm thiểu rủi ro do lao động thủ công gây ra.
 
-- Collectors and janitors:
-1. Have an overview of their work calendar
-2. Have a detail view of their task on a daily and weekly basic. All important information should  be displayed in one view (without scrolling down).
-3. Be able to communicate with collectors, other janitors and back officers. The messages should be communicated in a real-time manner with delay less than 1 second.\
-4. Check in / check out task every day
-5. Be notified about the MCPs if they are fully loaded.
+Quản lý rác thải đô thị là một trong những vấn đề quan trọng mà nhiều quốc gia trên thế giới phải đối mặt. Rác thải do con người thải ra ngày càng nhiều, tuy nhiên chưa có biện pháp xử lý triệt để lượng rác thải thải ra ngày một lớn. Ở các thành phố, khu đô thị, quản lý chất thải rắn là tốn kém và không hiệu quả.
 
+Do đó, quản lý rác thải đô thị được coi là một trong những điểm quan trọng cần cải thiện trong Mục tiêu Phát triển bền vững (Sustainable Development Goals - SDG) mục 11: Thành phố và cộng đồng bền vững & mục 6: Nước sạch và vệ sinh.
 
-### Task 1.2
-#### Functional Requirement
-1. Back officers
-- View calendar
-- View detailed information and manage the vehicle
-- Get information about the MCPs
-- Assign vehicles to collectors and janitors
-- Assign collectors and janitors to MCPs
-- Create route for each collectors
-- Communicate with collectors and janitors
-2. Collector and Janitors
-- Check in and check out
-- View calendar
-- View tasks (daily, weekly)
-- Get information about the MCPs
-- Communicate with other collectors, other janitors and back officers
+#### Thực trạng rác thải tại TP.HCM
 
-#### Non-Functional Requirement
-1. Usability requirement
-- Janitors and collectors can easily use basic functions immediately
-- The back officers can use after 15 minutes training.
-- Interfaces in Vietnamese, with an opportunity to switch to English.
-2. Performance requirement
-- The system must respond in less than 30 seconds. After 30 seconds, the system will notify the user.
-- Can handle real-time data.
-- Allow at least 100 users access at the same time without crashing.
-- The task’s status has to be updated in 5 seconds when the janitors or collectors update it.
-- MCPs information must be updated every 15 minutes.
-3. Space requirement
-- The system can handle 500 concurrent visits without any effect on the system efficiency.
-- The system should be able to handle data from at least 1000 MCPs at the
-moment and 10.000 MCPs in five years.
-4. Availability requirement
-- Working time of the system all days of the week, from 4am to 12pm.
-- The system should not be down more than 10 minutes continuously, maximum 30 minutes a day.
-5. Environmental requirement
-- The system runs on internet browsing.
-6. Security requirement
-- Password require when login
-- Encryption ensure with MD5
-- Ensure not leak user information
-7. Operational requirements
-- System data is backed up every month to prevent data loss
+Theo số liệu thống kê từ trang chinhphu.vn, TP.HCM thải ra khoảng 9.500 tấn rác thải sinh hoạt mỗi ngày. Lượng rác thải khổng lồ trên chủ yếu được xử lý bằng phương pháp chôn lấp, chiếm đến 69%. Phương pháp ủ phân hữu cơ và tái chế chiếm 31%, trong đó tái chế rác thải nhựa chỉ chiếm 1%. 
 
-#### Use-case diagram for the whole system
-![Use case diagram for WholeSysTem](/Picture/Task%201.2.png?raw=true)
+TPHCM đã có chính sách hỗ trợ cho người dân phân loại rác tại nguồn. Tuy nhiên, những chính sách đã có chưa đủ độ hấp dẫn nhằm thúc đẩy người dân tự giác tham gia. Trong khi đó, cơ chế thúc đẩy xã hội hoá công tác thu gom, tái chế, xử lý chất thái rắn sinh hoạt còn thiếu, chưa thu hút được các nguồn lực đầu tư.
 
-| Use Name             | Use Case: Task Assignment     | 
-| ---                  | ---                       |
-| **Created By**       | QLDA Team                 |
-| **Date Created**     | Sep 18, 2022              |
-| **Primary Actor**    | Back Officer              |
-| **Description**      | Assign task for janitors and collectors |
-| **Trigger**          | Click the button “Assign Task”          |
-| **Preconditions**    | PRE-1. System available <br> PRE-2. Device connects to the Internet|
-| **Postconditions**   | POST-1. Successfully assigned the janitor or collectors. <br> POST-2. Notify the task to the worker <br> POST-3. Record the task to the database  |
-| **Normal Flow**      |  1. Back officer chooses the assignee. <br> 2. The system checks the availability of the assignee.<br> 3. Back officer choose day of work. <br>4. The system displays the info of all vehicles. <br> 5. Back officer chooses the vehicle for the assignee. <br> 6. Back officer chooses the MCPs. <br> 7. Back officer determines routes for the assignee. <br> 8. The system checks the availability of the routes. <br> 9. Send the notification to the assigned worker.|
-| **Alternative Flow** | Alternative flow 1: <br> At step 2: <br> 2.a. Back officers can view the calendar to check the availability of assignee. <br>  <br> Alternative flow 2: <br> At step 4: <br> 4.a Back officers view the information of the vehicle <br> 4.b Back officers choose the vehicle for the assignee. <br>  <br>  Alternative flow 3: <br> At step 5: <br> 6.a Back officers view the information of the MCPs <br> 6.b Back officers choose the MCPs for routing. <br>   <br> Alternative flow 4: <br> At step 4: <br> 8.a Back officers can view the map to check the availability of the route. |
-| **Exceptions**       | Exception 1: <br> At step 1: <br> 2.a. Assignee is not available <br> Return to step 1 in Normal Flows        |
+Vì vậy, dự án lần này là một dự án rất cần thiết, trọng điểm mà ta có thể đóng góp cho cộng đồng.
 
-#### Use-case diagram for Task Assignment Module
-![Use case diagram for Task Assignment](/Picture/Task%201.3.png?raw=true)
+#### Vấn đề hiện tại của các bên liên quan
+
+Quá trình thu gom rác trước đây chưa được quản lý một cách hiệu quả, dẫn tới việc thiếu hiệu quả khi hoạt động, chưa tối ưu về nhiều mặt. Ví dụ như nhân công, chi phí, phương tiện di chuyển, quãng đường di chuyển, thời gian. . . Từ đó vấn đề đặt ra là làm sao để cải thiện quá trình thu gom rác nhằm tăng cường hiệu quả, giảm thời gian, tiết kiệm được năng lượng và tiền bạc nhưng vẫn đảm bảo về vấn đề môi trường.
+
+#### Sơ lược về dự án
+Dự án cần có một sự đồng bộ, thống nhất và hiệu quả trong việc quản lý, phân công, vận chuyển, thu gom rác thải...
+Phạm vi dự án:
+- Hệ thống hỗ trợ tương tác giữa Collectors, Janitors, Back Officers, nhân viên của công ty thông qua chức năng nhắn tin (chức năng này không hỗ trợ cho đối tượng là các hộ dân cư.
+- Back Officers được phân chia theo từng Quận, Huyện, Thị xã của 1 Tỉnh/Thành phố, theo đó Janitors và Collectors sẽ hoạt động dưới sự quản lý của Back Officers tại khu vực tương ứng.
+- MCPs là những địa điểm tập kết rác được chính quyền địa phương bố trí, Collectors và Janitors sẽ đến những khu vực chỉ định và thu gom rác ở những địa điểm này.
+- Rác sau khi Collectors thu gom về nơi cuối cùng phải có các khu vực khác nhau để lưu giữ các loại chất thải sinh hoạt đã được phân loại, bảo đảm không để lẫn các loại chất thải đã được phân loại với nhau.
+#### Đối tượng của dự án
+- Công ty Y: Hỗ trợ đào tạo Back Officers, Collectors & Janitors.
+- Back Officers: Tạo và sắp xếp lịch, phân phối công việc cho các Collectors và Janitors.
+- Collectors: Lái xe thu gom rác từ Điểm tập kết rác (MCPs) theo một tuyến đường được Back Officers đã định sẵn.
+- Janitors: Thu gom rác trong khu vực được chỉ định bằng các xe đẩy (trollers) đến Điểm tập kết rác (MCPs).
+#### Nhu cầu của các bên liên quan
+- Công ty Y: Cung cấp Back Officers, Collectors & Janitors đã được đào tạo để quản lý và thực hiện quy trình thu gom rác.
+- Back Officers: Cập nhật thông tin về mức độ rác ở MCPs. Lên kế hoạch chỉ định phương tiện và tuyến đường cho các collectors theo từng tháng. Sắp xếp lịch làm việc của collectors và janitors hàng tuần, đồng thời mỗi ngày sẽ gửi tin nhắn về thông tin công việc cần làm cho các Collectors và Janitors.
+- Collectors và Janitors: Nắm được lịch làm việc, nắm rõ nhiệm vụ, có thể liên lạc được với nhau và với Back Officers, được thông báo khi MCPs đầy rác.
+#### Lợi ích về việc sử dụng UWC 2.0
+- Đối với công ty hỗ trợ cung cấp dịch vụ Y.
+  + Nhập và sử dụng dữ liệu hiện có của hệ thống UWC1.0.
+  + Tăng cường khả năng quản lý quy trình làm việc.
+- Đối với các bên liên quan trong quy trình thu gom rác:
+  + Có thể giao tiếp với nhau trong thời gian thực.
+  + Nhân viên sẽ nhận được thông báo khi bãi tập kết rác đầy tải.
+  + Được hỗ trợ về việc chọn lựa tuyến đường và phương tiện tối ưu về sức chứa, nhiên liệu, công suất…
+  + Quản lý các tác vụ dễ dàng, trực quan và chính xác hơn.
 
 ### 1.2 Yêu cầu chức năng và phi chức năng
 #### 1.2.1 Yêu cầu chức năng
