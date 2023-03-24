@@ -36,7 +36,7 @@ Phạm vi dự án:
 - Công ty Y: Cung cấp Back Officers, Collectors & Janitors đã được đào tạo để quản lý và thực hiện quy trình thu gom rác.
 - Back Officers: Cập nhật thông tin về mức độ rác ở MCPs. Lên kế hoạch chỉ định phương tiện và tuyến đường cho các collectors theo từng tháng. Sắp xếp lịch làm việc của collectors và janitors hàng tuần, đồng thời mỗi ngày sẽ gửi tin nhắn về thông tin công việc cần làm cho các Collectors và Janitors.
 - Collectors và Janitors: Nắm được lịch làm việc, nắm rõ nhiệm vụ, có thể liên lạc được với nhau và với Back Officers, được thông báo khi MCPs đầy rác.
-Lợi ích về việc sử dụng UWC 2.0
+## Lợi ích về việc sử dụng UWC 2.0
 - Đối với công ty hỗ trợ cung cấp dịch vụ Y.
   + Nhập và sử dụng dữ liệu hiện có của hệ thống UWC1.0.
   + Tăng cường khả năng quản lý quy trình làm việc.
