@@ -127,8 +127,8 @@ chọn.
 ### Task 2.3
 #### Class diagram for Task Assignment module
 ![Class diagram for Task Assignment module](/Picture/Task2ClassDiagram.png?raw=true)
-#### Diagram description:
-
+#### Diagram description
+Class Diagram của nhóm được vẽ theo mô hình MVC bao gồm các tầng sau:
 #### Đối với Back Officer
 * Đầu tiên Back Officer sẽ ở trạng thái Tổng quan ban đầu, tiếp đến Back Officer sẽ tiến
 hành chọn Task (Tổng quan nhiệm vụ), ở đây hiển thị 2 chế độ Create Task và View Task.
