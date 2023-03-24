@@ -154,20 +154,10 @@ Tầng Model sẽ quản lý tất cả dữ liệu cũng như việc xử lý l
 - Collector: là lớp nhân viên Collector - nhân viên lái xe thu gom rác thải, thừa hưởng thuộc tính từ lớp Woker, đồng thời có thêm các thuộc tính đặc trưng; Route: vector<route> : thể hiện các tuyển đường mà Collector được giao; vechicle: Vehicle - phương tiện mà Collector đó sử dụng.
 - Janitor: là lớp nhân viên Janitor - nhân viên sử dụng xe đẩy thu gom rác trong 1 khu vực, thừa hưởng thuộc tính từ lớp Woker, đồng thời có thêm các thuộc tính đặc trưng; areaWork: map - thể hiện khu vực mà Janitor đó được giao.
 - TimeTable: thể hiện đối tượng bảng biểu thời gian, bao gồm các thuộc tính date (ngày), hour (giờ), week (tuần). và có các phương thức: getDate() - lọc ngày, getHour - lọc giờ, getWeek() - lọc tuần, addDate(date) thêm ngày vào bảng biểu, addHour(hour) thêm giờ vào bảng biểu. addWeek(week) thêm tuần vào bảng biểu làm việc.
-- Functions: 
-    + Back Officer
-        * getBackOfficerName(backOfficerID): Chức năng lấy tên của Back Officer theo id.
-        * getAllCallendarDetail(): Chức năng lấy thông tin của lịch hiển thị toàn bộ task mà Back Officer đó quản lý.
-        * getListCollector(): Chức năng lấy danh sách tất cả các Collector đang khả dụng.
-        * getListJanitor(): Chức năng lấy danh sách tất cả các Janitor đang khả dụng.
-    + Collector/Janitor
-        * getEmployeeName(employeeID): Chức năng lấy tên của nhân viên theo id.
-        * getCallendarDetail(employeeID): Chức năng lấy thông tin về lịch làm việc của nhân viên theo id.
-        * getTaskDetail(taskID): Chức năng lấy thông tin chi tiết về task của nhân viên theo id.
-#### Đối với Collector
-* Khi có thông báo về task được gửi đến từ hệ thống thì Collector sẽ thực hiện xác nhận
-đã nhận task (Check in task) và bắt đầu thực hiện công việc. Khi Collector đang làm việc
-thì trạng thái gửi về Back Officer là In Progress. Sau khi đã hoàn thành công việc (task
-done) thì Collector sẽ xác nhận hoàn thành task (Check out task) để Back Officer xác nhận
-Collector đã hoàn thành task (task completed).
-* Nếu không có thông báo về task thì Collector sẽ không phải làm việc.
+#### Controller
+Tầng controller là tầng trung gian để kết nối giữa tầng View và tầng Model, tầng controller dùng để kiểm soát các luồng thực thi liên quan đến việc thao tác với các dữ liệu liên quan đến tuyến đường, MCP, thông báo, người dùng, và nhiệm vụ...tầng controller sẽ gọi đến tầng Model các yêu cầu cần thực hiện từ thao tác của người dùng trên giao diện người dùng ở tầng View, cũng như trả về dữ liệu gọi từ tầng Model để tầng View tiến hành render.
+- MCPController: Quản lý các chức năng, luồng thực thi liên quan MCP.
+- BackOfficerManageController: : Model có chức năng quản lý các hành động của Back Officer.
+#### View
+Tầng view được sử dụng để kiểm soát logic toàn bộ giao diện người dùng của hệ thống, Back Officer sẽ tương tác với các như dropdowns, searchbar, button trong lúc tìm kiếm, phân công tuyến đường, phương tiện, nhân viên...
+- BackOfficerManageView: Model thể hiện giao diện người dùng có các phương thức như: showWorkerList(): để hiển thị danh sách nhân viên, showWorKerInfo(): để hiện thị thông tin của nhân viên, hay showSelectWorker(): hiển thị nhân viên được chọn,...
