@@ -45,4 +45,51 @@ Phạm vi dự án:
   + Nhân viên sẽ nhận được thông báo khi bãi tập kết rác đầy tải.
   + Được hỗ trợ về việc chọn lựa tuyến đường và phương tiện tối ưu về sức chứa, nhiên liệu, công suất…
   + Quản lý các tác vụ dễ dàng, trực quan và chính xác hơn.
+  ### 1.2 Yêu cầu chức năng và phi chức năng
+#### 1.2.1 Yêu cầu chức năng
+1. Back officers
+- Xem và tạo lịch làm việc cho Collectors và Janitors.
+- Xem thông tin chi tiết về các phương tiện (khối lượng, sức chứa, nhiên liệu tiêu thụ,...).
+- Xem thông tin về sức chứa hiện tại ở các MCP.
+- Lựa chọn và cung cấp phương tiện cho Collectors.
+- Chỉ định các MCP làm việc cho Janitors và Collectors.
+- Chỉ định tuyến đường cho mỗi Collectors và tuyến đường này phải tối ưu về đường đi cũng như nhiên liệu tiêu thụ.
+- Có thể gửi tin nhắn cho Collectors \& Janitors.
+2. Collector and Janitors
+- Có thể theo dõi lịch trình làm việc tổng quan của mình.
+- Có một cái nhìn chi tiết về các nhiệm vụ của họ hàng ngày và hàng tuần.
+- Thông tin được hiển thị sao cho người dùng không cần cuộn màn hình xuống để xem.
+- Giao tiếp được với nhau và với Back officers.
+- Check-in và check-out các task hàng ngày.
+- Nhận được thông báo khi các điểm MCP đã đầy (> 95\% dung lượng tải tối đa). 
+
+#### 1.2.2 Yêu cầu phi chức năng
+1. Hiệu suất:
+- Khởi động nhanh, mất ít hơn 30 giây để khởi động lại toàn bộ hệ thống.
+- Hệ thống có khả năng xử lý đồng thời thông tin của ít nhất 1000 bãi tập kết rác (MCP) trong thời gian thực.
+- Thông tin về tình trạng của MCPs phải được cập nhật liên tục mỗi 15 phút với 95\% lượng thông tin là khả dụng trong thời gian hoạt động.
+- Trạng thái của MCPs, Tasks, Depot khi được chủ động cập nhật có độ trễ thấp hơn 5 giây.
+- Chức năng giao tiếp giữa Janitors, Collectors và Back Officers có độ trễ ít hơn 1 giây.
+-  Chức năng của từng thao tác có độ phản hồi ít hơn 1 giây.
+2. Khả năng mở rộng:
+- Hệ thống có khả năng xử lý thông tin của ít nhất 10000 bãi tập kết rác trong khoảng thời gian 5 năm.
+- Hỗ trợ thêm ngôn ngữ tiếng Anh.
+3. Dễ sử dụng:
+- Janitors và Collectors có thể dễ dàng sử dụng ngay lập tức các chức năng cơ bản.
+- Back officer có thể sử dụng sau 15 - 30 phút training.
+4. Độ tin cậy:
+- Thời gian bảo trì hệ thống dưới 24 giờ.
+- Hệ thống có khả năng phục hồi dữ liệu nhanh trong khoảng 10 - 20 phút.
+-  Hệ thống UWC 2.0 phải tương thích được với hệ thống UWC 1.0 đã có từ trước.
+5. Khả năng sẵn sàng:
+- Hệ thống làm việc tất cả các ngày trong tuần (từ 4am đến 12pm).
+6. Bảo mật:
+- Chỉ Back Officers mới có thể quản lý và thay đổi các thông tin.
+- Sử dụng MD5 để mã hóa mật khẩu người dùng.
+- Bảo trì hệ thống định kỳ (3 tháng/lần) để có thể hoạt động ổn định.
+7. Hướng phát triển:
+- Phát triển cho bên khách hàng có nhu cầu sử dụng (trả phí hàng tháng).
+- Có thể sử dụng ứng dụng trên các hệ điều hành IOS và Android.
+- Cung cấp các API để tương tác với các ứng dụng khác.
+- Có thể phát triển phần mềm ra nhiều khu vực khác nhau.
 
