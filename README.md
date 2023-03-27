@@ -568,3 +568,7 @@ Hệ thống gồm 3 Components chính: nhóm View, nhóm Controller, nhóm Mode
 #### Picture for the interface
 
 ![Picture for the interface](/Picture/Task%204.3.png?raw=true)
+
+###4.2
+
+![Picture for document](/Picture/Task%204.3.png?raw=true)
