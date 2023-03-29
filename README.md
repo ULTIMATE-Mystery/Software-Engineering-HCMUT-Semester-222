@@ -575,7 +575,6 @@ Hệ thống gồm 3 Components chính: nhóm View, nhóm Controller, nhóm Mode
 - Requirement_elicitation: chứa file mô tả task 1
 - System_modeling: chứa file mô tả task 2
 - Architecture_design:chứa file mô tả task 3
-- Task_assginment: chứa Use-case diagram cho Task assignment
 
 Dưới đây là ảnh mô tả đóng góp của các thành viên :
 ![Picture for document](/Picture/commit_history.png)
