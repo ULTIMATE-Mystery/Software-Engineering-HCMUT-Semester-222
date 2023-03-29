@@ -570,9 +570,8 @@ Hệ thống gồm 3 Components chính: nhóm View, nhóm Controller, nhóm Mode
 ![Picture for the interface](/Picture/Task%204.3.png?raw=true)
 
 ###4.2
-
-![Picture for document](/Picture/git_document.png) 
 Trong folder document chứa các folder con như: 
+![Picture for document](/Picture/git_document.png) 
 - Project_description: file mô tả tổng quát dự án
 - Requirement_elicitation: chứa file mô tả task 1
 - System_modeling: chứa file mô tả task 2
