@@ -565,9 +565,9 @@ Hệ thống gồm 3 Components chính: nhóm View, nhóm Controller, nhóm Mode
         *  Yêu cầu interface Update Task từ Assign Task Collector Controller, Assign Task Janitor Controller và Task Controller  trong nhóm Controller.
 
 ## Task 4
-#### 4.1 Picture for the homepage
+#### 4.1 Repository github của nhóm
 
-![Picture for the homepage](/Picture/Home_page.png)
+![Repository github của nhóm](/Picture/Home_page.png)
 
 ### 4.2 Trong folder document chứa các folder con như: 
 ![Picture for document](/Picture/git_document.png) 
