@@ -1,5 +1,5 @@
 # HK222-CO3001-UWC-2.0
-**Team name** NoName\
+**Team** NoName\
 **Task 1**  Requirement elicitation\
 **Task 2**  System modeling\
 **Task 3**  Architecture design\
