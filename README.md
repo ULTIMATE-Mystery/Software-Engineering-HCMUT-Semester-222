@@ -452,12 +452,19 @@ Nhóm lựa chọn mô hình MVC vì các lợi ích mà mô hình này đem l�
 
 ![Restful API](/Picture/restfulAPI3.png?raw=true)
 
-- Đối với lớp Data access layer: Nhóm có thể sử dụng đến Firebase, một dịch vụ lưu trữ dữ liệu NoSQL được cung cấp bởi Google. Các lý do chính mà nhóm quyết định sử dụng Firebase là:
-    + Sử dụng dễ dàng: Những người dùng có thể đăng ký một tài khoản Firebase thông qua tài khoản Google. Đồng thời, người cùng cũng có thể sử dụng nền tảng này trong quá trình phát triển ứng dụng một cách đơn giản nhất. 
-    + Xây dựng ứng dụng nhanh chóng mà không tốn thời gian, nhân lực để quản lý hệ thống và cơ sơ sở hạ tầng phía sau: Firebase cung cấp cho ta rất nhiều chức năng như phân tích, cơ sở dữ liệu, báo cáo hoạt động và báo cáo các sự cố lỗi để bạn có thể dễ dàng phát triển, định hướng ứng dụng của mình vào người sử dụng nhằm đem lại các trải nghiệm tốt nhất cho họ. 
-    + Uy tín chất lượng đảm bảo từ Google: Firebase được Google hỗ trợ và cung cấp trên nền tảng phần cứng với quy mô rộng khắp thế giới, cho nên nhóm rất yên tâm khi lựa chọn dịch vụ này.
-    + Quản lý cấu hình và trải nghiệm các ứng dụng của Firebase tập trung trong một giao diện website đơn giản, các ứng dụng này hoạt động độc lập nhưng liên kết dữ liệu phân tích chặt chẽ.
-![Firebase](/Picture/firebase.png?raw=true)
+- Đối với lớp Data access layer: Nhóm có thể sử dụng đến MongoDB (https://mongodb.com/docs/), là một hệ quản trị cơ sở dữ liệu NoSQL mã nguồn mở đa nền tảng
+viết bằng C++. Các lý do chính mà nhóm quyết định sử dụng MongoDB là:
+   + Hệ sinh thái: ReactJS + NodeJS + MongoDB
+   + Schema linh hoạt: Do MongoDB sử dụng lưu trữ dữ liệu dưới dạng Document JSON
+nên mỗi một collection sẽ các các kích cỡ và các document khác nhau.
+   + Cấu trúc đối tượng rõ ràng: Tuy rằng cấu trúc của dữ liệu là linh hoạt nhưng đối
+tượng của nó được xác định rất rõ ràng. Sử dụng bộ nhớ nội tại, nên truy vấn sẽ rất
+nhanh.
+   + MongoDB rất dễ mở rộng.
+   + Không có các join: Điều này cũng góp phần tạo nên tốc độ truy vấn cực nhanh trên
+MongoDB.
+   + MongoDB phù hợp cho các ứng dụng Realtime
+
 #### Modules
 Hệ thống UWC 2.0 gồm 5 modules, cụ thể là:
 Module Authentication:
