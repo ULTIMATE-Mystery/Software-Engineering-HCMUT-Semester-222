@@ -1,10 +1,10 @@
-# HK221-CO3001-UWC-2.0
-**Team name** QLDA\
+# HK222 - CO3001 - UWC 2.0
+**Team** NoName\
 **Task 1**  Requirement elicitation\
-**Task 2**  System modelling\
+**Task 2**  System modeling\
 **Task 3**  Architecture design\
 **Task 4**  Implementation - Sprint 1\
-**Date:** November 9<sup>th</sup>, 2022 (task 4)
+**Task 5**  Implementation - Sprint 2
 
 ## Members
 - Nguyễn Phúc Tiến - 2014725 
@@ -16,38 +16,56 @@
 - Nguyễn Hữu Hiếu  -  201314
 
 ## Task 1
-### Task 1.1
-#### Context of Project
-Service provider Y has hired Organization X to create the UWC 2.0 information
-management system in order to increase the effectiveness of rubbish collection. Task
-Management will be a part of the solution.
+### 1.1 Mô tả dự án
 
-#### Relevent Stakeholder
--  Back Office
-- Collectors and janitors
-- Organization X
-- Service provider Y
+#### Bối cảnh dự án
 
-#### Expected jobs
-- Back officer
-1. Have an overview of janitors and collectors, their work calendar
-2. Have an overview of vehicles and their technical details (weight, capacity, fuel consumptions, etc)
-3. Have an overview of all MCPs and information about their capacity. Information should be updated from MCPs every 15 minutes with the availability of at least 95% of their operating time.
-4. Assign vehicles to janitors and collectors
-5. Assign janitors and collectors to MCPs (task)
-6. Create a route for each collector. Assigned route is optimized in term of fuel consumption and travel distance.\
-7. Be able to send message to collectors and janitors
+Xã hội ngày nay, nhân loại không ngừng phát triển. Cuộc sống đổi mới liên tục, những công việc trước kia phải sử dụng các phương pháp thủ công, thô sơ giờ đây đang dần được thay thế bằng các phương pháp hiện đại hơn, dùng máy móc, các hệ thống quản lý,… giúp nâng cao hiệu suất công việc và giảm thiểu rủi ro do lao động thủ công gây ra.
 
-- Collectors and janitors:
-1. Have an overview of their work calendar
-2. Have a detail view of their task on a daily and weekly basic. All important information should  be displayed in one view (without scrolling down).
-3. Be able to communicate with collectors, other janitors and back officers. The messages should be communicated in a real-time manner with delay less than 1 second.\
-4. Check in / check out task every day
-5. Be notified about the MCPs if they are fully loaded.
+Quản lý rác thải đô thị là một trong những vấn đề quan trọng mà nhiều quốc gia trên thế giới phải đối mặt. Rác thải do con người thải ra ngày càng nhiều, tuy nhiên chưa có biện pháp xử lý triệt để lượng rác thải thải ra ngày một lớn. Ở các thành phố, khu đô thị, quản lý chất thải rắn là tốn kém và không hiệu quả.
 
+Do đó, quản lý rác thải đô thị được coi là một trong những điểm quan trọng cần cải thiện trong Mục tiêu Phát triển bền vững (Sustainable Development Goals - SDG) mục 11: Thành phố và cộng đồng bền vững & mục 6: Nước sạch và vệ sinh.
 
-### Task 1.2
-####1.2.1 Yêu cầu chức năng
+#### Thực trạng rác thải tại TP.HCM
+
+Theo số liệu thống kê từ trang chinhphu.vn, TP.HCM thải ra khoảng 9.500 tấn rác thải sinh hoạt mỗi ngày. Lượng rác thải khổng lồ trên chủ yếu được xử lý bằng phương pháp chôn lấp, chiếm đến 69%. Phương pháp ủ phân hữu cơ và tái chế chiếm 31%, trong đó tái chế rác thải nhựa chỉ chiếm 1%. 
+
+TPHCM đã có chính sách hỗ trợ cho người dân phân loại rác tại nguồn. Tuy nhiên, những chính sách đã có chưa đủ độ hấp dẫn nhằm thúc đẩy người dân tự giác tham gia. Trong khi đó, cơ chế thúc đẩy xã hội hoá công tác thu gom, tái chế, xử lý chất thái rắn sinh hoạt còn thiếu, chưa thu hút được các nguồn lực đầu tư.
+
+Vì vậy, dự án lần này là một dự án rất cần thiết, trọng điểm mà ta có thể đóng góp cho cộng đồng.
+
+#### Vấn đề hiện tại của các bên liên quan
+
+Quá trình thu gom rác trước đây chưa được quản lý một cách hiệu quả, dẫn tới việc thiếu hiệu quả khi hoạt động, chưa tối ưu về nhiều mặt. Ví dụ như nhân công, chi phí, phương tiện di chuyển, quãng đường di chuyển, thời gian. . . Từ đó vấn đề đặt ra là làm sao để cải thiện quá trình thu gom rác nhằm tăng cường hiệu quả, giảm thời gian, tiết kiệm được năng lượng và tiền bạc nhưng vẫn đảm bảo về vấn đề môi trường.
+
+#### Sơ lược về dự án
+Dự án cần có một sự đồng bộ, thống nhất và hiệu quả trong việc quản lý, phân công, vận chuyển, thu gom rác thải...
+Phạm vi dự án:
+- Hệ thống hỗ trợ tương tác giữa Collectors, Janitors, Back Officers, nhân viên của công ty thông qua chức năng nhắn tin (chức năng này không hỗ trợ cho đối tượng là các hộ dân cư.
+- Back Officers được phân chia theo từng Quận, Huyện, Thị xã của 1 Tỉnh/Thành phố, theo đó Janitors và Collectors sẽ hoạt động dưới sự quản lý của Back Officers tại khu vực tương ứng.
+- MCPs là những địa điểm tập kết rác được chính quyền địa phương bố trí, Collectors và Janitors sẽ đến những khu vực chỉ định và thu gom rác ở những địa điểm này.
+- Rác sau khi Collectors thu gom về nơi cuối cùng phải có các khu vực khác nhau để lưu giữ các loại chất thải sinh hoạt đã được phân loại, bảo đảm không để lẫn các loại chất thải đã được phân loại với nhau.
+#### Đối tượng của dự án
+- Công ty Y: Hỗ trợ đào tạo Back Officers, Collectors & Janitors.
+- Back Officers: Tạo và sắp xếp lịch, phân phối công việc cho các Collectors và Janitors.
+- Collectors: Lái xe thu gom rác từ Điểm tập kết rác (MCPs) theo một tuyến đường được Back Officers đã định sẵn.
+- Janitors: Thu gom rác trong khu vực được chỉ định bằng các xe đẩy (trollers) đến Điểm tập kết rác (MCPs).
+#### Nhu cầu của các bên liên quan
+- Công ty Y: Cung cấp Back Officers, Collectors & Janitors đã được đào tạo để quản lý và thực hiện quy trình thu gom rác.
+- Back Officers: Cập nhật thông tin về mức độ rác ở MCPs. Lên kế hoạch chỉ định phương tiện và tuyến đường cho các collectors theo từng tháng. Sắp xếp lịch làm việc của collectors và janitors hàng tuần, đồng thời mỗi ngày sẽ gửi tin nhắn về thông tin công việc cần làm cho các Collectors và Janitors.
+- Collectors và Janitors: Nắm được lịch làm việc, nắm rõ nhiệm vụ, có thể liên lạc được với nhau và với Back Officers, được thông báo khi MCPs đầy rác.
+#### Lợi ích về việc sử dụng UWC 2.0
+- Đối với công ty hỗ trợ cung cấp dịch vụ Y.
+  + Nhập và sử dụng dữ liệu hiện có của hệ thống UWC1.0.
+  + Tăng cường khả năng quản lý quy trình làm việc.
+- Đối với các bên liên quan trong quy trình thu gom rác:
+  + Có thể giao tiếp với nhau trong thời gian thực.
+  + Nhân viên sẽ nhận được thông báo khi bãi tập kết rác đầy tải.
+  + Được hỗ trợ về việc chọn lựa tuyến đường và phương tiện tối ưu về sức chứa, nhiên liệu, công suất…
+  + Quản lý các tác vụ dễ dàng, trực quan và chính xác hơn.
+
+### 1.2 Yêu cầu chức năng và phi chức năng
+#### 1.2.1 Yêu cầu chức năng
 1. Back officers
 - Xem và tạo lịch làm việc cho Collectors và Janitors.
 - Xem thông tin chi tiết về các phương tiện (khối lượng, sức chứa, nhiên liệu tiêu thụ,...).
@@ -64,7 +82,7 @@ Management will be a part of the solution.
 - Check-in và check-out các task hàng ngày.
 - Nhận được thông báo khi các điểm MCP đã đầy (> 95\% dung lượng tải tối đa). 
 
-####1.2.2 Yêu cầu phi chức năng
+#### 1.2.2 Yêu cầu phi chức năng
 1. Hiệu suất:
 - Khởi động nhanh, mất ít hơn 30 giây để khởi động lại toàn bộ hệ thống.
 - Hệ thống có khả năng xử lý đồng thời thông tin của ít nhất 1000 bãi tập kết rác (MCP) trong thời gian thực.
@@ -93,83 +111,305 @@ Management will be a part of the solution.
 - Có thể sử dụng ứng dụng trên các hệ điều hành IOS và Android.
 - Cung cấp các API để tương tác với các ứng dụng khác.
 - Có thể phát triển phần mềm ra nhiều khu vực khác nhau.
-#### Use-case diagram for the whole system
-![Use case diagram for WholeSysTem](/Picture/Task%201.2.png?raw=true)
+#### 1.2.3 Use-case diagram cho toàn bộ hệ thống
+##### Use-case diagram
+![Use-case diagram for the whole system](/Picture/ucDiagram.png?raw=true)
+##### Job description
+|No.|Use-case | Job Description|
+| --- | ---| --- |
+|1|View employee information|Dùng để Back officer xem thông tin của tất các nhân viên|
+|2| Dùng để Back officer xem thông tin của tất các nhân viên |Dùng để Back officer xem thông tin của tất các nhân viên|
+|3 |Manage vehicle | Dùng để Back officer quản lý tất cả các phương tiện.|
+|4|Vehicle coordination |Dùng để Back officer điều phối phương tiện di chuyển|
+|5| Manage depo |Dùng để Back officer quản lý kho bãi chứa các phương tiện.|
+|6 | Assign task | Dùng để Back officer giao nhiệm vụ cho Collectors và Janitors.|
+|7 | Change task status | Dùng để Back officer thay đổi trạng thái của nhiệm vụ được giao|
+|8 |View task | Dùng để Back officer xem tổng quan các task đã giao.|
+|9 |View Collector’s task |Dùng để xem cụ thể task của các Collector|
+|10 |View Janitor’s task| Dùng để xem cụ thể task của các Janitor.|
+|11|Manage MCP| Dùng để Back officer quản lý thông tin về các MCPs|
+|12|Update capacity| Dùng để Back officer chủ động cập nhật thông tin về sức chứa của MCPs|
+|13|Real-time communication| Dùng để gửi tin nhắn giao tiếp giữa Back officer & Janitor & Collector.|
+|14|Check in |Check out Dùng để các nhân viên làm việc điểm danh|
+|15|View work information| Dùng để xem thông tin làm việc|
+|16|Report vehicle |Dùng để các nhân viên làm việc report lại tình trạng của xe |
+|17|MCPs capacity warning |Nhân viên làm việc nhận được thông báo khi điểm MCPs đầy (> 95% dung lượng tải tối đa).|
+### 1.3 Use-case diagram cho Task assignment
+#### 1.3.1 Use-case diagram
+![Use-case diagram](/Picture/taskAssignment.png?raw=true)
+#### 1.3.2 Job Description
+|No.|Use-case | Job Description|
+| --- | ---| --- |
+|1|Assign task for Collector|Dùng để Back officer giao nhiệm vụ cho Collectors.|
+|2| Assign task for Janitor |Dùng để Back officer giao nhiệm vụ cho Janitors.|
+|3 |Assign vehicle | Giao xe cho Collector.|
+|4| Assign routes | Chỉ định tuyến đường đã được tính toán tối ưu cho Collector.|
+|5| View map | Xem bản đồ khu vực chứa các MCP và các đường đi.|
+|6 | Assign troller | Giao xe đẩy cho Janitor.|
+|7 | Assign areas | Chỉ định các khu vực thu gom rác cho Janitor.|
+|8 |Coordinate workers | Back officer phân phối nhân viên để làm việc.|
+#### 1.3.3 Use-case scenario
+##### Assign Task for Collector
+|Use-case Name | Task Assignment for Collector|
+|---|---|
+|Actor |Back Officer, Map System, Route Calculator Map|
+|Trigger|Back Officer, Map System, Route Calculator Map|
+|Description| Tạo và sắp xếp lịch cho Collector. Từ đó các nhân viên sẽ nhận được các thông tin chi tiết của công việc (thời gian, phương tiện, MCP,. . . )|
+|Preconditions| Người dùng đăng nhập vào tài khoản Back Officer và đang ở giao diện "Tổng quan nhiệm vụ"|
+|Postconditions| POST-1: Thành công giao nhiệm vụ chi tiết công việc đến các Collector.<br>POST-2: Thông báo đến nhân viên được giao.<br>POST-3: Lưu lại task đã tạo vào database.|
+|Normal flow |1. Hệ thống hiển thị các danh mục:<br>- Nhiệm vụ<br>- Bản đồ khu vực các MCP<br>2. Back officer chọn mục "Nhiệm vụ".<br>3. Back officer chọn mục "Tạo và gán công việc".<br>4. Ở mục "Loại hình nhân viên", Back officer chọn loại hình Collector.<br>5. Back officer chọn MCPs.<br>6. Back officer chỉ định tuyến đường di chuyển đến MCPs.<br>7. Back officer chọn phương tiện làm việc cho nhân viên.<br>8. Back officer chọn nhân viên để làm nhiệm vụ.<br>9. Back officer chọn ngày, giờ làm việc.<br>10. Back officer chọn xác nhận giao việc.<br>11. Hệ thống gửi thông báo đến nhân viên đã được giao nhiệm vụ và trở vềgiao diện ban đầu.
+|Alternative flows| Alternative flow 1:<br>5.a. Back officers xem thông tin MCPs.<br>5.b. Back officers chọn MCPs.<br>Alternative flow 2:<br>6.a. Back officers chọn xem map để kiểm tra tính khả thi của các tuyến đường.|
+|Exceptions| Exception 1: Tại bước 5, tất cả MCPs đều vượt quá giới hạn chứa (>95%).<br>Exception 2: Tại bước 8, không có collector nào sẵn sàng làm nhiệm vụ.<br>Exception 3: Tại bước 10, Back officer bấm nút hủy giao việc (CANCEL) →<br>trở về lại bước 4 ở Normal flow.|
+##### Assign Task for Janitor
+|Use-Case Name |Task Assignment for Janitor|
+|---|---|
+|Actor| Back Officer, Map System|
+|Trigger| Back Officer nhấn vào danh mục "Tạo và gán công việc"|
+|Description| Tạo và sắp xếp lịch cho Janitor. Từ đó các nhân viên sẽ nhận được thông tin chi tiết của công việc (thời gian, phương tiện, MCP,. . . )|
+|Preconditions| Người dùng đăng nhập vào tài khoản Back Officer và đang ở giao diện "Tổng quan nhiệm vụ"|
+|Postconditions |POST-1: Thành công giao nhiệm vụ chi tiết công việc đến các Janitor.<br>POST-2: Thông báo đến nhân viên được giao.<br>POST-3: Lưu lại task đã tạo vào database.|
+|Normal flow| 1. Hệ thống hiển thị các danh mục:<br>- Nhiệm vụ<br>- Xem route<br> 2. Back officer chọn mục "Nhiệm vụ".<br>3. Back officer chọn mục "Tạo và gán công việc".<br>4. Ở mục "Loại hình nhân viên", Back officer chọn loại hình Janitor.<br>5. Back officer chọn MCP.<br>6. Back officer chỉ định các khu vực thu gom rác cho Janitor.<br>7. Back officer chọn nhân viên.<br>8. Back officer chọn troller làm việc cho nhân viên.<br>9. Back officer chọn ngày, giờ làm việc.<br>10. Back officer chọn xác nhận giao việc.<br>11. Hệ thống gửi thông báo đến nhân viên đã được giao nhiệm vụ và trở về giao diện ban đầu.|
+|Alternative flows| 5.a. Back officers xem thông tin các MCP.<br>5.b. Back officers chọn MCP.|
+|Exceptions| Exception 1: Tại bước 5, tất cả MCPs đều vượt quá giới hạn chứa (>95%).<br>Exception 2: Tại bước 7, không có nhân viên nào sẵn sàng làm việc.<br>Exception 3: Tại bước 10, Back officer bấm nút hủy giao việc (CANCEL) →trở về lại bước 4 ở Normal flow|
+##### Assign vehicles
+|Use-Case Name| Assign vehicle|
+|---|---|
+|Actor |Back Officer|
+|Trigger| Back Officer nhấn chọn hộp chọn "Phương tiện"|
+|Description |Back Officer thực hiện chọn phương tiện cho công việc.|
+|Preconditions| Người dùng đăng nhập vào tài khoản Back Officer và đang ở giao diện "Tạo và gán công việc"|
+|Postconditions| Back Officer chọn thành công phương tiện cho công việc|
+|Normal flow| 1. Back Officer nhấn vào hộp chọn "Phương tiện".<br>2. Hệ thống hiển thị ra danh sách các phương tiện có thể sử dụng.<br>3. Back Officer chọn phương tiện phù hợp với công việc.|
+|Alternative flows| None|
+|Exceptions |Tại bước 2, không có phương tiện nào có thể chỉ định để làm nhiệm vụ|
 
-| Use Name             | Use Case: Task Assignment     | 
-| ---                  | ---                       |
-| **Created By**       | QLDA Team                 |
-| **Date Created**     | Sep 18, 2022              |
-| **Primary Actor**    | Back Officer              |
-| **Description**      | Assign task for janitors and collectors |
-| **Trigger**          | Click the button “Assign Task”          |
-| **Preconditions**    | PRE-1. System available <br> PRE-2. Device connects to the Internet|
-| **Postconditions**   | POST-1. Successfully assigned the janitor or collectors. <br> POST-2. Notify the task to the worker <br> POST-3. Record the task to the database  |
-| **Normal Flow**      |  1. Back officer chooses the assignee. <br> 2. The system checks the availability of the assignee.<br> 3. Back officer choose day of work. <br>4. The system displays the info of all vehicles. <br> 5. Back officer chooses the vehicle for the assignee. <br> 6. Back officer chooses the MCPs. <br> 7. Back officer determines routes for the assignee. <br> 8. The system checks the availability of the routes. <br> 9. Send the notification to the assigned worker.|
-| **Alternative Flow** | Alternative flow 1: <br> At step 2: <br> 2.a. Back officers can view the calendar to check the availability of assignee. <br>  <br> Alternative flow 2: <br> At step 4: <br> 4.a Back officers view the information of the vehicle <br> 4.b Back officers choose the vehicle for the assignee. <br>  <br>  Alternative flow 3: <br> At step 5: <br> 6.a Back officers view the information of the MCPs <br> 6.b Back officers choose the MCPs for routing. <br>   <br> Alternative flow 4: <br> At step 4: <br> 8.a Back officers can view the map to check the availability of the route. |
-| **Exceptions**       | Exception 1: <br> At step 1: <br> 2.a. Assignee is not available <br> Return to step 1 in Normal Flows        |
+##### Assign routes
+|Use-Case Name |Assign routes|
+|---|---|
+|Actor| Back Officer, Map System , Route Calculator Map|
+|Trigger| Back Officer nhấn chọn hộp chọn "ID Route"|
+|Description |Back Officer thực hiện chỉ định tuyến đường cho công việc|
+|Preconditions| Người dùng đăng nhập vào tài khoản Back Officer và đang ở giao diện "Tạo và gán công việc"|
+|Postconditions| Back Officer chỉ định thành công Route cho công việc|
+|Normal flow |1. Back officer nhấn vào ô chọn MCPs.<br>2. Hệ thống hiển ra danh sách các MCP.<br>3. Back officer chọn MCPs phù hợp cho công việc.<br>4. Back Officer nhấn vào ô chọn ID Route.<br>5. Hệ thống hiển thị các Route đã được tính toán tối ưu.<br>6. Back officer chọn ID Route phù hợp với công việc.|
+|Alternative flows |5.a. Back officer có thể nhấn nút View map để xem bản đồ chứa route và MCPs đã chọn|
+|Exceptions| None|
 
-#### Use-case diagram for Task Assignment Module
-![Use case diagram for Task Assignment](/Picture/Task%201.3.png?raw=true)
+##### View Map
 
-## Task 2
-### Task 2.1
-First, we need to determine the process steps in Task Assignment.
-In task 1.3, we have drawn the Task Assignment Module by Use-case diagram.
-Process steps:
-Go to Task Assignment → Choose worker → Choose available day → Pick the vehicle → Choose vehicle → Choose MCP → Create route → Notify to worker.
-The below activity diagram captures the business process between systems and the stakeholders in Task Assignment Module.
+|Use-Case Name| View Map|
+|---|---|
+|Actor| Back Officer, Map System|
+|Trigger| Back Officer nhấn vào hộp chọn “Xem Route”|
+|Description| Hiển thị bản đồ thời gian thực, trên bản đồ hiển thị MCPs, các route trong khu vực được chọn|
+|Preconditions| Người dùng đăng nhập vào tài khoản Back Officer và đang ở trong giao diện "Tổng quan nhiệm vụ"|
+|Postconditions| Back Officer xem được bản đồ, xem được các route và các MCP trong khu vực hiển thị|
+|Normal flow| 1. Hệ thống hiển thị danh sách các ID Route.<br>2. Back Officer nhấn chọn "Show map" tương ứng với tên "ID Route" muốn xem thông tin.<br>3. Hệ thống hiển thị bản đồ chứa các MCP và các Route. |
+|Alternative flows| 3.a Back Officer nhấn nút mũi tên ("<-") để kết thúc xem map và quay về giao diện "Xem Route".|
+|Exceptions |None|
 
-#### Acitivity diagram for Task Assignment Module
-![Activity diagram for Task Assignment](/Picture/Task%202.1.png?raw=true)
+##### Coordinate worker
+|Use-Case Name| Coordinate worker|
+|---|---|
+|Actor |Back Officer|
+|Trigger| Back Officer nhấn vào hộp chọn “Nhân viên”|
+|Description |Back Officer chỉ định nhân viên cho công việc|
+|Preconditions |Người dùng đăng nhập vào tài khoản Back Officer và đang ở giao diện "Tạo và gán công việc"|
+|Postconditions| Back Officer chỉ định thành công nhân viên cho công việc|
+|Normal flow| 1. Back Officer nhấn vào mục "Nhân viên"<br>2. Hệ thống hiển thị danh sách các Nhân viên có thể giao việc được<br>3. Back Officer chỉ định nhân viên cho công việc thành công|
+|Alternative flows| None|
+|Exceptions| Tại bước 2, không có nhân viên nào sẵn sàng để giao nhiệm vụ.|
 
+##### Assign troller
+|Use-Case Name |Assign Troller|
+|---|---|
+|Actor |Back Officer|
+|Trigger Back Officer |nhấn chọn hộp chọn "Phương Tiện"|
+|Description| Back Officer chỉ định Troller cho Janitor|
+|Preconditions|Người dùng đăng nhập vào tài khoản Back Officer và đang ở giao diện "Tạo và gán công việc"|
+|Postconditions| Back Officer chỉ định thành công Troller cho Janitor|
+|Normal flow| 1. Back Officer nhấn vào mục "Phương tiện"<br>2. Hệ thống hiển thị danh sách các troller có thể sử dụng<br>3. Back Officer chọn Troller cho Janitor.|
+|Alternative flows| None|
+|Exceptions |Tại bước 2, Không còn troller nào có thể sử dụng|
+
+##### Assign areas
+|Use-Case Name| Assign areas|
+|---|---|
+|Actor |Back Officer, Map System|
+|Trigger |Back Officer nhấn chọn hộp chọn "Area"|
+|Description |Back Officer chỉ định các khu vực cho Janitor thu thập rác.|
+|Preconditions| Người dùng đăng nhập vào tài khoản Back Officer và đang ở giao diện "Tạo và gán công việc"|
+|Postconditions |Back Officer chỉ định thành công các khu vực cho công việc|
+|Normal flow| 1. Back officer nhấn vào ô chọn MCP<br>2. Hệ thống hiển ra danh sách các MCP.<br>3. Back officer chọn MCP phù hợp cho công việc.<br>4. Back Officer nhấn vào ô chọn Area.<br>5. Hệ thống hiển thị các Area.<br>6. Back officer chọn các Area phù hợp với công việc.|
+|Alternative flows |None|
+|Exceptions| None|
+
+
+# Task 2
+## 2.1. Acitivity diagram for Task Assignment Module
+#### Activity diagram for Collector
+![Activity diagram for Task Assignment](/Picture/Task2ActivityCollector.png?raw=true)
 #### Diagram description:
-1. Back Officer begin Task Assignment.
-2. Back Officer choose the Worker (janitor and … who available) in the Worker List
-that shows off by System.
-3. Back Officer pick an available day of the chosen worker from the calender show
-off by System.
-4. System show MCP Maps then Back Officer do 2 activities parallel that assign
-MCP and Check Available Route for the Worker in the chosen day.
-5. Back Officer action Done task. Then, System check all information assign/pick by
-Officer. If assigned information are Incorrect in 1 field (worker, day, MCP, route),
-System will require Back Officer do all activities again.
-6. Otherwise, if all information are Correct, System will notify all Information in 1
-notification to Back Officer and Assigned Worker. (They can watch this
-notification on their devices.)
-7. End
 
-### Task 2.2
-#### Conceptual solution for route planning task
-Our conceptual solution will be illustrated as the following step:
-1. The back officer request to the controller to create a new route
-2. The controller connect to Google Map API
-3. If the connection fails, it will reconnect. If the connection is successfully
-connected, Google Map will request data back from the controller
-4. The controller them request data from the database
-5. The database responds back to the controller with the data of MCPs location and
-the collector’s location.
-6. Then the controller will response back to the Google Map with the data
-7. The Google Map then response back to the controller with the suggested route
-options
-8. The controller will send the options to the back officers for them to choose
-9. The back officers choose the route then the controller will respond with the chosen
-route.
-#### Sequence diagram for route planning task
-![Sequence diagram for route planning](/Picture/Task%202.2.png?raw=true)
+#### Đối với Back Officer
+* Đầu tiên Back Officer sẽ ở trạng thái Tổng quan ban đầu, tiếp đến Back Officer sẽ tiến
+hành chọn Task (Tổng quan nhiệm vụ), ở đây hiển thị 2 chế độ Create Task và View Task.
+* Ở task list khi ta chọn Create Task:
+  * Xem được tình trạng của tất cả MCP. Mỗi MCP được thể hiện ở 3 trạng thái:
+    ```cpp
+    - Trạng thái 1: Dưới 50% so với sức chứa tối đa
+    - Trạng thái 2: Trên 50% đến không lớn hơn 95% so với sức chứa tối đa
+    - Trạng thái 3: Trên 95% sức chứa tối đa
+    ```
+  * Back Officer sẽ có thể View map để xem bản đồ và chọn MCPs.
+  * Tiếp đến hệ thống hiển thị các tuyến đường tuyến ưu và Back Officer tiếp tục chỉ
+định tuyến đường cho công việc.
+  * Sau đó hệ thống hiển thị các phương tiện có thể chọn để Back Officer tiến hành chọn
+phương tiện cho công việc
+  * Tiếp theo hệ thống hiển thị danh sách Collector có thể giao việc được, Back Officer
+sẽ tiến hành chọn Collector phù hợp với công việc.
+  * Cuối cùng Back Officer chọn thời gian cho công việc.
+  * Tiếp đến ta sẽ xác nhận việc tạo task:
+    ```cpp
+    - Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Collector về chi
+    tiết của task
+    - Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan
+    nhiệm vụ (Task)
+    ```
+* Ở Task nếu ta chọn View Task
+  * Hệ thống sẽ hiển thị danh sách thông tin các Task dưới dạng tối giản hóa, Ta sẽ chọn
+task cần xem thông tin chi tiết, nhấn vào xem chi tiết(View Detail) của ID task tương
+ứng , tiếp đến có hai lựa chọn là không chỉnh sửa (No Edit) và Chỉnh sửa task (Edit
+task).
+  * Khi Back Officer nhấn vào Edit task:
+Back Officer sẽ chỉnh sửa những mục cần thiết trong Task và cuối cùng ta sẽ xác nhận
+việc chỉnh sửa Task
+    ```cpp
+    - Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Collector về chi
+    tiết của task.
+    - Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan ban
+    đầu (task list).
+    ```
+  * Khi Back Officer nhấn vào "No Edit" hệ thống trở về tổng quan nhiệm vụ (Task
+#### Đối với Collector
+* Khi có thông báo về task được gửi đến từ hệ thống thì Collector sẽ thực hiện xác nhận
+đã nhận task (Check in task) và bắt đầu thực hiện công việc. Khi Collector đang làm việc
+thì trạng thái gửi về Back Officer là In Progress. Sau khi đã hoàn thành công việc (task
+done) thì Collector sẽ xác nhận hoàn thành task (Check out task) để Back Officer xác nhận
+Collector đã hoàn thành task (task completed).
+* Nếu không có thông báo về task thì Collector sẽ không phải làm việc.
 
-### Task 2.3
-In the class diagram, our group decided that there are 2 interface classes in the
-Task Assignment Module called AssignTask and AssigningView (InfoView interfaces are
-not included in Task Assignment Module, we draw it to make the system more
-comprehensive).
-#### Class diagram for Task Assignment module
-![Class diagram for Task Assignment module](/Picture/Task%202.3.png?raw=true)
+#### Activity diagram for Janitor    
+![Activity diagram for Task Assignment](/Picture/Task2ActivityJanitor.png?raw=true)
+#### Diagram description:
+### Đối với Back Officer
+* Đầu tiên Back Officer sẽ ở trạng thái Tổng quan ban đầu, tiếp đến Back Officer sẽ tiến
+hành chọn Task (Tổng quan nhiệm vụ), ở đây hiển thị 2 chế độ Create Task và View Task.
+* Ở task list khi ta chọn Create Task:
+  * Xem được tình trạng của tất cả MCP. Mỗi MCP được thể hiện ở 3 trạng thái:
+    ```cpp
+    - Trạng thái 1: Dưới 50% so với sức chứa tối đa
+    - Trạng thái 2: Trên 50% đến không lớn hơn 95% so với sức chứa tối đa
+    - Trạng thái 3: Trên 95% sức chứa tối đa
+    ```
+  * Back Officer sẽ có thể View map để xem bản đồ và chọn MCPs.
+  * Tiếp đến hệ thống hiển thị các area trên bản đồ, Back Officer tiếp tục chỉ định các
+khu vực cho Janitor.
+  * Sau đó hệ thống hiển thị các troller có thể chọn để Back Officer tiến hành chọn troller
+cho công việc
+  * Tiếp theo hệ thống hiển thị danh sách Janitor có thể giao việc được, Back Officer sẽ
+tiến hành chọn Janitor phù hợp với công việc.
+  * Cuối cùng Back Officer chọn thời gian cho công việc.
+  * Tiếp đến ta sẽ xác nhận việc tạo task:
+    ```cpp
+    - Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Janitor về chi
+    tiết của task
+    - Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan
+    nhiệm vụ (Task)
+    ```
+* Ở Task nếu ta chọn View Task
+  * Hệ thống sẽ hiển thị danh sách thông tin các Task dưới dạng tối giản hóa, Ta sẽ chọn
+task cần xem thông tin chi tiết, nhấn vào xem chi tiết (View Detail) của ID task tương
+ứng , tiếp đến có hai lựa chọn là không chỉnh sửa (No Edit) và Chỉnh sửa task (Edit
+task).
+  * Khi Back Officer nhấn vào Edit task:
+Back Officer sẽ chỉnh sửa những mục cần thiết trong Task và cuối cùng ta sẽ xác nhận
+việc chỉnh sửa Task
+    ```cpp
+    - Nếu Back Officer nhấn “Yes” thì hệ thống sẽ thông báo đến cho Collector về chi
+    tiết của task.
+    - Nếu Back Officer nhấn “No” thì Back Officer sẽ quay về trạng thái tổng quan ban
+    đầu (task list).
+    ```
+  * Khi Back Officer nhấn vào "No Edit" hệ thống trở về tổng quan nhiệm vụ (Task)
+Đối với Janitor
+* Khi có thông báo về task được gửi đến từ hệ thống thì Collector sẽ thực hiện xác nhận
+đã nhận task (Check in task) và bắt đầu thực hiện công việc. Khi Janitor đang làm việc
+thì trạng thái gửi về Back Officer là In Progress. Sau khi đã hoàn thành công việc (task
+done) thì Janitor sẽ xác nhận hoàn thành task (Check out task) để Back Officer xác nhận
+Janitor đã hoàn thành task (task completed).
+* Nếu không có thông báo về task thì Janitor sẽ không phải làm việc.
+### 2.2. Sequence diagram for back officer to assign vehicle
+![Sequence diagram for route planning](/Picture/Task2Seq.png?raw=true)
+#### Mô tả
+1. Đầu tiên Back Officer chọn ngày muốn giao xe.
+2. Controller gửi 2 yêu cầu song song (parallel) đến Model để nhận danh sách các phương
+tiện và nhân viên có thể giao được cho ngày đó.
+3. Nếu không có phương tiện hoặc nhân viên nào khả dụng, Model sẽ trả về thông báo "Không
+có phương tiện hoặc công nhân khả dụng" cho Controller và Controller sẽ gửi thông báo
+"Chọn ngày khác" tới View. View hiển thị thông báo này cho Back Officer.
+4. Nếu cả 2 phương tiện và nhân viên đều có sẵn, Controller sẽ gửi danh sách các phương
+tiện có đang có sẵn đến View, View sẽ hiển thị danh sách đó cho Back Officer. Từ đó Back
+Officer có thể chọn một phương tiện từ danh sách.
+5. Back Officer nhấn nút “Confirm” để xác nhận đã chọn xe.
+6. Tiếp theo Controller gửi danh sách nhân viên có sẵn đến View. Back Officer chọn một
+nhân viên từ danh sách.
+7. Back Officer nhấp vào nút "Assign" để giao xe với ngày, phương tiện và nhân viên đã được
+chọn.
+8. View gửi ngày, phương tiện và nhân viên được chỉ định tới Model để lưu trữ vào database.
+9. Sau khi lưu thành công, View sẽ hiển thị thông báo "Đã giao thành công tới Back officer"
 
-Task Controller is the bridge between User and private elements in Task. When we create task, there are 4 elements requires: worker information, date of assignment, route information (get from Google API), vehicle information.
-
+### 2.3. Class diagram for Task Assignment module
+![Class diagram for Task Assignment module](/Picture/Task2ClassDiagram.png?raw=true)
+#### Diagram description
+Class Diagram của nhóm được vẽ theo mô hình MVC bao gồm các tầng sau:
+##### Model
+Tầng Model sẽ quản lý tất cả dữ liệu cũng như việc xử lý logic liên quan đến dữ liệu. Ở tầng này ta có thể thêm, sửa, xoá, lấy dữ liệu trực tiếp.
+- MCP: Model của các điểm MCP có các thuộc tính như: mcpID, capacity, status và các phương thức như:
+    + getStatus(): Lấy trạng thái hiện tại của MCP.
+    + getCapacity(): Lấy sức chứa của MCP.
+    + updateStatus(mcpID): Cập nhật sức chứa của MCP. 
+- Map: Model của Map có các thuộc tính như street kiểu vector\<string\>, mcps kiểu vector\<MCP\>. Các phương thức như:
+    + displaySelectedMCPs(mpcs: MCP): hiển thi các điểm MCP đã được lựa chọn
+    + getSelectedMCPs(): Lấy các điểm MCPs từ database
+    + calculateDistance(street: vector\<string\>): Tính toán khoảng cách giữa các MCP
+    + findBestRoute(street: vector\<string\>,mcps: vector\<MCP\>, vehicle: Vehicle): Tìm tuyến đường tốt nhất
+- Route: Model tuyến đường có thuộc tính street kiểu vector\<string\> và phương thức là hàm displayRoute(): để hiển thị các tuyến đường lên bản đồ.
+- BackOfficer: Model các BackOfficer có thuộc tính adminID kiểu int và name kiểu string.
+- BackOfficerManageModel: Mô hình BackOffcierManageModel để BackOfficer quản lý các task. Có các thuộc tính: adminManageView, adminManageController, vehicle map. Và các phương thức:
+    + updateView(): để cập nhật giao diện hiển thị
+    + assignRouteForCollectors(vector\<Worker\>, route: Route, vehicle: Vehicle, date: string, hour: string, week: string): gán các tuyến đường cho các Collector.
+    + assignAreaForJanitors(vector\<Worker\>, street:(vector\<string\>,date: string, hour: string, week: string): gán các khu vực thu gom rác cho các Janitor.
+- Vehicle: thể hiện đối tượng là Vehicle(phương tiện) bao gồm các thuộc tính như : vehicleID: mã phương tiện, weight: trọng lượng, capacity: sức chứa,... và có các phương thức: getWeight(): lấy trọng lượng phương tiện, getCapacity(): lấy thông tin sức chứa, getFuel(): lấy thông tin nhiên liệu, getStatus(): xem tình trạng phương tiện, setStatus(status: bool): sửa đổi tình trạng phương tiện.
+- VehicleList: thể hiện đối tượng là Vehicle list có chức năng hiển thị danh sách phương tiện.
+- VehicleContoller: Model có chức năng kiểm soát và thay đổi các thông tin của đổi tượng Vehicle thông qua các phương thức như : updateStatus(): cập nhật tình trạng, getVehicleList(): xem danh sách phương tiện.
+- Worker: thể hiện đối tượng Worker(nhân viên), có các thuộc tính : workerID: mã nhân viên, name: tên, type: loại(Janiter hay Collector), timeTable: lịch làm việc của nhân viên. Các phương thức: getName(): xem tên, getTimeTable(): xem lịch làm việc, getType(): xem loại nhân viên, showTimeTable(): hiển thi lịch làm việc, checkIn() và checkOut(): để chấm công.
+- WorkerList: thể hiện danh sách tất cả các Worker.
+- Collector: là lớp nhân viên Collector - nhân viên lái xe thu gom rác thải, thừa hưởng thuộc tính từ lớp Woker, đồng thời có thêm các thuộc tính đặc trưng; Route: vector\<route\> : thể hiện các tuyển đường mà Collector được giao; vechicle: Vehicle - phương tiện mà Collector đó sử dụng.
+- Janitor: là lớp nhân viên Janitor - nhân viên sử dụng xe đẩy thu gom rác trong 1 khu vực, thừa hưởng thuộc tính từ lớp Woker, đồng thời có thêm các thuộc tính đặc trưng; areaWork: map - thể hiện khu vực mà Janitor đó được giao.
+- TimeTable: thể hiện đối tượng bảng biểu thời gian, bao gồm các thuộc tính date (ngày), hour (giờ), week (tuần). và có các phương thức: getDate() - lọc ngày, getHour - lọc giờ, getWeek() - lọc tuần, addDate(date) thêm ngày vào bảng biểu, addHour(hour) thêm giờ vào bảng biểu. addWeek(week) thêm tuần vào bảng biểu làm việc.
+##### Controller
+Tầng controller là tầng trung gian để kết nối giữa tầng View và tầng Model, tầng controller dùng để kiểm soát các luồng thực thi liên quan đến việc thao tác với các dữ liệu liên quan đến tuyến đường, MCP, thông báo, người dùng, và nhiệm vụ...tầng controller sẽ gọi đến tầng Model các yêu cầu cần thực hiện từ thao tác của người dùng trên giao diện người dùng ở tầng View, cũng như trả về dữ liệu gọi từ tầng Model để tầng View tiến hành render.
+- MCPController: Quản lý các chức năng, luồng thực thi liên quan MCP.
+- BackOfficerManageController: : Model có chức năng quản lý các hành động của Back Officer.
+##### View
+Tầng view được sử dụng để kiểm soát logic toàn bộ giao diện người dùng của hệ thống, Back Officer sẽ tương tác với các như dropdowns, searchbar, button trong lúc tìm kiếm, phân công tuyến đường, phương tiện, nhân viên...
+- BackOfficerManageView: Model thể hiện giao diện người dùng có các phương thức như: showWorkerList(): để hiển thị danh sách nhân viên, showWorKerInfo(): để hiện thị thông tin của nhân viên, hay showSelectWorker(): hiển thị nhân viên được chọn,...
+### 2.4. Develop MVP
+Nhóm sử dụng figma làm framework để vẽ UI. Workspace của nhóm: https://www.figma.com/file/kMaVVqk9uUcuh2ktasVn2Q/Untitled?node-id=103%3A878&t=ADBENGbisbK883IU-1.
+![Giao diện trang chủ](/Picture/HomepageUI.png)
 ## Task 3
-### Task 3.1 
+### 3.1 Layered Architecture
 ####  Introduction
 ##### Three-layer Architecture
 
@@ -212,12 +452,19 @@ Nhóm lựa chọn mô hình MVC vì các lợi ích mà mô hình này đem l�
 
 ![Restful API](/Picture/restfulAPI3.png?raw=true)
 
-- Đối với lớp Data access layer: Nhóm có thể sử dụng đến Firebase, một dịch vụ lưu trữ dữ liệu NoSQL được cung cấp bởi Google. Các lý do chính mà nhóm quyết định sử dụng Firebase là:
-    + Sử dụng dễ dàng: Những người dùng có thể đăng ký một tài khoản Firebase thông qua tài khoản Google. Đồng thời, người cùng cũng có thể sử dụng nền tảng này trong quá trình phát triển ứng dụng một cách đơn giản nhất. 
-    + Xây dựng ứng dụng nhanh chóng mà không tốn thời gian, nhân lực để quản lý hệ thống và cơ sơ sở hạ tầng phía sau: Firebase cung cấp cho ta rất nhiều chức năng như phân tích, cơ sở dữ liệu, báo cáo hoạt động và báo cáo các sự cố lỗi để bạn có thể dễ dàng phát triển, định hướng ứng dụng của mình vào người sử dụng nhằm đem lại các trải nghiệm tốt nhất cho họ. 
-    + Uy tín chất lượng đảm bảo từ Google: Firebase được Google hỗ trợ và cung cấp trên nền tảng phần cứng với quy mô rộng khắp thế giới, cho nên nhóm rất yên tâm khi lựa chọn dịch vụ này.
-    + Quản lý cấu hình và trải nghiệm các ứng dụng của Firebase tập trung trong một giao diện website đơn giản, các ứng dụng này hoạt động độc lập nhưng liên kết dữ liệu phân tích chặt chẽ.
-![Firebase](/Picture/firebase.png?raw=true)
+- Đối với lớp Data access layer: Nhóm có thể sử dụng đến MongoDB (https://mongodb.com/docs/), là một hệ quản trị cơ sở dữ liệu NoSQL mã nguồn mở đa nền tảng
+viết bằng C++. Các lý do chính mà nhóm quyết định sử dụng MongoDB là:
+   + Hệ sinh thái: ReactJS + NodeJS + MongoDB
+   + Schema linh hoạt: Do MongoDB sử dụng lưu trữ dữ liệu dưới dạng Document JSON
+nên mỗi một collection sẽ các các kích cỡ và các document khác nhau.
+   + Cấu trúc đối tượng rõ ràng: Tuy rằng cấu trúc của dữ liệu là linh hoạt nhưng đối
+tượng của nó được xác định rất rõ ràng. Sử dụng bộ nhớ nội tại, nên truy vấn sẽ rất
+nhanh.
+   + MongoDB rất dễ mở rộng.
+   + Không có các join: Điều này cũng góp phần tạo nên tốc độ truy vấn cực nhanh trên
+MongoDB.
+   + MongoDB phù hợp cho các ứng dụng Realtime
+
 #### Modules
 Hệ thống UWC 2.0 gồm 5 modules, cụ thể là:
 Module Authentication:
@@ -287,19 +534,54 @@ Module Management:
         * addVehicles(detail): Chức năng thêm thông tin về một phương tiện mới vào hệ thống.
 
 
-### Task 3.2
-#### Implementation diagram for Task Assignment module
-The diagram contains 1 application (Client), 1 main components (Server) and 1 component for calling Google API:
-- Client: contains the **Browser** which will receive the requests from **Server** or send requests to **Server**.
-- Server: consists of models interacting with database, view and controller parts.
-- Google API: to create routes from MCPs
+## 3.2 Component Diagram
+### Component Diagram
 
-![Implementation diagram for Task Assignment module](/Picture/Task%203.2.png?raw=true)
+![Component Diagram](/Picture/ComponentDiagram.png?raw=true)
 
-#### Diagram flow
-When users assign new task. Browser requests the assign form from the Task controller. Task controller gathers info from the models and manages to make Task view display the form (and lists when requested). In the assigning process, Task view will update and display new data which are set and gotten by Task model. Finally, when MCPs are chosen, the controller will request routes from Google API for the user to pick. 
+### Description of Component Diagram
+
+Hệ thống gồm 3 Components chính: nhóm View, nhóm Controller, nhóm Model
+- Nhóm View chứa component *Back officer Interface* bao gồm:
+    + Component *Route View* dành cho Back Offices xem và chọn tuyến đường
+    + Component *Task Manager View*  gồm các giao diện để back officer tạo task dành cho Collector (Assign Task Collector View), Janitor (Assign Task Janitor View) và Task View.
+
+- Nhóm Controller:
+    + Component *Assign Task for Controller Controller* khối điều khiển tạo công việc cho Collector
+    + Component *Assign Task for  JanitorController* khối điều khiển tạo công việc cho Janitor
+    + Component *Task Controller*, khối điều khiển task, sử dụng để cung cấp chỉnh sửa và cập nhật task.
+
+- Nhóm Model:
+    + Component *Collector*
+        * Cung cấp interface Request Collector list cho component Assign Task Collector View trong nhóm View.
+        * Yêu cầu  interface Update Collector từ  Assign Task Collector Controller trong nhóm Controller.
+    + Component *Janitor* 
+        * Cung cấp interface Request Janitor  list cho component Assign Task Collector View trong nhóm View.
+        * Yêu cầu  interface Update Janitor từ  Assign Task Janitor Controller trong nhóm Controller.
+    + Component *MCP*
+        * Cung cấp interface Request MCP List cho component   Assign Task Collector View và  Assign Task Janitor View trong nhóm View. 
+        *  Yêu cầu   Update MCP từ component Assign Task Collector Controller trong nhóm Controller.
+    + Component *Vehicle*
+        * Cung cấp interface Request Vehicle List cho Assign Task Collector View và Request troller list cho Assgin Task Janitor View trong nhóm View.
+        *  Yêu cầu  interface Update Vehicle  từ  Assign Task Collector Controller  và Assign Task Janitor Controller trong nhóm Controller.
+    + Component *Route*
+        * Cung cấp Request  Route List cho  Assign Task Collector View,  Assgin Task Janitor View và Route View trong nhóm View.
+        *  Yêu cầu interface  Update Route từ   Assign Task Collector Controller  và Assign Task Janitor Controller trong nhóm Controller.
+    + Component *Task*
+        * Cung cấp interface Request Task list cho component Task View trong nhóm View.
+        *  Yêu cầu interface Update Task từ Assign Task Collector Controller, Assign Task Janitor Controller và Task Controller  trong nhóm Controller.
 
 ## Task 4
-#### Picture for the interface
+#### 4.1 Repository github của nhóm
 
-![Picture for the interface](/Picture/Task%204.3.png?raw=true)
+![Repository github của nhóm](/Picture/Home_page.png)
+
+### 4.2 Trong folder document chứa các folder con như: 
+![Picture for document](/Picture/git_document.png) 
+- Project_description: file mô tả tổng quát dự án
+- Requirement_elicitation: chứa file mô tả task 1
+- System_modeling: chứa file mô tả task 2
+- Architecture_design:chứa file mô tả task 3
+
+Dưới đây là ảnh mô tả đóng góp của các thành viên :
+![Picture for document](/Picture/commit_history.png)
