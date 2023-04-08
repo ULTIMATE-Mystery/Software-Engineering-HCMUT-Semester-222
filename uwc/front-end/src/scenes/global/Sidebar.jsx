@@ -5,13 +5,11 @@ import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
 import { BsPersonVcard, BsTrash } from "react-icons/bs";
-import { FaRoute, FaCarAlt, FaHome } from "react-icons/fa";
+import { FaRoute, FaCarAlt } from "react-icons/fa";
 import { MdAssignmentAdd } from "react-icons/md";
 import { Icon } from '@iconify/react';
 import { AiOutlineHome }  from "react-icons/ai";
@@ -161,7 +159,7 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="Thông tin nhân viên"
-              to="/form"
+              to="/workerinfo"
               icon={<BsPersonVcard size={20}/>}
               selected={selected}
               setSelected={setSelected}

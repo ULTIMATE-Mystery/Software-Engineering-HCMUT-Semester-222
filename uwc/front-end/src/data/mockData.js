@@ -199,6 +199,99 @@ export const mockDataContacts = [
   },
 ];
 
+export const mockDataWorkerInfo = [
+  {
+    id: 1,
+    name: "Nguyễn Phúc Tiến",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Collector",
+    status: "Đang hoạt động"
+  },
+  {
+    id: 2,
+    name: "Nguyễn Minh Tiến",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Collector",
+    status: "Đang hoạt động"
+  },
+  {
+    id: 3,
+    name: "Nguyễn Văn Thịnh",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Janitor",
+    status: "Không hoạt động"
+  },
+  {
+    id: 4,
+    name: "Nguyễn Xuân Triều",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Janitor",
+    status: "Không hoạt động"
+  },
+  {
+    id: 5,
+    name: "Lê Viễn Du",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Collector",
+    status: "Đang hoạt động"
+  },
+  {
+    id: 6,
+    name: "Phạm Duy Quang",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Collector",
+    status: "Đang hoạt động"
+  },
+  {
+    id: 7,
+    name: "Nguyễn Hữu Hiếu",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Janitor",
+    status: "Đang hoạt động"
+  },
+  {
+    id: 8,
+    name: "Nguyễn Văn A",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Collector",
+    status: "Không hoạt động"
+  },
+  {
+    id: 9,
+    name: "Nguyễn Văn B",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Janitor",
+    status: "Không hoạt động"
+  },
+];
+
 export const mockDataInvoices = [
   {
     id: 1,
