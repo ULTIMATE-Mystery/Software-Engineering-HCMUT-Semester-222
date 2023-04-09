@@ -2,17 +2,13 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataWorkerInfo } from "../../data/mockData";
 import Header from "../../components/Header";
-import { Button, useTheme, TextField } from "@mui/material";
+import { Button, useTheme, TextField, Grid } from "@mui/material";
 import { Box } from "@mui/material";
 import React, { useState } from "react";
 import { MdArrowBack } from 'react-icons/md';
-
-import {
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-} from "@mui/material";
+import PersonalInfo from '../../components/Worker/workerDetail';
+import WorkerEdit from '../../components/Worker/workerEdit';
+import Card from '@mui/material/Card';
 
 const WorkerInfo = () => {
   const theme = useTheme();
@@ -38,9 +34,6 @@ const WorkerInfo = () => {
     else setDetailInfor(true);
   };
 
-  const handleInfoChange = () => {
-
-  };
   // draw table contains all workers info
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5, editable: true, },
@@ -100,10 +93,11 @@ const WorkerInfo = () => {
             color: colors.greenAccent[300],
           },
           "& .green--cell": {
-            color: colors.greenAccent[500],
+            color: colors.greenAccent[400]
           },
           "& .red--cell": {
             color: colors.redAccent[500],
+            // color: "#ff0000",
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: colors.blueAccent[700],
@@ -124,14 +118,6 @@ const WorkerInfo = () => {
           },
         }}
       >
-      {/* <DataGrid
-          rows={mockDataWorkerInfo}
-          columns={columns}
-          components={{ Toolbar: GridToolbar }}
-          pageSizeOptions={[5, 10, 25]}
-          onCellClick = {handleDetailClick}
-          
-      /> */}
       <DataGrid
         IsReadOnly="False"
         rows={mockDataWorkerInfo}
@@ -158,110 +144,24 @@ const WorkerInfo = () => {
           />
           <span style={{ display: 'inline-block', textAlign: 'center', lineHeight: '24px', fontSize: '20px' }}>Quay lại</span>
         </div>
-      <Box display="flex" justifyContent="space-between" gap="20px" alignItems="flex-start">
+      <Box display="flex" justifyContent="space-between" gap="5px" alignItems="flex-start">
       {/* Edit worker info */}
-        <Box
-          flex="1 1 20%"
-          backgroundColor={colors.primary[400]}
+      <Box
+          flex="0 1 50%"
           p="15px"
           borderRadius="4px"
         >
-          <Typography variant="h5">Cá nhân</Typography>
-          <List>
-            <TextField
-                    fullWidth
-                    variant="filled"
-                    type="text"
-                    label="Họ và tên"
-                    defaultValue={selectedRowData?.name}
-                    sx={{ gridColumn: "span 2", marginBottom: "16px" }}
-            />
-
-            <TextField
-                  fullWidth
-                  variant="filled"
-                  type="text"
-                  label="Ngày sinh"
-                  defaultValue={selectedRowData?.dob}
-                  sx={{ gridColumn: "span 2", marginBottom: "16px" }}
-            /> 
-
-            <TextField
-                  fullWidth
-                  variant="filled"
-                  type="text"
-                  label="Giới tính"
-                  defaultValue={selectedRowData?.gender}
-                  sx={{ gridColumn: "span 2", marginBottom: "16px" }}
-            /> 
-
-            <TextField
-                  fullWidth
-                  variant="filled"
-                  type="text"
-                  label="Chứng minh nhân dân"
-                  defaultValue={selectedRowData?.idcard}
-                  sx={{ gridColumn: "span 2", marginBottom: "16px" }}
-            />
-
-            <TextField
-                  fullWidth
-                  variant="filled"
-                  type="text"
-                  label="Số điện thoại"
-                  defaultValue={selectedRowData?.phone}
-                  sx={{ gridColumn: "span 2", marginBottom: "16px" }}
-            /> 
-            <TextField
-                  fullWidth
-                  variant="filled"
-                  type="text"
-                  label="Địa chỉ email"
-                  defaultValue={selectedRowData?.email}
-                  sx={{ gridColumn: "span 2", marginBottom: "16px" }}
-            /> 
-            <TextField
-                  fullWidth
-                  variant="filled"
-                  type="text"
-                  label="Địa chỉ"
-                  defaultValue={selectedRowData?.address}
-                  sx={{ gridColumn: "span 2", marginBottom: "16px" }}
-            />   
-
-            <Button
-              sx={{
-                backgroundColor: "#2579f2",
-                color: colors.grey[100],
-                fontSize: "14px",
-                fontWeight: "bold",
-                padding: "10px",
-              }}
-              color="secondary"
-              variant="outlined"
-              onClick={() => {
-                handleInfoChange();
-              }}
-            >
-            Thay đổi thông tin
-            </Button>
-          </List>
-        </Box>
+        <WorkerEdit selectedRowData={selectedRowData} />
+      </Box>
 
       {/* Detail infor display */}
         <Box
-          flex="1 1 20%"
-          backgroundColor={colors.primary[400]}
+          flex="0 1 100%"
           p="15px"
           borderRadius="4px"
         >
-          <Typography variant="h5">Tổng quan</Typography>
-          <List>
-                ID: t
-                t3: 32
-                32: 32
-                
-          </List>
+          <PersonalInfo selectedRowData={selectedRowData} />
+  
         </Box>
 
     </Box>

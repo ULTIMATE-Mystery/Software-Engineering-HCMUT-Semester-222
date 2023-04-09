@@ -211,7 +211,51 @@ export const mockDataWorkerInfo = [
     phone: "0909090909",
     address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
     type: "Collector",
-    status: "Đang hoạt động"
+    status: "Đang hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
   },
   {
     id: 2,
@@ -224,7 +268,51 @@ export const mockDataWorkerInfo = [
     phone: "0909090909",
     address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
     type: "Collector",
-    status: "Đang hoạt động"
+    status: "Đang hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
   },
   {
     id: 3,
@@ -237,7 +325,51 @@ export const mockDataWorkerInfo = [
     phone: "0909090909",
     address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
     type: "Janitor",
-    status: "Không hoạt động"
+    status: "Không hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
   },
   {
     id: 4,
@@ -250,7 +382,51 @@ export const mockDataWorkerInfo = [
     phone: "0909090909",
     address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
     type: "Janitor",
-    status: "Không hoạt động"
+    status: "Không hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
   },
   {
     id: 5,
@@ -263,7 +439,51 @@ export const mockDataWorkerInfo = [
     phone: "0909090909",
     address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
     type: "Collector",
-    status: "Đang hoạt động"
+    status: "Đang hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
   },
   {
     id: 6,
@@ -276,7 +496,51 @@ export const mockDataWorkerInfo = [
     phone: "0909090909",
     address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
     type: "Collector",
-    status: "Đang hoạt động"
+    status: "Đang hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
   },
   {
     id: 7,
@@ -289,7 +553,51 @@ export const mockDataWorkerInfo = [
     phone: "0909090909",
     address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
     type: "Janitor",
-    status: "Đang hoạt động"
+    status: "Đang hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
   },
   {
     id: 8,
@@ -302,12 +610,56 @@ export const mockDataWorkerInfo = [
     phone: "0909090909",
     address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
     type: "Collector",
-    status: "Không hoạt động"
+    status: "Không hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
   },
   {
     id: 9,
     name: "Nguyễn Thị B",
-    gender: "nữ",
+    gender: "Nữ",
     dob: "01/01/2002",
     email: "temp@hcmut.edu.vn",
     age: 35,
@@ -315,7 +667,51 @@ export const mockDataWorkerInfo = [
     phone: "0909090909",
     address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
     type: "Janitor",
-    status: "Không hoạt động"
+    status: "Không hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
   },
 ];
 
