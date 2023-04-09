@@ -8,6 +8,7 @@ import {
   TableBody, 
   TableCell, 
   TablePagination,
+  Grid,
 } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 import './glassmorphism.css';
@@ -63,13 +64,66 @@ const PersonalInfo = ({ selectedRowData }) => {
       gap="20px"
       gridColumn="span 4"
       gridRow="span 2"
-      p="30px"
+      p="15px"
       >
       <Typography variant="h4" gutterBottom textAlign={"center"} sx={{ color: colors.greenAccent[400] }}>
         TỔNG QUAN
       </Typography>
       {/* General personal information */}
+      <Grid container spacing={1}>
+        <Grid item xs = {6}>
+        <Box       
+          gap="20px"
+          gridColumn="span 4"
+          gridRow="span 2"
+          marginBottom="20px"
+          display="flex"
+          alignItems="center"
+        >
+          <div>
+            <Typography variant="h6" gutterBottom>
+              <Box component="span"  color={colors.greenAccent[400]}>ID: </Box> 
+               {selectedRowData.id}
+            </Typography>
 
+            <Typography variant="h6" gutterBottom> 
+              <Box component="span"  color={colors.greenAccent[400]}>Tình trạng: </Box> 
+               {selectedRowData.status}
+            </Typography>
+
+            <Typography variant="h6" gutterBottom> 
+              <Box component="span"  color={colors.greenAccent[400]}>Loại hình nhân viên: </Box> 
+               {selectedRowData.type}
+            </Typography>
+          </div>
+        </Box>
+        </Grid>
+        
+        <Grid item xs = {5}>
+          <Box mb="25px" width="100%" >
+              {/* Avatar */}
+              <Box display="flex" justifyContent="flex-end" alignItems="center">
+                <img
+                  alt="profile-user"
+                  width="80px"
+                  height="80px"
+                  src={`../../assets/user.png`}
+                  style={{ cursor: "pointer", borderRadius: "70%", margin: "0 15px 0 0" }}
+                />
+              </Box>
+              {/* Name */}
+              <Box textAlign="end">
+                <Typography
+                  variant="h6"
+                  color={colors.greenAccent[400]}
+                  sx={{ m: "10px 0 0 0" }}
+                >
+                  {selectedRowData.name}
+                </Typography>
+              </Box>
+          </Box>
+        </Grid>
+      </Grid>
       {/* Task history table */}
       <Typography variant="h6" gutterBottom sx={{ color: colors.greenAccent[400] }}>
         Lịch sử công việc
