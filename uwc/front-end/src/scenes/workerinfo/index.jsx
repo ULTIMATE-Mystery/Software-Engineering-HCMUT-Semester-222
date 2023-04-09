@@ -2,13 +2,12 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataWorkerInfo } from "../../data/mockData";
 import Header from "../../components/Header";
-import { Button, useTheme, TextField, Grid } from "@mui/material";
+import { Button, useTheme} from "@mui/material";
 import { Box } from "@mui/material";
 import React, { useState } from "react";
 import { MdArrowBack } from 'react-icons/md';
 import PersonalInfo from '../../components/Worker/workerDetail';
 import WorkerEdit from '../../components/Worker/workerEdit';
-import Card from '@mui/material/Card';
 
 const WorkerInfo = () => {
   const theme = useTheme();

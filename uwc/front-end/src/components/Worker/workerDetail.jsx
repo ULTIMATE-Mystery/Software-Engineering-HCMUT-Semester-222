@@ -13,20 +13,8 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import './glassmorphism.css';
 import { tokens } from "../../theme";
-import { colors } from '@mui/material';
 import { useState } from 'react';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9)
-];
 const useStyles = makeStyles((theme) => ({
   textField: {
     marginBottom: theme.spacing(2),
@@ -59,7 +47,6 @@ const PersonalInfo = ({ selectedRowData }) => {
   };
   return (
     <Box 
-      // sx={{ width: 1 }}
       className="glassmorphism"
       gap="20px"
       gridColumn="span 4"
@@ -99,29 +86,22 @@ const PersonalInfo = ({ selectedRowData }) => {
         </Box>
         </Grid>
         
-        <Grid item xs = {5}>
-          <Box mb="25px" width="100%" >
-              {/* Avatar */}
-              <Box display="flex" justifyContent="flex-end" alignItems="center">
-                <img
-                  alt="profile-user"
-                  width="80px"
-                  height="80px"
-                  src={`../../assets/user.png`}
-                  style={{ cursor: "pointer", borderRadius: "70%", margin: "0 15px 0 0" }}
-                />
-              </Box>
-              {/* Name */}
-              <Box textAlign="end">
-                <Typography
-                  variant="h6"
-                  color={colors.greenAccent[400]}
-                  sx={{ m: "10px 0 0 0" }}
-                >
-                  {selectedRowData.name}
-                </Typography>
-              </Box>
-          </Box>
+        <Grid item xs = {6}>
+        <Box 
+            display="flex" 
+            flexDirection="column" 
+            alignItems="center" 
+            ml={15}
+            mb="20px"
+        >
+          <img 
+            src={`../../assets/user.png`}
+            alt="personal-avt"
+            width="80px"
+            height="80px"
+          />
+          <Typography variant="h6" sx={{ color: colors.greenAccent[400] }}>{selectedRowData.name}</Typography>
+        </Box>
         </Grid>
       </Grid>
       {/* Task history table */}
