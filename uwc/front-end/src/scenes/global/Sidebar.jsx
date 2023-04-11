@@ -17,7 +17,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
-    <MenuItem
+    <MenuItem 
       active={selected === title}
       style={{
         color: colors.grey[100],
@@ -55,6 +55,9 @@ const Sidebar = () => {
         "& .pro-menu-item.active": {
           color: "#6870fa !important",
         },
+        // position: "fixed",
+        // width: 240,
+        // overflow: "hidden",
       }}
     >
       <ProSidebar collapsed={isCollapsed}>

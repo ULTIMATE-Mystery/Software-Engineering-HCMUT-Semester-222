@@ -1,16 +1,61 @@
 import { tokens } from "../../theme";
 import { Button, useTheme, TextField, Grid, Box, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from 'react';
+import axios from 'axios'; // import axios library for HTTP requests
 import './glassmorphism.css';
-
-
-const handleInfoChange = () => {
-
-};
 
 const WorkerEdit = ( {selectedRowData} ) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+
+    const [formValues, setFormValues] = useState({
+        // changed data
+        name: selectedRowData?.name,
+        gender: selectedRowData?.gender,
+        dob: selectedRowData?.dob,
+        phone: selectedRowData?.phone,
+        idcard: selectedRowData?.idcard,
+        email: selectedRowData?.email,
+        address: selectedRowData?.address,
+        // fixed data
+        id: selectedRowData?.id,
+        taskHistory: selectedRowData?.taskHistory,
+        status: selectedRowData?.status,
+        type: selectedRowData?.type,
+    });
+    
+    const handleFieldChange = (fieldName, fieldValue) => {
+    
+    setFormValues((prevFormValues) => ({
+        ...prevFormValues,
+        [fieldName]: fieldValue,
+    }));
+    };
+  
+    const handleApplyChange = () => {
+        console.log(formValues);
+        fetch(`http://localhost:5000/uwc/worker/6434e2f5e91d21c98788f8fa`, {
+            method: 'PUT',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formValues)
+        })
+        .then(response => {
+            if (response.ok) {
+                // Display success message
+                console.log('Data updated successfully');
+            } else if (response.status === 404) {
+                console.log('Error updating data: Resource not found');
+            } else {
+                console.log('Error updating data: ' + response.statusText);
+            }
+        })
+        .catch(error => {
+            console.error('Error updating data:', error);
+        });
+    };
+      
 
     return (    
         <Box 
@@ -33,6 +78,7 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Họ và tên"
                 defaultValue={selectedRowData?.name}
                 sx={{ gridColumn: "span 2", margin: "5px" }}
+                onChange={(e) => handleFieldChange("name", e.target.value)}
             />
             </Grid>
 
@@ -44,6 +90,7 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Giới tính"
                 defaultValue={selectedRowData?.gender}
                 sx={{ gridColumn: "span 2", margin: "5px" }}
+                onChange={(e) => handleFieldChange("gender", e.target.value)}
             />
             </Grid>
 
@@ -55,6 +102,7 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Ngày sinh"
                 defaultValue={selectedRowData?.dob}
                 sx={{ gridColumn: "span 2", margin: "5px" }}
+                onChange={(e) => handleFieldChange("dob", e.target.value)}
             />
             </Grid>
 
@@ -66,6 +114,7 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Số điện thoại"
                 defaultValue={selectedRowData?.phone}
                 sx={{ gridColumn: "span 2", margin: "5px" }}
+                onChange={(e) => handleFieldChange("phone", e.target.value)}
             />
             </Grid>
 
@@ -77,6 +126,7 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Chứng minh nhân dân"
                 defaultValue={selectedRowData?.idcard}
                 sx={{ gridColumn: "span 2", margin: "5px" }}
+                onChange={(e) => handleFieldChange("idcard", e.target.value)}
             />
             </Grid>
 
@@ -88,6 +138,7 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Email"
                 defaultValue={selectedRowData?.email}
                 sx={{ gridColumn: "span 2", margin: "5px" }}
+                onChange={(e) => handleFieldChange("email", e.target.value)}
             />
             </Grid>
 
@@ -99,6 +150,7 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Địa chỉ"
                 defaultValue={selectedRowData?.address}
                 sx={{ gridColumn: "span 2", margin: "5px", marginRight: "20px" }}
+                onChange={(e) => handleFieldChange("address", e.target.value)}
             />
             </Grid>
 
@@ -113,13 +165,12 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 }}
                 variant="outlined"
                 onClick={() => {
-                handleInfoChange();
+                handleApplyChange();
                 }}
             >
                 Thay đổi thông tin
             </Button>
             </Grid>
-
             </Grid>
 
             </Box>
