@@ -48,16 +48,16 @@ client.connect((err) => {
   console.log('Connected to MongoDB');
   
   // define endpoint to update a document
-  app.put('/uwc/worker/:id', async (req, res) => {
-    const id = req.params.id;
+  app.put('/uwc/worker/', async (req, res) => {
+    const userID = req.query.userID;
     const newData = req.body;
-  
+
     try {
       const database = client.db('uwc');
       const collection = database.collection('worker');
-      console.log(newData);
-      const result = await collection.updateOne({ _id: ObjectId(id) }, { $set: newData });
-  
+
+      const result = await collection.updateOne({ userID: userID }, { $set: newData });
+
       if (result.modifiedCount !== 1) {
         res.sendStatus(404);
         return;

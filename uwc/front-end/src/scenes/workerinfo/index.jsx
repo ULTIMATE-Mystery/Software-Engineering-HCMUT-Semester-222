@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import { MdArrowBack } from 'react-icons/md';
 import PersonalInfo from '../../components/Worker/workerDetail';
 import WorkerEdit from '../../components/Worker/workerEdit';
+import { ToastContainer } from 'react-toastify';
 
 const WorkerInfo = () => {
   const theme = useTheme();
@@ -20,7 +21,7 @@ const WorkerInfo = () => {
   const handleDetailClick = (params, rowId) => {
     // find the row data corresponding to the row id
 
-    const rowData = mockDataWorkerInfo.find((row) => row.id === rowId);
+    const rowData = mockDataWorkerInfo.find((row) => row.idUser === rowId);
     // console.log("Button clicked on row:", rowData);
     setSelectedRowData(rowData);
 
@@ -35,7 +36,7 @@ const WorkerInfo = () => {
 
   // draw table contains all workers info
   const columns = [
-    { field: "id", headerName: "ID", flex: 0.5, editable: true, },
+    { field: "idUser", headerName: "ID", flex: 0.5, editable: true, },
     {
       field: "name",
       headerName: "Họ và tên",
@@ -61,7 +62,7 @@ const WorkerInfo = () => {
             color="secondary"
             variant="outlined"
             onClick={() => {
-              handleDetailClick(params, row.id);
+              handleDetailClick(params, row.idUser);
             }}
           >
             Chi tiết
@@ -121,7 +122,7 @@ const WorkerInfo = () => {
         IsReadOnly="False"
         rows={mockDataWorkerInfo}
         columns={columns}
-        getRowId={(row) => row.id}
+        getRowId={(row) => row.idUser}
         components={{ Toolbar: GridToolbar }}
         initialState={{
           pagination: { paginationModel: { pageSize: 5 } },
@@ -164,7 +165,9 @@ const WorkerInfo = () => {
         </Box>
 
     </Box>
+    <ToastContainer hideProgressBar={true} limit={1} autoClose={3000}></ToastContainer>  
     </div>
+    
     )}
     </Box>
   );

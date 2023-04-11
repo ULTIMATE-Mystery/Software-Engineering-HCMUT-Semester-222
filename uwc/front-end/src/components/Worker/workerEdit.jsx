@@ -1,9 +1,10 @@
 import { tokens } from "../../theme";
 import { Button, useTheme, TextField, Grid, Box, Typography } from "@mui/material";
 import React, { useState } from 'react';
-import axios from 'axios'; // import axios library for HTTP requests
+// import axios from 'axios'; // import axios library for HTTP requests
 import './glassmorphism.css';
-
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const WorkerEdit = ( {selectedRowData} ) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
@@ -18,7 +19,7 @@ const WorkerEdit = ( {selectedRowData} ) => {
         email: selectedRowData?.email,
         address: selectedRowData?.address,
         // fixed data
-        id: selectedRowData?.id,
+        idUser: selectedRowData?.idUser,
         taskHistory: selectedRowData?.taskHistory,
         status: selectedRowData?.status,
         type: selectedRowData?.type,
@@ -34,16 +35,20 @@ const WorkerEdit = ( {selectedRowData} ) => {
   
     const handleApplyChange = () => {
         console.log(formValues);
-        fetch(`http://localhost:5000/uwc/worker/6434e2f5e91d21c98788f8fa`, {
+        toast.success("Thay đổi thông tin thành công", {position: toast.POSITION.TOP_RIGHT});
+        // fetch(`http://localhost:5000/uwc/worker/64344ac473ac3d54eb3417e5`, {
+        fetch(`http://localhost:5000/uwc/worker?idUser=${selectedRowData.idUser}`, {
             method: 'PUT',
             headers: {
-            'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(formValues)
         })
+              
         .then(response => {
             if (response.ok) {
                 // Display success message
+                
                 console.log('Data updated successfully');
             } else if (response.status === 404) {
                 console.log('Error updating data: Resource not found');
@@ -170,10 +175,12 @@ const WorkerEdit = ( {selectedRowData} ) => {
             >
                 Thay đổi thông tin
             </Button>
+            
             </Grid>
             </Grid>
-
+            
             </Box>
+            
     );
 }
 export default WorkerEdit;
