@@ -140,7 +140,7 @@ const Sidebar = () => {
             />
             <Item
               title="Xem nhiệm vụ"
-              to="/contacts"
+              to="/invoices"
               icon={<Icon icon="carbon:task-view" width="25" height="25"/>}
               selected={selected}
               setSelected={setSelected}
