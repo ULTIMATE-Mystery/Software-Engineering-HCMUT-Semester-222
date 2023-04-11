@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const WorkerEdit = ( {selectedRowData} ) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
-
+    
     const [formValues, setFormValues] = useState({
         // changed data
         name: selectedRowData?.name,
@@ -24,8 +24,9 @@ const WorkerEdit = ( {selectedRowData} ) => {
         taskHistory: selectedRowData?.taskHistory,
         status: selectedRowData?.status,
         type: selectedRowData?.type,
+        _id: selectedRowData?._id,
     });
-    
+        
     const handleFieldChange = (fieldName, fieldValue) => {
     
     setFormValues((prevFormValues) => ({
@@ -34,30 +35,30 @@ const WorkerEdit = ( {selectedRowData} ) => {
     }));
     };
 
-    const handleApplyChange = () => {
-        console.log(formValues);
-        toast.success("Thay đổi thông tin thành công", {position: toast.POSITION.TOP_RIGHT});
-        fetch(`http://localhost:5000/uwc/worker?idUser=${selectedRowData.idUser}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formValues)
+    function handleApplyChange() {
+        toast.success("Thay đổi thông tin thành công", { position: toast.POSITION.TOP_RIGHT });
+
+        fetch(`http://localhost:5000/uwc/worker/${formValues._id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formValues)
         })
-              
-        .then(response => {
-            if (response.ok) {
-                console.log('Data updated successfully');
-            } else if (response.status === 404) {
-                console.log('Error updating data: Resource not found');
-            } else {
-                console.log('Error updating data: ' + response.statusText);
-            }
-        })
-        .catch(error => {
-            console.error('Error updating data:', error);
-        });
-    };
+
+            .then(response => {
+                if (response.ok) {
+                    console.log('Data updated successfully');
+                } else if (response.status === 404) {
+                    console.log('Error updating data: Resource not found');
+                } else {
+                    console.log('Error updating data: ' + response.statusText);
+                }
+            })
+            .catch(error => {
+                console.error('Error updating data:', error);
+            });
+    }
       
 
     return (    

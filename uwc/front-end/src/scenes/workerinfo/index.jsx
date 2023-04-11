@@ -1,16 +1,40 @@
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { tokens } from "../../theme";
-// import { mockDataWorkerInfo } from "../../data/mockData";
-import Header from "../../components/Header";
-import { Button, useTheme} from "@mui/material";
-import { Box } from "@mui/material";
 import React, { useState, useEffect } from "react";
+import Header from "../../components/Header";
+import { tokens } from "../../theme";
+import { ToastContainer } from 'react-toastify';
+import '../../components/Worker/./glassmorphism.css';
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import { MdArrowBack } from 'react-icons/md';
 import PersonalInfo from '../../components/Worker/workerDetail';
 import WorkerEdit from '../../components/Worker/workerEdit';
-import { ToastContainer } from 'react-toastify';
+import { 
+  Box,
+  Button, 
+  useTheme,
+  Typography, 
+  Table, 
+  TableHead, 
+  TableRow, 
+  TableBody, 
+  TableCell, 
+  TablePagination,
+} from '@mui/material';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  textField: {
+    marginBottom: theme.spacing(2),
+  },
+  button: {
+    marginTop: theme.spacing(2),
+  },
+  tableCell: {
+    borderBottom: "none"
+  },
+}));
 
 const WorkerInfo = () => {
+  const classes = useStyles();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [workers, setWorkers] = useState([]);
@@ -25,7 +49,6 @@ const WorkerInfo = () => {
       .then(res => res.json())
       .then(data => {
         setWorkers(data.data);
-        console.log(data.data);
       })
       .catch(err => console.error(err));
   }, [updateInfo]);
@@ -33,8 +56,21 @@ const WorkerInfo = () => {
   const mockDataWorkerInfo = workers;
 
   const [detailInfor, setDetailInfor] = useState(false); // useState for worker infor detail
+
   const [selectedRowData, setSelectedRowData] = useState(null);
-  
+
+  const [page, setPage] = useState(0);
+
+  const [rowsPerPage, setRowsPerPage] = useState(5); // set the default rows per page to 5
+
+  const handleBackButtonClick = () => {
+    if (detailInfor) {
+      setDetailInfor(false);
+      setUpdateInfo(updateInfo + 1); // update the state variable to trigger a re-render
+    }
+    else setDetailInfor(true);
+  };
+
   // get detail infor on button click
   const handleDetailClick = (params, rowId) => {
     // find the row data corresponding to the row id
@@ -45,51 +81,31 @@ const WorkerInfo = () => {
     else setDetailInfor(true);
   };
 
-  const handleBackButtonClick = () => {
-    if (detailInfor) {
-      setDetailInfor(false);
-      setUpdateInfo(updateInfo + 1); // update the state variable to trigger a re-render
-    }
-    else setDetailInfor(true);
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
   };
 
-  // draw table contains all workers info
-  const columns = [
-    { field: "idUser", headerName: "ID", flex: 0.5, editable: true, },
-    {
-      field: "name",
-      headerName: "Họ và tên",
-      cellClassName: "name-column--cell",
-      flex: 1,
-    },
-    {
-      field: "type",
-      headerName: "Loại hình nhân viên",
-      flex: 1,
-    },
-    {
-      field: "status",
-      headerName: "Tình trạng",
-      cellClassName: (params) =>
-      params.value === 'Đang hoạt động' ? "green--cell" : params.value === 'Không hoạt động' ? "red--cell" : '',
-      flex: 1,
-    },
-    {
-      renderCell: ({ params, row }) => {
-        return (
-          <Button
-            color="secondary"
-            variant="outlined"
-            onClick={() => {
-              handleDetailClick(params, row.idUser);
-            }}
-          >
-            Chi tiết
-          </Button>
-        );
-      }
-    },    
-  ];
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
+  const renderButtonCell = ({ params, row }) => {
+    const handleClick = () => {
+      handleDetailClick(params, row.idUser);
+    };
+
+    return (
+        <Button endIcon={<DoubleArrowIcon />}
+          size="small" // or "medium" or "large"
+          color="secondary"
+          variant="outlined"
+          onClick={handleClick}
+        >
+          Chi tiết
+        </Button>
+    );
+  };
 
   return (
     <Box m="20px">
@@ -137,18 +153,74 @@ const WorkerInfo = () => {
           },
         }}
       >
-      <DataGrid
-        IsReadOnly="False"
-        rows={mockDataWorkerInfo}
-        columns={columns}
-        getRowId={(row) => row.idUser}
-        components={{ Toolbar: GridToolbar }}
-        initialState={{
-          pagination: { paginationModel: { pageSize: 5 } },
-        }}
-        pageSizeOptions={[5, 10, 25]}
-        className="my-table"
-      />
+      <Box 
+        className="glassmorphism"
+        gap="20px"
+        gridColumn="span 4"
+        gridRow="span 2"
+        p="15px"
+      >
+        <Table style={{backgroundColor: "transparent"}}>
+          <TableHead>
+            <TableRow>
+              <TableCell>
+                <Typography variant="h6" >
+                   Họ và tên
+                </Typography>
+              </TableCell>
+              <TableCell align="left">
+                <Typography variant="h6" >
+                  Loại hình nhân viên
+                </Typography>
+              </TableCell>
+              <TableCell align="left">
+                <Typography variant="h6" >
+                  Tình trạng
+                </Typography>
+              </TableCell>
+              <TableCell align="left"></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+          {mockDataWorkerInfo.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
+              <TableRow padding="100px"> {/* Add the padding property here */}
+                <TableCell component="th" scope="row" className={classes.tableCell} style={{ width: '30%' }}>
+                <Typography sx={{ color: colors.greenAccent[400] }}> {row.name} </Typography>
+                </TableCell>
+                <TableCell align="left" className={classes.tableCell}>{row.type}</TableCell>
+                <TableCell 
+                  align="l" 
+                  className={classes.tableCell}
+                  style={
+                    row.status === "Đang hoạt động"
+                      ? { color: colors.greenAccent[400]  }
+                      : row.status === "Không hoạt động"
+                      ? { color: colors.redAccent[400], }
+                      : { color: colors.grey[300]}
+                  }
+                >
+                  {row.status}
+                </TableCell>
+
+                <TableCell align="left" className={classes.tableCell} >
+                  {renderButtonCell({ row })}
+                  
+                </TableCell>
+              </TableRow >
+            ))}
+          </TableBody>
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 25]}
+            // component="div"
+            count={mockDataWorkerInfo.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </Table>
+      </Box>
+      
       </Box>
       }
       {

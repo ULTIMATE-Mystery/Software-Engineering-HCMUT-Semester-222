@@ -1,31 +1,3 @@
-// const { MongoClient } = require('mongodb');
-// const express = require('express');
-// const { connect } = require('http2');
-
-// const app = express();
-
-// var uri = "mongodb+srv://uwc20:noname@cluster0.uzuscca.mongodb.net/uwc?retryWrites=true&w=majority";
-// const client = new MongoClient(uri);
-
-// async function addDocument() {
-//   try {
-//     await client.connect();
-//     const database = client.db('uwc');
-//     const collection = database.collection('worker');
-
-//     const document = { name: 'John Doe', age: 30 };
-//     const result = await collection.insertOne(document);
-//     console.log(`Document inserted with ID: ${result.insertedId}`);
-//   } catch (err) {
-//     console.error(err);
-//   } finally {
-//     await client.close();
-//   }
-// }
-
-// addDocument();
-
-
 const express = require('express');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
@@ -48,27 +20,26 @@ client.connect((err) => {
   console.log('Connected to MongoDB');
   
   // edit worker infor
-  app.put('/uwc/worker/', async (req, res) => {
-    const userID = req.query.userID;
+  app.put('/uwc/worker/:id', async (req, res) => {
+    const id = req.body._id;
     const newData = req.body;
-
+    delete req.body._id;
     try {
       const database = client.db('uwc');
       const collection = database.collection('worker');
-
-      const result = await collection.updateOne({ userID: userID }, { $set: newData });
-
+      const result = await collection.updateOne({ _id:new ObjectId(req.params.id) }, { $set: newData });
+  
       if (result.modifiedCount !== 1) {
-        res.sendStatus(404);
-        return;
+        return res.sendStatus(404);
       }
   
-      res.sendStatus(200);
+      return res.sendStatus(200);
     } catch (err) {
       console.error(err);
-      res.sendStatus(500);
+      return res.sendStatus(500);
     }
   });
+  
   
   // get all collection from mongo
   app.get('/uwc/worker', async (req, res) => {
@@ -77,12 +48,13 @@ client.connect((err) => {
       const database = client.db('uwc');
       const collection = database.collection('worker');
       const workers = await collection.find().toArray();
-      // res.json(workers);
+      // return res.json(workers);
       // console.log(workers);
-      res.send({ data: workers });
+      return res.send({ data: workers });
+      console.log(data);
 
     } catch (err) {
-      res.status(500).json({ error: err.message });
+      return res.sendStatus(500);
     }
   });
   
