@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import './glassmorphism.css';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 const WorkerEdit = ( {selectedRowData} ) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
@@ -32,11 +33,10 @@ const WorkerEdit = ( {selectedRowData} ) => {
         [fieldName]: fieldValue,
     }));
     };
-  
+
     const handleApplyChange = () => {
         console.log(formValues);
         toast.success("Thay đổi thông tin thành công", {position: toast.POSITION.TOP_RIGHT});
-        // fetch(`http://localhost:5000/uwc/worker/64344ac473ac3d54eb3417e5`, {
         fetch(`http://localhost:5000/uwc/worker?idUser=${selectedRowData.idUser}`, {
             method: 'PUT',
             headers: {
@@ -47,8 +47,6 @@ const WorkerEdit = ( {selectedRowData} ) => {
               
         .then(response => {
             if (response.ok) {
-                // Display success message
-                
                 console.log('Data updated successfully');
             } else if (response.status === 404) {
                 console.log('Error updating data: Resource not found');

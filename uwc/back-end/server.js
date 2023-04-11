@@ -47,7 +47,7 @@ client.connect((err) => {
   }
   console.log('Connected to MongoDB');
   
-  // define endpoint to update a document
+  // edit worker infor
   app.put('/uwc/worker/', async (req, res) => {
     const userID = req.query.userID;
     const newData = req.body;
@@ -70,6 +70,23 @@ client.connect((err) => {
     }
   });
   
+  // get all collection from mongo
+  app.get('/uwc/worker', async (req, res) => {
+    console.log('Accessed /uwc/worker route'); // added line
+    try {
+      const database = client.db('uwc');
+      const collection = database.collection('worker');
+      const workers = await collection.find().toArray();
+      // res.json(workers);
+      // console.log(workers);
+      res.send({ data: workers });
+
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+  
+
   // start the server
   const port = process.env.PORT || 5000;
   app.listen(port, () => {

@@ -1,10 +1,10 @@
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataWorkerInfo } from "../../data/mockData";
+// import { mockDataWorkerInfo } from "../../data/mockData";
 import Header from "../../components/Header";
 import { Button, useTheme} from "@mui/material";
 import { Box } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MdArrowBack } from 'react-icons/md';
 import PersonalInfo from '../../components/Worker/workerDetail';
 import WorkerEdit from '../../components/Worker/workerEdit';
@@ -13,16 +13,32 @@ import { ToastContainer } from 'react-toastify';
 const WorkerInfo = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [workers, setWorkers] = useState([]);
+
+  const [updateInfo, setUpdateInfo] = useState(0); // use to re-render back button
+
+  // get worker collection from mongo
+  useEffect(() => {
+    fetch('http://localhost:5000/uwc/worker', {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(data => {
+        setWorkers(data.data);
+        console.log(data.data);
+      })
+      .catch(err => console.error(err));
+  }, [updateInfo]);
+
+  const mockDataWorkerInfo = workers;
 
   const [detailInfor, setDetailInfor] = useState(false); // useState for worker infor detail
   const [selectedRowData, setSelectedRowData] = useState(null);
-
+  
   // get detail infor on button click
   const handleDetailClick = (params, rowId) => {
     // find the row data corresponding to the row id
-
     const rowData = mockDataWorkerInfo.find((row) => row.idUser === rowId);
-    // console.log("Button clicked on row:", rowData);
     setSelectedRowData(rowData);
 
     if (detailInfor) setDetailInfor(false);
@@ -30,7 +46,10 @@ const WorkerInfo = () => {
   };
 
   const handleBackButtonClick = () => {
-    if (detailInfor) setDetailInfor(false);
+    if (detailInfor) {
+      setDetailInfor(false);
+      setUpdateInfo(updateInfo + 1); // update the state variable to trigger a re-render
+    }
     else setDetailInfor(true);
   };
 
