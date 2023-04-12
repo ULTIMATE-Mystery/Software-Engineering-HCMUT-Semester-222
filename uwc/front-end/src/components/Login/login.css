@@ -2,9 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
 
 .login-page{
-  background: rgb(34,193,195);
-  background: linear-gradient(135deg, rgba(34,193,195,1) 0%,     rgba(253,187,45,1) 100%);
+  /* background: rgb(34,193,195); */
+  /* background: linear-gradient(135deg, rgb(9, 94, 231) 0%,     rgb(3, 23, 242) 100%); */
+  margin: 0;
+  padding: 0;
   font-family: "work sans";
+  /* background-image: url("https://img.freepik.com/free-photo/ecology-friendly-energy-environment-sustainable-concept_53876-120923.jpg?w=996&t=st=1681267277~exp=1681267877~hmac=3ba7dede5d98a5c033b82f8038ca1ba926eacc12ff2832f69f17adea68b4178c"); */
+  /* background-image: url("https://e1.pxfuel.com/desktop-wallpaper/407/1022/desktop-wallpaper-website-backgrounds-login-page.jpg"); */
+
+  background-size: cover;
 }
 
 html{
@@ -140,4 +146,9 @@ html{
    margin-top: 1.5rem;
 }
 
+
+.login-button {
+  background: rgb(34,193,195);
+  background: linear-gradient(135deg, rgb(10, 140, 227) 25%,     rgb(67, 5, 144) 100%);
+}
 

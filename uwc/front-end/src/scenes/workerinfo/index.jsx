@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WorkerInfo = () => {
+const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
   const classes = useStyles();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -49,11 +49,16 @@ const WorkerInfo = () => {
       .then(res => res.json())
       .then(data => {
         setWorkers(data.data);
-      })
+        setAllUserAccount(data.data);
+              })
       .catch(err => console.error(err));
   }, [updateInfo]);
 
   const mockDataWorkerInfo = workers;
+
+  const user = mockDataWorkerInfo.find((u) => u._id === userID);
+
+  setUserLogin(user);
 
   const [detailInfor, setDetailInfor] = useState(false); // useState for worker infor detail
 

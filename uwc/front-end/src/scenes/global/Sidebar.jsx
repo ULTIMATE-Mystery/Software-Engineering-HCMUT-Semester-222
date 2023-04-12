@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -31,12 +31,14 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-const Sidebar = () => {
+const Sidebar = ({userLogin}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
 
+  console.log(userLogin);
+  
   return (
     <Box
       sx={{
@@ -106,10 +108,10 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Nguyen Van A
+                  {userLogin && userLogin.name ? userLogin.name : "Unknown user"}
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]} fontWeight="lighter" fontStyle = "italic">
-                  Back Officer
+                {userLogin && userLogin.type ? userLogin.type : "Unknown user type"}
                 </Typography>
               </Box>
             </Box>

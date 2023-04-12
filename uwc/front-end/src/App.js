@@ -77,15 +77,19 @@ function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
   const [authenticated, setAuthenticated] = useState(
-	localStorage.getItem("authenticated") === "true"
+	  localStorage.getItem("authenticated") === "false"
   );
+
+  const [allUserAccount, setAllUserAccount] = useState({ allUserAccount: null });
+  const [userID, setUserID] = useState({ userID: null });
+  const [userLogin, setUserLogin] = useState({userLogin: null});
   
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-		  {authenticated && <Sidebar isSidebar={isSidebar} />}
+		  {authenticated && <Sidebar userLogin = {userLogin} isSidebar={isSidebar} />}
           <main className="content">
 		  {authenticated &&  <Topbar setIsSidebar={setIsSidebar} />}
             <Routes>
@@ -95,7 +99,12 @@ function App() {
 					authenticated ? (
 						<Navigate to="/" replace state={{ from: '/' }} />
 					) : (
-						<LoginPage setAuthenticated={setAuthenticated}/>
+						<LoginPage 
+              setAuthenticated={setAuthenticated}
+              setUserID={setUserID}
+              setAllUserAccount={setAllUserAccount}
+              setUserLogin={setUserLogin}
+            />
 					)
 				  }
               />
@@ -124,7 +133,11 @@ function App() {
                 path="/workerinfo"
                 element={
                   authenticated ? (
-                    <WorkerInfo />
+                    <WorkerInfo 
+                    setAllUserAccount={setAllUserAccount}
+                    setUserLogin={setUserLogin}
+                    userID={userID}
+                    />
                   ) : (
                     <Navigate to="/login" replace state={{ from: '/' }} />
                   )

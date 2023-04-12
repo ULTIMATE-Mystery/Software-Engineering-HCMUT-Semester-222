@@ -1,25 +1,3 @@
-// import React from 'react';
-// import Login from '../../components/Login/login';
-// import { Box } from '@mui/material';
-
-// const LoginPage = ({ setAuthenticated }) => {
-//     const onLogin = () => {
-//       setAuthenticated(true);
-//     };
-  
-//     return (
-//       <Box>
-//         <Login onLogin={onLogin} />
-//       </Box>
-//     );
-//   };
-  
-  
-  
-
-// export default LoginPage;
-
-
 import React, { useState, useEffect } from 'react';
 import { Box, Button, TextField, Typography, Grid } from '@mui/material';
 import { SocialIcon } from 'react-social-icons';
@@ -28,18 +6,40 @@ import { toast, ToastContainer } from 'react-toastify';
 import '../../components/Login/./login.css';
 import '../../components/Worker/./glassmorphism.css';
 
-const LoginPage = ( {setAuthenticated}) => {
+const LoginPage = ( {setAuthenticated, setUserID, setAllUserAccount, setUserLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [account, setAccount] = useState([]); 
+  const [localUser, setLocalUser] = useState([]);
 
   useEffect(() => {
+    // get all account from mongo
+    fetch('http://localhost:5000/uwc/account', {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(data => {
+        setAccount(data.data);
+        
+    })
+    .catch(err => console.error(err));
+
+    fetch('http://localhost:5000/uwc/worker', {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(data => {
+        setAllUserAccount(data.data);
+        setLocalUser(data.data);
+    })
+    .catch(err => console.error(err));
     // document.body.classList.add('login-page');
     document.body.classList.add('login-page');
     return () => {
       document.body.classList.remove('login-page');
     }
   }, []);
-
+    
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -49,22 +49,33 @@ const LoginPage = ( {setAuthenticated}) => {
   };
 
   const handleSubmit = (event) => {
-    if (email === "admin@g" && password === "123") {
+
+    const user = account.find((u) => u.username === email && u.password === password);
+
+    if (user) {
       toast.success("Login success");
       localStorage.setItem("authenticated", true);
       setAuthenticated(true);
+      console.log(`User ${user.username} logged in as ${user.userType}`);
+      setUserID(user.workerID);
+      setUserLogin(localUser.find((u) => u._id == user.workerID));
+
     } else {
-      toast.error("Login failed");
+      const errorMsg = account.some((u) => u.username === email)
+        ? "Wrong password"
+        : "User does not exist";
+      toast.error(errorMsg);
     }
+    
     event.preventDefault();
+    
   };
   
-
   return (
     <Box
       className="loginGlass"
       sx={{
-        width: '300px',
+        // width: '300px',
         height: 'auto',
         p: '15px',
         position: 'absolute',

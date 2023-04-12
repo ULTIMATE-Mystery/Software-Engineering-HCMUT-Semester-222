@@ -59,6 +59,41 @@ client.connect((err) => {
   });
   
 
+  // get all collection from mongo
+  app.get('/uwc/account', async (req, res) => {
+    console.log('Accessed /uwc/account route'); // added line
+    try {
+      const database = client.db('uwc');
+      const collection = database.collection('account');
+      const account = await collection.find().toArray();
+      // return res.json(workers);
+      // console.log(workers);
+      return res.send({ data: account });
+      // console.log(data);
+
+    } catch (err) {
+      return res.sendStatus(500);
+    }
+  });
+
+  // // get specify collection from mongo
+  // app.get('/uwc/worker/:id', async (req, res) => {
+  //   console.log('Accessed /uwc/worker route'); 
+  //   try {
+  //     const database = client.db('uwc');
+  //     const collection = database.collection('worker');
+  //     const account = await collection.findOne({ _id: ObjectId(req.params.id) });
+  //     if (!account) {
+  //       return res.status(404).send({ error: 'Worker not found' });
+  //     }
+  //     return res.send({ data: account });
+  //   } catch (err) {
+  //     console.error(err);
+  //     return res.sendStatus(500);
+  //   }
+  // });
+  
+
   // start the server
   const port = process.env.PORT || 5000;
   app.listen(port, () => {
