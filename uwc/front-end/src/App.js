@@ -28,7 +28,8 @@ function App() {
   const [allUserAccount, setAllUserAccount] = useState({ allUserAccount: null });
   const [userID, setUserID] = useState({ userID: null });
   const [userLogin, setUserLogin] = useState({userLogin: null});
-  
+  const [userAccount, setUserAccount] = useState([]); 
+
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
@@ -49,6 +50,7 @@ function App() {
                       setUserID={setUserID}
                       setAllUserAccount={setAllUserAccount}
                       setUserLogin={setUserLogin}
+                      setUserAccount={setUserAccount}
                     />
                   )
                   }
@@ -57,7 +59,7 @@ function App() {
                 path="/account"
                 element={
                   authenticated ? (
-                    <EditInfor 
+                    <EditInfor userAccount={userAccount} setUserAccount={setUserAccount}
                     />
                   ) : (
                     <Navigate to="/login" replace state={{ from: '/' }} />

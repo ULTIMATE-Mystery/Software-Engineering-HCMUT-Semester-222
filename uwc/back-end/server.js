@@ -5,7 +5,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const ObjectId = require('mongodb').ObjectId;
 
-const url = process.env.REACT_APP_MONGO_APP;
+const url = "mongodb+srv://uwc20:noname@cluster0.uzuscca.mongodb.net/uwc?retryWrites=true&w=majority";
 const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(cors());
@@ -40,7 +40,28 @@ client.connect((err) => {
     }
   });
   
+  // edit worker password
+  app.put('/uwc/account/:id', async (req, res) => {
+    const newData = {
+      password: req.body.newPassword
+    };
+    
+    try {
+      const database = client.db('uwc');
+      const collection = database.collection('account');
+      const result = await collection.updateOne({ _id:new ObjectId(req.params.id) }, { $set: newData });
   
+      if (result.modifiedCount !== 1) {
+        return res.sendStatus(404);
+      }
+  
+      return res.sendStatus(200);
+    } catch (err) {
+      console.error(err);
+      return res.sendStatus(500);
+    }
+  });
+
   // get all collection from mongo
   app.get('/uwc/worker', async (req, res) => {
     console.log('Accessed /uwc/worker route'); // added line

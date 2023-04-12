@@ -17,9 +17,7 @@ import { AiOutlineHome }  from "react-icons/ai";
 export const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  console.log("title",title);
-  console.log("to",to);
-  console.log("selected",selected);
+
   return (
     <MenuItem 
       active={selected === title}

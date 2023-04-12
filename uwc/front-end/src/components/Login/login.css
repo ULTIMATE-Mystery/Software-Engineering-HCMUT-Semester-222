@@ -152,3 +152,6 @@ html{
   background: linear-gradient(135deg, rgb(10, 140, 227) 25%,     rgb(67, 5, 144) 100%);
 }
 
+.Button .SocialIcon {
+  color: #000000; /* your preferred color here */
+}

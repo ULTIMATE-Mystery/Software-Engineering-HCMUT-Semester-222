@@ -1,16 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Button, TextField, Typography, Grid } from '@mui/material';
 import { SocialIcon } from 'react-social-icons';
-import { Link } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { IconButton, InputAdornment } from "@mui/material";
 import '../../components/Login/./login.css';
 import '../../components/Worker/./glassmorphism.css';
 
-const LoginPage = ( {setAuthenticated, setUserID, setAllUserAccount, setUserLogin }) => {
+const LoginPage = ( {setAuthenticated, setUserID, setAllUserAccount, setUserLogin, setUserAccount }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [account, setAccount] = useState([]); 
   const [localUser, setLocalUser] = useState([]);
+
+  const [showPassword, setShowPassword] = useState(false);
+
+
+  const handleClickShowPassword = (index) => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
 
   useEffect(() => {
     // get all account from mongo
@@ -20,7 +32,6 @@ const LoginPage = ( {setAuthenticated, setUserID, setAllUserAccount, setUserLogi
       .then(res => res.json())
       .then(data => {
         setAccount(data.data);
-        
     })
     .catch(err => console.error(err));
 
@@ -49,21 +60,22 @@ const LoginPage = ( {setAuthenticated, setUserID, setAllUserAccount, setUserLogi
   };
 
   const handleSubmit = (event) => {
-
+    
     const user = account.find((u) => u.username === email && u.password === password);
+    setUserAccount(user);
 
     if (user) {
-      toast.success("Login success");
+      toast.success("Đăng nhập thành công");
       localStorage.setItem("authenticated", true);
       setAuthenticated(true);
       console.log(`User ${user.username} logged in as ${user.userType}`);
       setUserID(user.workerID);
-      setUserLogin(localUser.find((u) => u._id == user.workerID));
+      setUserLogin(localUser.find((u) => u._id === user.workerID));
 
     } else {
       const errorMsg = account.some((u) => u.username === email)
-        ? "Wrong password"
-        : "User does not exist";
+        ? "Sai mật khẩu"
+        : "Tài khoản không tồn tại";
       toast.error(errorMsg);
     }
     
@@ -72,10 +84,11 @@ const LoginPage = ( {setAuthenticated, setUserID, setAllUserAccount, setUserLogi
   };
   
   return (
+    // <Box m="50px" >
     <Box
-      className="loginGlass"
+      className="glassmorphism"
       sx={{
-        // width: '300px',
+        width: '300px',
         height: 'auto',
         p: '15px',
         position: 'absolute',
@@ -90,32 +103,58 @@ const LoginPage = ( {setAuthenticated, setUserID, setAllUserAccount, setUserLogi
       <Typography variant="h4" gutterBottom textAlign="center" marginBottom={5}>
         Login
       </Typography>
-      <form onSubmit={handleSubmit}>
-        <Box gap="20px" sx={{ width: '100%', mb: '10px', justifyContent: 'center' }}>
+      <form onSubmit={handleSubmit} autocomplete="off">
+
+      <Box gap="20px" sx={{ width: '100%', mb: '10px', justifyContent: 'center' }}>
           <TextField
+            inputProps={{
+              autocomplete: 'new-password',
+              form: {
+                autocomplete: 'off',
+              },
+            }}
             fullWidth
             variant="outlined"
             type="email"
             label="Email"
             placeholder="Nhập email của bạn"
             value={email}
-            sx={{ gridColumn: 'span 2', margin: '5px' }}
+            sx={{
+              gridColumn: 'span 2',
+              margin: '5px',
+            }}
             onChange={handleEmailChange}
-            inputProps={{ autoComplete: 'off' }}
           />
         </Box>
         <Box gap="20px" sx={{ width: '100%', mb: '10px', justifyContent: 'center' }}>
           <TextField
-            fullWidth
-            variant="outlined"
-            type="password"
-            label="Password"
-            placeholder="Nhập mật khẩu của bạn"
-            value={password}
-            sx={{ gridColumn: 'span 2', margin: '5px' }}
-            onChange={handlePasswordChange}
-            inputProps={{ autoComplete: 'off' }}
-          />
+              inputProps={{
+                autocomplete: 'new-password',
+                form: {
+                  autocomplete: 'off',
+                },
+              }}
+              fullWidth
+              variant="outlined"
+              type={showPassword ? "text" : "password"}
+              label="Mật khẩu của bạn"
+              value={password}
+              onChange={handlePasswordChange}
+              sx={{ gridColumn: 'span 2', margin: '5px' }}
+              InputProps={{
+              endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={() => handleClickShowPassword(0)}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+              ),
+              }}
+            />
         </Box>
         <Button 
             fullWidth 
@@ -149,7 +188,7 @@ const LoginPage = ( {setAuthenticated, setUserID, setAllUserAccount, setUserLogi
 
                 <Grid item xs = {4}>
                     <Button>
-                        <SocialIcon url="https://github.com" />
+                        <SocialIcon url="https://github.com" className='SocialIcon' />
                     </Button>
                     
                 </Grid>
@@ -158,6 +197,7 @@ const LoginPage = ( {setAuthenticated, setUserID, setAllUserAccount, setUserLogi
       </form>
       <ToastContainer hideProgressBar={true} limit={1} autoClose={3000}></ToastContainer>  
     </Box>
+    // </Box>
   );
 }
 
