@@ -13,9 +13,13 @@ import { FaRoute, FaCarAlt } from "react-icons/fa";
 import { MdAssignmentAdd } from "react-icons/md";
 import { Icon } from '@iconify/react';
 import { AiOutlineHome }  from "react-icons/ai";
-const Item = ({ title, to, icon, selected, setSelected }) => {
+
+export const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  console.log("title",title);
+  console.log("to",to);
+  console.log("selected",selected);
   return (
     <MenuItem 
       active={selected === title}
@@ -37,8 +41,6 @@ const Sidebar = ({userLogin}) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
 
-  console.log(userLogin);
-  
   return (
     <Box
       sx={{

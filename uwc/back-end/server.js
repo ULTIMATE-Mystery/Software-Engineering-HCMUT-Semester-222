@@ -5,7 +5,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const ObjectId = require('mongodb').ObjectId;
 
-const url = 'mongodb+srv://uwc20:noname@cluster0.uzuscca.mongodb.net/uwc?retryWrites=true&w=majority';
+const url = process.env.REACT_APP_MONGO_APP;
 const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(cors());

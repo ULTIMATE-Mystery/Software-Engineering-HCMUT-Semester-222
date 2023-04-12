@@ -1,4 +1,4 @@
-import { Box, IconButton, useTheme } from "@mui/material";
+import { Box, IconButton, useTheme, Typography } from "@mui/material";
 import { useContext, useState } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 import InputBase from "@mui/material/InputBase";
@@ -6,17 +6,11 @@ import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import { BsChatDots } from "react-icons/bs";
-import { Tooltip } from "@mui/material";
+import AccountButton from '../../components/Dropdown/account';
 
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-
-
-const Topbar = () => {
+const Topbar = ({setAuthenticated }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
@@ -31,6 +25,9 @@ const Topbar = () => {
     setAnchorEl(null);
   };
 
+  const handleSettingsHover = () => {
+    console.log("test");
+  }
   const open = Boolean(anchorEl);
 
   return (
@@ -63,12 +60,12 @@ const Topbar = () => {
           <BsChatDots />
         </IconButton>
 
-       <IconButton >
-          <SettingsOutlinedIcon />
+       <IconButton onMouseEnter={handleSettingsHover}>
+          <SettingsOutlinedIcon/>
         </IconButton> 
-        
+
         <IconButton>
-          <PersonOutlinedIcon />
+          <AccountButton setAuthenticated={setAuthenticated } />
         </IconButton>
       </Box>
     </Box>
