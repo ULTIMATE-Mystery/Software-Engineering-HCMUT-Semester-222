@@ -12,6 +12,10 @@ const EditInfor = ( {userAccount, setUserAccount} ) => {
     const [showPasswordNew, setShowPasswordNew] = useState(false);
     const [showPasswordNewConfirm, setShowPasswordNewConfirm] = useState(false);
 
+    const [oldPassword, setOldPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [confirmNewPassword, setConfirmNewpassword] = useState('');
+
     const handleClickShowPassword = (index) => {
       if (!index) setShowPassword(!showPassword);
       else if (index === 1) setShowPasswordNew(!showPasswordNew);
@@ -26,19 +30,26 @@ const EditInfor = ( {userAccount, setUserAccount} ) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     
-    const [formValues, setFormValues] = useState({
-      _id: userAccount?._id,
-    });
+    // const [formValues, setFormValues] = useState({
+    //   _id: userAccount?._id,
+    // });
         
-    const handleFieldChange = (fieldName, fieldValue) => {
+    // const handleFieldChange = (fieldName, fieldValue) => {
     
-    setFormValues((prevFormValues) => ({
-        ...prevFormValues,
-        [fieldName]: fieldValue,
-    }));
-    };
+    // setFormValues((prevFormValues) => ({
+    //     ...prevFormValues,
+    //     [fieldName]: fieldValue,
+    // }));
+    // };
 
+    const formValues = {
+      oldPassword: oldPassword,
+      newPassword: newPassword,
+      confirmNewPassword: confirmNewPassword,
+      _id: userAccount?._id,
+    }
     const handleApplyChange = () => {
+      console.log(formValues);
       if (formValues.oldPassword !== userAccount.password) {
         toast.error("Mật khẩu không chính xác", { 
           position: toast.POSITION.TOP_RIGHT,
@@ -79,14 +90,10 @@ const EditInfor = ( {userAccount, setUserAccount} ) => {
             .catch(error => {
                 console.error('Error updating data:', error);
             });
-        
-
-        
       }
  
     }
       
-
     return (  
       <Box m="20px">
         <ToastContainer hideProgressBar={true} limit={1} autoClose={3000}></ToastContainer>  
@@ -123,7 +130,7 @@ const EditInfor = ( {userAccount, setUserAccount} ) => {
               type={showPassword ? "text" : "password"}
               label="Mật khẩu cũ"
               value={formValues.oldPassword}
-              onChange={handleFieldChange}
+              onChange={(e) => setOldPassword(e.target.value)}
               InputProps={{
               endAdornment: (
               <InputAdornment position="end">
@@ -153,7 +160,7 @@ const EditInfor = ( {userAccount, setUserAccount} ) => {
               type={showPasswordNew ? "text" : "password"}
               label="Mật khẩu mới"
               value={formValues.newPassword}
-              onChange={handleFieldChange}
+              onChange={(e) => setNewPassword(e.target.value)}
               InputProps={{
               endAdornment: (
               <InputAdornment position="end">
@@ -183,7 +190,7 @@ const EditInfor = ( {userAccount, setUserAccount} ) => {
               type={showPasswordNewConfirm ? "text" : "password"}
               label="Nhập lại mật khẩu mới"
               value={formValues.confirmNewPassword}
-              onChange={handleFieldChange}
+              onChange={(e) => setConfirmNewpassword(e.target.value)}
               InputProps={{
               endAdornment: (
               <InputAdornment position="end">

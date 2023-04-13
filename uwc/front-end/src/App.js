@@ -17,6 +17,7 @@ import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
 import LoginPage from "./scenes/login/login";
 import EditInfor from "./scenes/account";
+import SignUpPage from "./scenes/signup/signup";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -55,6 +56,9 @@ function App() {
                   )
                   }
               />
+
+              <Route path="/signup" element={<SignUpPage/>} />
+
               <Route
                 path="/account"
                 element={
@@ -66,6 +70,7 @@ function App() {
                   )
                 }
               />
+
               <Route
                 path="/"
                 element={
