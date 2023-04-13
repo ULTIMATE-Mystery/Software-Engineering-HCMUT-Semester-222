@@ -10,6 +10,7 @@ const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology:
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
 
 // connect to MongoDB
 client.connect((err) => {
@@ -72,7 +73,6 @@ client.connect((err) => {
       // return res.json(workers);
       // console.log(workers);
       return res.send({ data: workers });
-      console.log(data);
 
     } catch (err) {
       return res.sendStatus(500);
@@ -94,6 +94,35 @@ client.connect((err) => {
 
     } catch (err) {
       return res.sendStatus(500);
+    }
+  });
+
+  // insert new user account
+  app.post('/uwc/worker', async (req, res) => {
+    const newAccount = req.body;
+    
+    try {
+      await client.connect();
+      const db = client.db('uwc');
+      const result = await db.collection('worker').insertOne(newAccount);
+      res.status(201).send(result.insertedId);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Something went wrong.');
+    }
+  });
+
+  app.post('/uwc/account', async (req, res) => {
+    const newAccount = req.body;
+    
+    try {
+      await client.connect();
+      const db = client.db('uwc');
+      const result = await db.collection('account').insertOne(newAccount);
+      res.status(201).send(result.insertedId);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Something went wrong.');
     }
   });
 
