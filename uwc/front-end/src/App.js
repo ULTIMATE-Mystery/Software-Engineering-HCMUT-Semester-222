@@ -18,6 +18,7 @@ import Calendar from "./scenes/calendar/calendar";
 import LoginPage from "./scenes/login/login";
 import EditInfor from "./scenes/account";
 import SignUpPage from "./scenes/signup/signup";
+import ChatsPage from "./scenes/chat/chat";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -30,6 +31,7 @@ function App() {
   const [userID, setUserID] = useState({ userID: null });
   const [userLogin, setUserLogin] = useState({userLogin: null});
   const [userAccount, setUserAccount] = useState([]); 
+  const [user, setUser] = useState(undefined);
 
   return (
     <ColorModeContext.Provider value={colorMode}>
@@ -52,6 +54,7 @@ function App() {
                       setAllUserAccount={setAllUserAccount}
                       setUserLogin={setUserLogin}
                       setUserAccount={setUserAccount}
+                      setUser={setUser}
                     />
                   )
                   }
@@ -81,7 +84,18 @@ function App() {
                   )
                 }
               />
-			  
+
+              <Route
+                path="/chat"
+                element={
+                  authenticated ? (
+                    <ChatsPage user={user}/>
+                  ) : (
+                    <Navigate to="/login" replace state={{ from: '/' }} />
+                  )
+                }
+              />
+
               <Route
                 path="/team"
                 element={

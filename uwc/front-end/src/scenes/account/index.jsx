@@ -46,7 +46,7 @@ const EditInfor = ( {userAccount, setUserAccount} ) => {
       oldPassword: oldPassword,
       newPassword: newPassword,
       confirmNewPassword: confirmNewPassword,
-      _id: userAccount?._id,
+      _id: userAccount._id,
     }
     const handleApplyChange = () => {
       console.log(formValues);
@@ -119,12 +119,12 @@ const EditInfor = ( {userAccount, setUserAccount} ) => {
             <Grid container spacing={1} sx={{ width: "100%" }}>
             <Grid item xs={12}>
             <TextField
-              inputProps={{
-                autocomplete: 'new-password',
-                form: {
-                  autocomplete: 'off',
-                },
-              }}
+              // inputProps={{
+              //   autocomplete: 'new-password',
+              //   form: {
+              //     autocomplete: 'off',
+              //   },
+              // }}
               fullWidth
               variant="outlined"
               type={showPassword ? "text" : "password"}
@@ -149,12 +149,12 @@ const EditInfor = ( {userAccount, setUserAccount} ) => {
 
             <Grid item xs={12}>
             <TextField
-              inputProps={{
-                autocomplete: 'new-password',
-                form: {
-                  autocomplete: 'off',
-                },
-              }}
+              // inputProps={{
+              //   autocomplete: 'new-password',
+              //   form: {
+              //     autocomplete: 'off',
+              //   },
+              // }}
               fullWidth
               variant="outlined"
               type={showPasswordNew ? "text" : "password"}
@@ -179,12 +179,12 @@ const EditInfor = ( {userAccount, setUserAccount} ) => {
 
             <Grid item xs={12}>
             <TextField
-              inputProps={{
-                autocomplete: 'new-password',
-                form: {
-                  autocomplete: 'off',
-                },
-              }}
+              // inputProps={{
+              //   autocomplete: 'new-password',
+              //   form: {
+              //     autocomplete: 'off',
+              //   },
+              // }}
               fullWidth
               variant="outlined"
               type={showPasswordNewConfirm ? "text" : "password"}

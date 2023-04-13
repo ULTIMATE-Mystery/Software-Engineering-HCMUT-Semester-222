@@ -9,6 +9,8 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import { BsChatDots } from "react-icons/bs";
 import AccountButton from '../../components/Dropdown/account';
+import ChatsPage from '../../components/Chat/chat';
+import { Link } from 'react-router-dom';
 
 const Topbar = ({setAuthenticated }) => {
   const theme = useTheme();
@@ -57,7 +59,9 @@ const Topbar = ({setAuthenticated }) => {
           <NotificationsOutlinedIcon />
         </IconButton>
         <IconButton>
-          <BsChatDots />
+          <Link to="/chat">
+            <BsChatDots />
+          </Link>
         </IconButton>
 
        <IconButton onMouseEnter={handleSettingsHover}>
