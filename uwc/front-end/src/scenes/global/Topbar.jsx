@@ -28,7 +28,6 @@ const Topbar = ({setAuthenticated }) => {
   };
 
   const handleSettingsHover = () => {
-    console.log("test");
   }
   const open = Boolean(anchorEl);
 
@@ -58,11 +57,12 @@ const Topbar = ({setAuthenticated }) => {
         <IconButton>
           <NotificationsOutlinedIcon />
         </IconButton>
-        <IconButton>
-          <Link to="/chat">
+        <IconButton >
+          <Link to="/chat" style={{ color: 'inherit' }}>
             <BsChatDots />
           </Link>
         </IconButton>
+
 
        <IconButton onMouseEnter={handleSettingsHover}>
           <SettingsOutlinedIcon/>

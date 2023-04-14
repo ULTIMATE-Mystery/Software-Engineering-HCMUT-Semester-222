@@ -409,3 +409,11 @@ body {
   color: white; 
   background: rgb(43, 47, 60);
 }
+
+.fullscreen {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
