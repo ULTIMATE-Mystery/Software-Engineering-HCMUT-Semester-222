@@ -62,12 +62,14 @@ const Dashboard = () => {
       <Box
         display="grid"
         gridTemplateColumns="repeat(2, 1fr)"
-        gridAutoRows="240px"
+        // gridTemplateRows="repeat(2, 1fr)"
+        gridAutoRows="250px"
         gap="20px"
       >
         {/* ROW 1 */}
         <Box
           gridColumn="span 1"
+          gridRow="span 1"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -124,15 +126,13 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn="span 1"
+          // gridColumn="span 1"
           backgroundColor={colors.primary[400]}
           // display="flex"
           // alignItems="center"
           // justifyContent="center"
-          // flex="1 1 90%" ml="15px"
+          flex="1 1 100%" ml="15px"
           // min-width="90%"
-          width= "100%"
-          height= "100%"
         >
           <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
@@ -181,9 +181,9 @@ const Dashboard = () => {
             <LineChart isDashboard={true} />
           </Box>
         </Box> */}
-        {/* <Box
-          gridColumn="span 4"
-          gridRow="span 2"
+        <Box
+          gridColumn="span 1"
+          gridRow="span 1"
           backgroundColor={colors.primary[400]}
           overflow="auto"
         >
@@ -230,7 +230,7 @@ const Dashboard = () => {
               </Box>
             </Box>
           ))}
-        </Box> */}
+        </Box>
 
         {/* ROW 3 */}
         {/* <Box
