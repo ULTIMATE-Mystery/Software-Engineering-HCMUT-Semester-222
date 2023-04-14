@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import { tokens } from "../../theme";
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import '../../components/Worker/./glassmorphism.css';
-import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import DescriptionIcon from '@mui/icons-material/Description';
 import { MdArrowBack } from 'react-icons/md';
 import PersonalInfo from '../../components/Worker/workerDetail';
 import WorkerEdit from '../../components/Worker/workerEdit';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { 
   Box,
   Button, 
@@ -40,7 +41,6 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
   const [workers, setWorkers] = useState([]);
 
   const [updateInfo, setUpdateInfo] = useState(0); // use to re-render back button
-
   // get worker collection from mongo
   useEffect(() => {
     fetch('http://localhost:5000/uwc/worker', {
@@ -77,13 +77,17 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
   };
 
   // get detail infor on button click
-  const handleDetailClick = (params, rowId) => {
+  const handleDetailClick = (rowId) => {
     // find the row data corresponding to the row id
     const rowData = mockDataWorkerInfo.find((row) => row.idUser === rowId);
     setSelectedRowData(rowData);
 
     if (detailInfor) setDetailInfor(false);
     else setDetailInfor(true);
+  };
+
+  const handleGrantPermission = (rowId) => {
+
   };
 
   const handleChangePage = (event, newPage) => {
@@ -95,19 +99,47 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
     setPage(0);
   };
 
-  const renderButtonCell = ({ params, row }) => {
+  const renderButtonCell = ({ row, buttonFunc }) => {
     const handleClick = () => {
-      handleDetailClick(params, row.idUser);
+      handleDetailClick(row.idUser);
+    };
+
+    let userType = null;
+    if (user) {
+      userType = user.type;
+      console.log(userType);
+    }
+    const powerPermission = (userType === "Back Officer" ? 1 : 0);
+
+    const handleClickGrantPermission = (e) => {
+      if (powerPermission) {
+        handleGrantPermission(row.idUser);
+      } else {
+        toast.error("Bạn không có quyền để truy cập, yêu cầu Back Officer.");
+      }
     };
 
     return (
-        <Button endIcon={<DoubleArrowIcon />}
+        <Button 
+          endIcon={
+            buttonFunc === "Chi tiết" ?
+            <DescriptionIcon style={{ color: 'white' }}/> :
+            <PersonAddIcon style={{ color: 'white' }}/> }
           size="small" // or "medium" or "large"
           color="secondary"
           variant="outlined"
-          onClick={handleClick}
+          onClick={ (buttonFunc === "Chi tiết" ? handleClick : () => handleClickGrantPermission(userType) )}
+          style={{ marginRight: '10px',               
+              backgroundColor: buttonFunc === "Phân quyền" ? (powerPermission
+                ? colors.greenAccent[600]
+                : 'none') : colors.greenAccent[600]
+          }}
+          sx={{ width: '130px' }}
+          // disabled={!powerPermission && buttonFunc === "Phân quyền"}
         >
-          Chi tiết
+        <Typography color="white" >
+          {buttonFunc}
+        </Typography>
         </Button>
     );
   };
@@ -183,7 +215,10 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
                   Tình trạng
                 </Typography>
               </TableCell>
-              <TableCell align="left"></TableCell>
+              <TableCell sx={{ transform: "translateX(+25%)" }}>
+                Hành động
+              </TableCell>
+
             </TableRow>
           </TableHead>
           <TableBody>
@@ -208,8 +243,8 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
                 </TableCell>
 
                 <TableCell align="left" className={classes.tableCell} >
-                  {renderButtonCell({ row })}
-                  
+                  {renderButtonCell({ row, buttonFunc: "Chi tiết",userType: "Collector" })}
+                  {renderButtonCell({ row, buttonFunc: "Phân quyền",userType: "Collector" })}
                 </TableCell>
               </TableRow >
             ))}
@@ -261,10 +296,11 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
         </Box>
 
     </Box>
-    <ToastContainer hideProgressBar={true} limit={1} autoClose={3000}></ToastContainer>  
+    
     </div>
     
     )}
+    <ToastContainer hideProgressBar={true} limit={1} autoClose={3000}></ToastContainer>  
     </Box>
   );
 };
