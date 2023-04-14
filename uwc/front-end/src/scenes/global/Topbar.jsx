@@ -1,4 +1,4 @@
-import { Box, IconButton, useTheme, Typography } from "@mui/material";
+import { Box, IconButton, useTheme } from "@mui/material";
 import { useContext, useState } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 import InputBase from "@mui/material/InputBase";
@@ -9,8 +9,8 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import { BsChatDots } from "react-icons/bs";
 import AccountButton from '../../components/Dropdown/account';
-import ChatsPage from '../../components/Chat/chat';
 import { Link } from 'react-router-dom';
+import WorkerPermission from "../../components/Worker/workerPermission";
 
 const Topbar = ({setAuthenticated }) => {
   const theme = useTheme();
@@ -70,6 +70,8 @@ const Topbar = ({setAuthenticated }) => {
 
         <IconButton>
           <AccountButton setAuthenticated={setAuthenticated } />
+          {/* <WorkerPermission/> */}
+
         </IconButton>
       </Box>
     </Box>

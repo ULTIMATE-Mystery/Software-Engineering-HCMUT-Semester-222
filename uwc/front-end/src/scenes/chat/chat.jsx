@@ -4,7 +4,7 @@ import '../../components/Login/./login.css';
 const ChatsPage = (props) => {
   console.log(props);
   return (
-    <div>
+    <div className="background">
       <PrettyChatWindow
         projectId={process.env.REACT_APP_CHAT_ID}
         username={props.user.username}

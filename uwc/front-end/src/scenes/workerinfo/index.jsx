@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import { tokens } from "../../theme";
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import '../../components/Worker/./glassmorphism.css';
 import DescriptionIcon from '@mui/icons-material/Description';
 import { MdArrowBack } from 'react-icons/md';
 import PersonalInfo from '../../components/Worker/workerDetail';
 import WorkerEdit from '../../components/Worker/workerEdit';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { 
   Box,
   Button, 
@@ -19,9 +18,10 @@ import {
   TableBody, 
   TableCell, 
   TablePagination,
+  IconButton,
 } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
-
+import WorkerPermission from "../../components/Worker/workerPermission";
 const useStyles = makeStyles((theme) => ({
   textField: {
     marginBottom: theme.spacing(2),
@@ -39,9 +39,11 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [workers, setWorkers] = useState([]);
+  const [showWorkerPermission, setShowWorkerPermission] = useState(false);
 
   const [updateInfo, setUpdateInfo] = useState(0); // use to re-render back button
   // get worker collection from mongo
+
   useEffect(() => {
     fetch('http://localhost:5000/uwc/worker', {
       method: "GET",
@@ -86,10 +88,9 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
     else setDetailInfor(true);
   };
 
-  const handleGrantPermission = (rowId) => {
-
+  const handleGrantPermission = () => {
+    setShowWorkerPermission(true);
   };
-
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -99,24 +100,18 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
     setPage(0);
   };
 
-  const renderButtonCell = ({ row, buttonFunc }) => {
+let userType = null;
+if (user) {
+  userType = user.type;
+}
+
+const powerPermission = (userType === "Back Officer" ? 1 : 0);
+const handleClickGrantPermission = () => {
+
+};
+const renderButtonCell = ({ row, buttonFunc }) => {
     const handleClick = () => {
       handleDetailClick(row.idUser);
-    };
-
-    let userType = null;
-    if (user) {
-      userType = user.type;
-      console.log(userType);
-    }
-    const powerPermission = (userType === "Back Officer" ? 1 : 0);
-
-    const handleClickGrantPermission = (e) => {
-      if (powerPermission) {
-        handleGrantPermission(row.idUser);
-      } else {
-        toast.error("Bạn không có quyền để truy cập, yêu cầu Back Officer.");
-      }
     };
 
     return (
@@ -124,17 +119,19 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
           endIcon={
             buttonFunc === "Chi tiết" ?
             <DescriptionIcon style={{ color: 'white' }}/> :
-            <PersonAddIcon style={{ color: 'white' }}/> }
+            // <PersonAddIcon style={{ color: 'white' }}/> 
+            <WorkerPermission powerPermission={powerPermission}/>
+          }
           size="small" // or "medium" or "large"
-          color="secondary"
+          color={(buttonFunc === "Phân quyền" && !powerPermission) ? "error" : "secondary"}
           variant="outlined"
           onClick={ (buttonFunc === "Chi tiết" ? handleClick : () => handleClickGrantPermission(userType) )}
           style={{ marginRight: '10px',               
               backgroundColor: buttonFunc === "Phân quyền" ? (powerPermission
                 ? colors.greenAccent[600]
-                : 'none') : colors.greenAccent[600]
+                : colors.redAccent[600]) : colors.greenAccent[600]
           }}
-          sx={{ width: '130px' }}
+          sx={{ width: '150px' }}
           // disabled={!powerPermission && buttonFunc === "Phân quyền"}
         >
         <Typography color="white" >
@@ -150,7 +147,7 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
         title="THÔNG TIN NHÂN VIÊN"
         subtitle="Danh sách nhân viên"
       />
-      { !detailInfor &&
+      { !detailInfor  &&
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -245,6 +242,8 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
                 <TableCell align="left" className={classes.tableCell} >
                   {renderButtonCell({ row, buttonFunc: "Chi tiết",userType: "Collector" })}
                   {renderButtonCell({ row, buttonFunc: "Phân quyền",userType: "Collector" })}
+                  {/* <WorkerPermission/> */}
+
                 </TableCell>
               </TableRow >
             ))}

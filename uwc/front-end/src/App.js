@@ -19,6 +19,7 @@ import LoginPage from "./scenes/login/login";
 import EditInfor from "./scenes/account";
 import SignUpPage from "./scenes/signup/signup";
 import ChatsPage from "./scenes/chat/chat";
+import WorkerPermission from "./components/Worker/workerPermission";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -120,6 +121,18 @@ function App() {
                   )
                 }
               />
+
+              {/* <Route
+                path="/worker_permission"
+                element={
+                  authenticated ? (
+                    <WorkerPermission />
+                  ) : (
+                    <Navigate to="/login" replace state={{ from: '/' }} />
+                  )
+                }
+              /> */}
+
               <Route
                 path="/invoices"
                 element={
