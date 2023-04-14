@@ -201,7 +201,7 @@ export const mockDataContacts = [
 
 export const mockDataWorkerInfo = [
   {
-    idUser: 1,
+    id: 1,
     name: "Nguyễn Phúc Tiến",
     gender: "Nam",
     dob: "01/01/2002",
@@ -258,7 +258,7 @@ export const mockDataWorkerInfo = [
     ]
   },
   {
-    idUser: 2,
+    id: 2,
     name: "Nguyễn Minh Tiến",
     gender: "Nam",
     dob: "01/01/2002",
@@ -315,7 +315,7 @@ export const mockDataWorkerInfo = [
     ]
   },
   {
-    idUser: 3,
+    id: 3,
     name: "Nguyễn Văn Thịnh",
     gender: "Nam",
     dob: "01/01/2002",
@@ -372,7 +372,7 @@ export const mockDataWorkerInfo = [
     ]
   },
   {
-    idUser: 4,
+    id: 4,
     name: "Nguyễn Xuân Triều",
     dob: "01/01/2002",
     gender: "Nam",
@@ -429,7 +429,7 @@ export const mockDataWorkerInfo = [
     ]
   },
   {
-    idUser: 5,
+    id: 5,
     name: "Lê Viễn Du",
     dob: "01/01/2002",
     gender: "Nam",
@@ -486,7 +486,7 @@ export const mockDataWorkerInfo = [
     ]
   },
   {
-    idUser: 6,
+    id: 6,
     name: "Phạm Duy Quang",
     dob: "01/01/2002",
     gender: "Nam",
@@ -543,7 +543,7 @@ export const mockDataWorkerInfo = [
     ]
   },
   {
-    idUser: 7,
+    id: 7,
     name: "Nguyễn Hữu Hiếu",
     dob: "01/01/2002",
     gender: "Nam",
@@ -600,7 +600,7 @@ export const mockDataWorkerInfo = [
     ]
   },
   {
-    idUser: 8,
+    id: 8,
     name: "Nguyễn Văn A",
     dob: "01/01/2002",
     gender: "Nam",
@@ -657,7 +657,7 @@ export const mockDataWorkerInfo = [
     ]
   },
   {
-    idUser: 9,
+    id: 9,
     name: "Nguyễn Thị B",
     gender: "Nữ",
     dob: "01/01/2002",

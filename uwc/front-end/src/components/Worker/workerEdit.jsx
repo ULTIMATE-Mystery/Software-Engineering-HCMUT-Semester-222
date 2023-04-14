@@ -1,65 +1,16 @@
 import { tokens } from "../../theme";
 import { Button, useTheme, TextField, Grid, Box, Typography } from "@mui/material";
-import React, { useState } from 'react';
-// import axios from 'axios'; // import axios library for HTTP requests
+import React from "react";
 import './glassmorphism.css';
-import {toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
+
+const handleInfoChange = () => {
+
+};
 
 const WorkerEdit = ( {selectedRowData} ) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
-    
-    const [formValues, setFormValues] = useState({
-        // changed data
-        name: selectedRowData?.name,
-        gender: selectedRowData?.gender,
-        dob: selectedRowData?.dob,
-        phone: selectedRowData?.phone,
-        idcard: selectedRowData?.idcard,
-        email: selectedRowData?.email,
-        address: selectedRowData?.address,
-        // fixed data
-        idUser: selectedRowData?.idUser,
-        taskHistory: selectedRowData?.taskHistory,
-        status: selectedRowData?.status,
-        type: selectedRowData?.type,
-        _id: selectedRowData?._id,
-    });
-        
-    const handleFieldChange = (fieldName, fieldValue) => {
-    
-    setFormValues((prevFormValues) => ({
-        ...prevFormValues,
-        [fieldName]: fieldValue,
-    }));
-    };
-
-    function handleApplyChange() {
-        toast.success("Thay đổi thông tin thành công", { position: toast.POSITION.TOP_RIGHT });
-
-        fetch(`http://localhost:5000/uwc/worker/${formValues._id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formValues)
-        })
-
-            .then(response => {
-                if (response.ok) {
-                    console.log('Data updated successfully');
-                } else if (response.status === 404) {
-                    console.log('Error updating data: Resource not found');
-                } else {
-                    console.log('Error updating data: ' + response.statusText);
-                }
-            })
-            .catch(error => {
-                console.error('Error updating data:', error);
-            });
-    }
-      
 
     return (    
         <Box 
@@ -82,7 +33,6 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Họ và tên"
                 defaultValue={selectedRowData?.name}
                 sx={{ gridColumn: "span 2", margin: "5px" }}
-                onChange={(e) => handleFieldChange("name", e.target.value)}
             />
             </Grid>
 
@@ -94,7 +44,6 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Giới tính"
                 defaultValue={selectedRowData?.gender}
                 sx={{ gridColumn: "span 2", margin: "5px" }}
-                onChange={(e) => handleFieldChange("gender", e.target.value)}
             />
             </Grid>
 
@@ -106,7 +55,6 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Ngày sinh"
                 defaultValue={selectedRowData?.dob}
                 sx={{ gridColumn: "span 2", margin: "5px" }}
-                onChange={(e) => handleFieldChange("dob", e.target.value)}
             />
             </Grid>
 
@@ -118,7 +66,6 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Số điện thoại"
                 defaultValue={selectedRowData?.phone}
                 sx={{ gridColumn: "span 2", margin: "5px" }}
-                onChange={(e) => handleFieldChange("phone", e.target.value)}
             />
             </Grid>
 
@@ -130,7 +77,6 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Chứng minh nhân dân"
                 defaultValue={selectedRowData?.idcard}
                 sx={{ gridColumn: "span 2", margin: "5px" }}
-                onChange={(e) => handleFieldChange("idcard", e.target.value)}
             />
             </Grid>
 
@@ -142,7 +88,6 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Email"
                 defaultValue={selectedRowData?.email}
                 sx={{ gridColumn: "span 2", margin: "5px" }}
-                onChange={(e) => handleFieldChange("email", e.target.value)}
             />
             </Grid>
 
@@ -154,7 +99,6 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 label="Địa chỉ"
                 defaultValue={selectedRowData?.address}
                 sx={{ gridColumn: "span 2", margin: "5px", marginRight: "20px" }}
-                onChange={(e) => handleFieldChange("address", e.target.value)}
             />
             </Grid>
 
@@ -169,17 +113,16 @@ const WorkerEdit = ( {selectedRowData} ) => {
                 }}
                 variant="outlined"
                 onClick={() => {
-                handleApplyChange();
+                handleInfoChange();
                 }}
             >
                 Thay đổi thông tin
             </Button>
-            
             </Grid>
+
             </Grid>
-            
+
             </Box>
-            
     );
 }
 export default WorkerEdit;

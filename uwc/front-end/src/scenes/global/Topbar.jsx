@@ -1,35 +1,18 @@
-import { Box, IconButton, useTheme, Typography } from "@mui/material";
-import { useContext, useState } from "react";
+import { Box, IconButton, useTheme } from "@mui/material";
+import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 import InputBase from "@mui/material/InputBase";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import { BsChatDots } from "react-icons/bs";
-import AccountButton from '../../components/Dropdown/account';
-import ChatsPage from '../../components/Chat/chat';
-import { Link } from 'react-router-dom';
-
-const Topbar = ({setAuthenticated }) => {
+const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
-
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handlePopoverOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleSettingsHover = () => {
-  }
-  const open = Boolean(anchorEl);
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
@@ -39,8 +22,8 @@ const Topbar = ({setAuthenticated }) => {
         backgroundColor={colors.primary[400]}
         borderRadius="3px"
       >
-      <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" autoComplete="off" />
-        <IconButton type="button" sx={{ p: 1 }} autoComplete="off">
+        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
+        <IconButton type="button" sx={{ p: 1 }}>
           <SearchIcon />
         </IconButton>
       </Box>
@@ -57,19 +40,14 @@ const Topbar = ({setAuthenticated }) => {
         <IconButton>
           <NotificationsOutlinedIcon />
         </IconButton>
-        <IconButton >
-          <Link to="/chat" style={{ color: 'inherit' }}>
-            <BsChatDots />
-          </Link>
-        </IconButton>
-
-
-       <IconButton onMouseEnter={handleSettingsHover}>
-          <SettingsOutlinedIcon/>
-        </IconButton> 
-
         <IconButton>
-          <AccountButton setAuthenticated={setAuthenticated } />
+          <BsChatDots />
+        </IconButton>
+        <IconButton>
+          <SettingsOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <PersonOutlinedIcon />
         </IconButton>
       </Box>
     </Box>

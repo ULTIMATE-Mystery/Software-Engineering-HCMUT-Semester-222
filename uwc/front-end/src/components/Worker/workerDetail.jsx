@@ -70,7 +70,7 @@ const PersonalInfo = ({ selectedRowData }) => {
           <div>
             <Typography variant="h6" gutterBottom>
               <Box component="span"  color={colors.greenAccent[400]}>ID: </Box> 
-               {selectedRowData.idUser}
+               {selectedRowData.id}
             </Typography>
 
             <Typography variant="h6" gutterBottom> 

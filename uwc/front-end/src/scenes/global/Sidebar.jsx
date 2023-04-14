@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -13,13 +13,11 @@ import { FaRoute, FaCarAlt } from "react-icons/fa";
 import { MdAssignmentAdd } from "react-icons/md";
 import { Icon } from '@iconify/react';
 import { AiOutlineHome }  from "react-icons/ai";
-
-export const Item = ({ title, to, icon, selected, setSelected }) => {
+const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
   return (
-    <MenuItem 
+    <MenuItem
       active={selected === title}
       style={{
         color: colors.grey[100],
@@ -33,7 +31,7 @@ export const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-const Sidebar = ({userLogin}) => {
+const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -57,9 +55,6 @@ const Sidebar = ({userLogin}) => {
         "& .pro-menu-item.active": {
           color: "#6870fa !important",
         },
-        // position: "fixed",
-        // width: 240,
-        // overflow: "hidden",
       }}
     >
       <ProSidebar collapsed={isCollapsed}>
@@ -108,10 +103,10 @@ const Sidebar = ({userLogin}) => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  {userLogin && userLogin.name ? userLogin.name : "Unknown user"}
+                  Nguyen Van A
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]} fontWeight="lighter" fontStyle = "italic">
-                {userLogin && userLogin.type ? userLogin.type : "Unknown user type"}
+                  Back Officer
                 </Typography>
               </Box>
             </Box>
@@ -142,7 +137,7 @@ const Sidebar = ({userLogin}) => {
             />
             <Item
               title="Xem nhiệm vụ"
-              to="/invoices"
+              to="/contacts"
               icon={<Icon icon="carbon:task-view" width="25" height="25"/>}
               selected={selected}
               setSelected={setSelected}
@@ -171,14 +166,14 @@ const Sidebar = ({userLogin}) => {
             />
             <Item
               title="Thông tin MCPs"
-              to="/form"
+              to="/MCPs"
               icon={<BsTrash size={20}/>}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Thông tin phương tiện"
-              to="/form"
+              to="/vehicles"
               icon={<FaCarAlt size={20}/>}
               selected={selected}
               setSelected={setSelected}
