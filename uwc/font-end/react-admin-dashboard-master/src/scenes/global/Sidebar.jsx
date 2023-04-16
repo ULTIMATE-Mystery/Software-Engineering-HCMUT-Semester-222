@@ -165,13 +165,13 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
          */}
-            <Item
+            {/* <Item
               title="Invoices Balances"
               to="/invoices"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            /> 
+            />  */}
 
             {/* <Typography
               variant="h6"
