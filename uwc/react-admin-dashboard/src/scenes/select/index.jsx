@@ -52,17 +52,21 @@ const SelectWorker = () => {
       mcp: '',
       locate: '',
       Date: '',
-      Time: '',
+      startTime: '',
       vehicle: '',
-      worker: '',
-      note: ''
+      userId: '',
+      note: '',
+      endTime: '',
+      status: '',
+
+
     })
 
     // setForm=null
 
   }
   const {
-    mcp, Date, locate, Time, vehicle, worker, note
+    mcp, Date, locate, startTime, vehicle, userId, note, endTime, status
   } = form
   const validateForm = () => {
 
@@ -74,11 +78,11 @@ const SelectWorker = () => {
 
     if (!locate || locate === '') newErrors.locate = "Bạn chưa chọn tuyến đường"
 
-    if (!Time || Time === '') newErrors.Time = "Bạn chưa chọn thời gian"
+    if (!startTime || startTime === '') newErrors.startTime = "Bạn chưa chọn thời gian"
 
     if (!vehicle || vehicle === '') newErrors.vehicle = "Bạn chưa chọn phương tiện"
 
-    if (!worker || worker === '') newErrors.worker = "Bạn chưa chọn nhân viên"
+    if (!userId || userId === '') newErrors.userId = "Bạn chưa chọn nhân viên"
 
     // if (!note || note === '') newErrors.collector = "Bạn chưa chọn nhân viên"
 
@@ -110,26 +114,18 @@ const SelectWorker = () => {
           mcp: '',
           locate: '',
           Date: '',
-          Time: '',
+          startTime: '',
           vehicle: '',
-          worker: '',
-          note: ''
+          userId: '',
+          note: '',
+          status: 'Đang thực hiện',
+          endTime: ''
         })
       }, 2000);
 
-
-      // setForm({
-      //   mcp: '',
-      //   locate: '',
-      //   Date: '',
-      //   Time: '',
-      //   vehicle: '',
-      //   worker: '',
-      //   note: ''
-      // })
-
       success.style.display = 'block';
     }
+    
     setTimeout(() => {
       success.style.display = 'none';
       fail.style.display = 'none';
@@ -289,6 +285,8 @@ const SelectWorker = () => {
         </div>
 
 
+        
+
 
         {selected === "collector" ?
 
@@ -406,13 +404,13 @@ const SelectWorker = () => {
                       className="select-hour"
                       placeholder="Chọn giờ"
                       type="time"
-                      value={form.Time}
-                      onChange={(e) => setField('Time', e.target.value)}
-                      isInvalid={!!errors.Time}
+                      value={form.startTime}
+                      onChange={(e) => setField('startTime', e.target.value)}
+                      isInvalid={!!errors.startTime}
                     >
                     </Form.Control>
                     <div className="time-error">
-                      <Form.Control.Feedback type='invalid'> {errors.Time}
+                      <Form.Control.Feedback type='invalid'> {errors.startTime}
                       </Form.Control.Feedback>
                     </div>
                   </FormGroup>
@@ -449,9 +447,9 @@ const SelectWorker = () => {
                     placeholder="Chọn nhân viên"
                     className="select-collector"
 
-                    value={form.worker}
-                    onChange={(e) => { setField('worker', e.target.value); console.log(e.target.value) }}
-                    isInvalid={!!errors.worker}
+                    value={form.userId}
+                    onChange={(e) => { setField('userId', e.target.value); console.log(e.target.value) }}
+                    isInvalid={!!errors.userId}
 
                   >
                     {options5.map(option => (
@@ -461,7 +459,7 @@ const SelectWorker = () => {
                     ))}
                   </Form.Select>
                   <div className="collector-error">
-                    <Form.Control.Feedback type='invalid'> {errors.worker}
+                    <Form.Control.Feedback type='invalid'> {errors.userId}
                     </Form.Control.Feedback>
                   </div>
                 </FormGroup>
@@ -634,13 +632,13 @@ const SelectWorker = () => {
                       className="select-hour"
                       placeholder="Chọn giờ"
                       type="time"
-                      value={form.Time}
-                      onChange={(e) => setField('Time', e.target.value)}
-                      isInvalid={!!errors.Time}
+                      value={form.startTime}
+                      onChange={(e) => setField('startTime', e.target.value)}
+                      isInvalid={!!errors.startTime}
                     >
                     </Form.Control>
                     <div className="time-error">
-                      <Form.Control.Feedback type='invalid'> {errors.Time}
+                      <Form.Control.Feedback type='invalid'> {errors.startTime}
                       </Form.Control.Feedback>
                     </div>
                   </FormGroup>
@@ -677,9 +675,9 @@ const SelectWorker = () => {
                     placeholder="Chọn nhân viên"
                     className="select-collector"
 
-                    value={form.worker}
-                    onChange={(e) => { setField('worker', e.target.value); console.log(e.target.value) }}
-                    isInvalid={!!errors.worker}
+                    value={form.userId}
+                    onChange={(e) => { setField('userId', e.target.value); console.log(e.target.value) }}
+                    isInvalid={!!errors.userId}
 
                   >
                     {options8.map(option => (
@@ -689,7 +687,7 @@ const SelectWorker = () => {
                     ))}
                   </Form.Select>
                   <div className="collector-error">
-                    <Form.Control.Feedback type='invalid'> {errors.worker}
+                    <Form.Control.Feedback type='invalid'> {errors.userId}
                     </Form.Control.Feedback>
                   </div>
                 </FormGroup>
