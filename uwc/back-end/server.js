@@ -39,9 +39,10 @@ client.connect((err) => {
   
   // edit worker infor
   app.put('/uwc/worker/:id', async (req, res) => {
-    const id = req.body._id;
     const newData = req.body;
-    delete req.body._id;
+    if (req.body._id) delete req.body._id;
+
+    console.log(newData);
     try {
       const database = client.db('uwc');
       const collection = database.collection('worker');

@@ -1,27 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import { tokens } from "../../theme";
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import '../../components/Worker/./glassmorphism.css';
 import DescriptionIcon from '@mui/icons-material/Description';
 import { MdArrowBack } from 'react-icons/md';
 import PersonalInfo from '../../components/Worker/workerDetail';
 import WorkerEdit from '../../components/Worker/workerEdit';
-import { 
-  Box,
-  Button, 
-  useTheme,
-  Typography, 
-  Table, 
-  TableHead, 
-  TableRow, 
-  TableBody, 
-  TableCell, 
-  TablePagination,
-  IconButton,
-} from '@mui/material';
+import { Box, Button, useTheme, Typography, Table, TableHead, TableRow, TableBody, TableCell, TablePagination, IconButton } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 import WorkerPermission from "../../components/Worker/workerPermission";
+
 const useStyles = makeStyles((theme) => ({
   textField: {
     marginBottom: theme.spacing(2),
@@ -39,101 +28,112 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [workers, setWorkers] = useState([]);
-  const [showWorkerPermission, setShowWorkerPermission] = useState(false);
-
-  const [updateInfo, setUpdateInfo] = useState(0); // use to re-render back button
-  // get worker collection from mongo
-
+  const [updateInfo, setUpdateInfo] = useState(0); 
+  const [detailInfor, setDetailInfor] = useState(false);
+  const [selectedRowData, setSelectedRowData] = useState(null);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  
   useEffect(() => {
-    fetch('http://localhost:5000/uwc/worker', {
-      method: "GET",
-    })
-      .then(res => res.json())
-      .then(data => {
+    const fetchWorkers = async () => {
+      try {
+        const res = await fetch('http://localhost:5000/uwc/worker', {
+          method: "GET",
+        });
+        const data = await res.json();
         setWorkers(data.data);
         setAllUserAccount(data.data);
-              })
-      .catch(err => console.error(err));
-  }, [updateInfo]);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchWorkers();
+  }, [updateInfo, setAllUserAccount]);
 
   const mockDataWorkerInfo = workers;
-
   const user = mockDataWorkerInfo.find((u) => u._id === userID);
-
   setUserLogin(user);
 
-  const [detailInfor, setDetailInfor] = useState(false); // useState for worker infor detail
-
-  const [selectedRowData, setSelectedRowData] = useState(null);
-
-  const [page, setPage] = useState(0);
-
-  const [rowsPerPage, setRowsPerPage] = useState(5); // set the default rows per page to 5
+  const powerPermission = (user?.type === "Back Officer" || user?.type === "Admin") ? 1 : 0;
 
   const handleBackButtonClick = () => {
-    if (detailInfor) {
-      setDetailInfor(false);
-      setUpdateInfo(updateInfo + 1); // update the state variable to trigger a re-render
-    }
-    else setDetailInfor(true);
+    setDetailInfor(prev => !prev);
+    setUpdateInfo(updateInfo + 1);
   };
 
-  // get detail infor on button click
   const handleDetailClick = (rowId) => {
-    // find the row data corresponding to the row id
     const rowData = mockDataWorkerInfo.find((row) => row.idUser === rowId);
     setSelectedRowData(rowData);
+    
+    if (userID !== rowData._id && !powerPermission) {
+      toast.error("Bạn không có quyền xem chi tiết thông tin người khác.");
+      return;
+    }
+  
+    setDetailInfor(prev => !prev);
+  };
+  
+  const handleGrantPermission = (rowId) => {
+    const rowData = mockDataWorkerInfo.find((row) => row.idUser === rowId);
+    setSelectedRowData(rowData);
+  }
 
-    if (detailInfor) setDetailInfor(false);
-    else setDetailInfor(true);
-  };
-
-  const handleGrantPermission = () => {
-    setShowWorkerPermission(true);
-  };
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
+  const handleChangePage = (_, newPage) => setPage(newPage);
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
 
-let userType = null;
-if (user) {
-  userType = user.type;
-}
-
-const powerPermission = (userType === "Back Officer" ? 1 : 0);
-const handleClickGrantPermission = () => {
-
-};
-const renderButtonCell = ({ row, buttonFunc }) => {
+  const renderButtonCell = ({ row, buttonFunc }) => {
     const handleClick = () => {
       handleDetailClick(row.idUser);
     };
 
+    const handleModifyClick = () => {
+      handleGrantPermission(row.idUser);
+    }; 
+
+    const isAdmin = user?.type === "Admin";
+    const isCurrentRowAdmin = row.type === "Admin";
+
+    if (buttonFunc === "Phân quyền" && isCurrentRowAdmin) {
+      // Do not render the button
+      return null;
+    }
     return (
+        
         <Button 
-          endIcon={
-            buttonFunc === "Chi tiết" ?
-            <DescriptionIcon style={{ color: 'white' }}/> :
-            // <PersonAddIcon style={{ color: 'white' }}/> 
-            <WorkerPermission powerPermission={powerPermission}/>
-          }
           size="small" // or "medium" or "large"
-          color={(buttonFunc === "Phân quyền" && !powerPermission) ? "error" : "secondary"}
+          color={buttonFunc === "Phân quyền" && !powerPermission ? "error" : "secondary"}
           variant="outlined"
-          onClick={ (buttonFunc === "Chi tiết" ? handleClick : () => handleClickGrantPermission(userType) )}
-          style={{ marginRight: '10px',               
-              backgroundColor: buttonFunc === "Phân quyền" ? (powerPermission
-                ? colors.greenAccent[600]
-                : colors.redAccent[600]) : colors.greenAccent[600]
+          onClick={buttonFunc === "Chi tiết" ? handleClick : handleModifyClick}
+          style={{
+            marginRight: '10px',
+            backgroundColor: buttonFunc === "Phân quyền" 
+              ? (powerPermission ? colors.greenAccent[600] : colors.redAccent[600]) 
+              : colors.greenAccent[600]
           }}
           sx={{ width: '150px' }}
-          // disabled={!powerPermission && buttonFunc === "Phân quyền"}
+          endIcon={
+            buttonFunc === "Chi tiết" 
+            ? <DescriptionIcon style={{ color: 'white' }}/> 
+            : (selectedRowData?.type &&
+              <WorkerPermission 
+                    powerPermission={powerPermission} 
+                    userRowType={selectedRowData.type} 
+                    userID={selectedRowData._id}
+              />
+              ) ? (selectedRowData?.type &&
+                <WorkerPermission 
+                      powerPermission={powerPermission} 
+                      userRowType={selectedRowData.type} 
+                      userID={selectedRowData._id}
+                />
+                ) : undefined
+          }
         >
+
         <Typography color="white" >
           {buttonFunc}
         </Typography>
@@ -240,10 +240,8 @@ const renderButtonCell = ({ row, buttonFunc }) => {
                 </TableCell>
 
                 <TableCell align="left" className={classes.tableCell} >
-                  {renderButtonCell({ row, buttonFunc: "Chi tiết",userType: "Collector" })}
-                  {renderButtonCell({ row, buttonFunc: "Phân quyền",userType: "Collector" })}
-                  {/* <WorkerPermission/> */}
-
+                  {renderButtonCell({ row, buttonFunc: "Chi tiết"})}
+                  {powerPermission ? renderButtonCell({ row, buttonFunc: "Phân quyền"}) : undefined }
                 </TableCell>
               </TableRow >
             ))}
@@ -281,7 +279,7 @@ const renderButtonCell = ({ row, buttonFunc }) => {
           p="15px"
           borderRadius="4px"
         >
-        <WorkerEdit selectedRowData={selectedRowData} />
+        <WorkerEdit selectedRowData={selectedRowData} userID={userID}/>
       </Box>
 
       {/* Detail infor display */}
