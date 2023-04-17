@@ -1,0 +1,10 @@
+html,
+.map-container {
+  width: auto;
+  height: 75vh;
+}
+
+.map {
+  width: 80%;
+  height: 100vh;
+}
