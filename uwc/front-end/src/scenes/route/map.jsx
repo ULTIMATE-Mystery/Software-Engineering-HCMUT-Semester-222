@@ -121,5 +121,5 @@ export const handleShowRoute = (setDirections) => {
 };
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyAgurmuXhoIgNskak4wTwhHfuAX2Cmk-UE",
+  apiKey: process.env.GG_MAP_API,
 })(MapContainer);

@@ -171,7 +171,7 @@ const Sidebar = () => {
 
             <Item
               title="Thông tin MCPs"
-              to="/faq"
+              to="/MCPs"
               icon={<HelpOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

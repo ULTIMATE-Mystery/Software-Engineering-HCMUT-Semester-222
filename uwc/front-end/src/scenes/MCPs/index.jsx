@@ -11,14 +11,14 @@ import ProgressBar from "react-animated-progress-bar";
 import { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 
-const CustomColor = styled("div")({
+export const CustomColor = styled("div")({
   background:
     "linear-gradient(180deg, rgba(66,109,236,1) 0%, rgba(134,201,145,1) 100%)",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
 });
 
-const MCPSList = [
+export const MCPSList = [
   {
     key: 1,
     name: "Nguyễn Thái Sơn",

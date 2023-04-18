@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
-import Dashboard from "./scenes/dashboard";
+import Dashboard from "./scenes/dashboard/index_old";
 import Team from "./scenes/team";
 import Invoices from "./scenes/invoices";
 import Contacts from "./scenes/contacts";
@@ -17,6 +17,7 @@ import RouteMap from "./scenes/route";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
+import MCPs from "./scenes/MCPs";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -44,6 +45,7 @@ function App() {
               <Route path="/geography" element={<Geography />} />
               <Route path="/task" element={<Task />} />
               <Route path="/route" element={<RouteMap />} />
+              <Route path="/MCPs" element={<MCPs />} />
             </Routes>
           </main>
         </div>

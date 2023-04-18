@@ -63,11 +63,6 @@ const RouteMap = () => {
     handleShowRoute(setDirections);
   };
 
-  // const { isLoaded } = useLoadScript({
-  //   id: "google-map-script",
-  //   googleMapsApiKey: "AIzaSyDpW3xHd5g_JDekesqhms8sIo1ezctkC0g",
-  //   // libraries: ["places"],
-  // });
   return (
     <Box m="20px">
       <Header title="Tuyến đường" subtitle="Danh sách tuyến đường" />
