@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
-import Dashboard from "./scenes/dashboard";
+import HomePage from "./scenes/home";
 import Team from "./scenes/team";
 import Invoices from "./scenes/invoices";
 import WorkerInfo from "./scenes/workerinfo";
@@ -33,7 +33,7 @@ function App() {
   const [userLogin, setUserLogin] = useState({userLogin: null});
   const [userAccount, setUserAccount] = useState([]); 
   const [user, setUser] = useState(undefined);
-
+  const [vehicle, setVehicle] = useState(['']);
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
@@ -56,6 +56,7 @@ function App() {
                       setUserLogin={setUserLogin}
                       setUserAccount={setUserAccount}
                       setUser={setUser}
+                      setVehicle={setVehicle}
                     />
                   )
                   }
@@ -79,7 +80,7 @@ function App() {
                 path="/"
                 element={
                   authenticated ? (
-                    <Dashboard />
+                    <HomePage allUserAccount={allUserAccount} vehicle={vehicle}/>
                   ) : (
                     <Navigate to="/login" replace state={{ from: '/' }} />
                   )

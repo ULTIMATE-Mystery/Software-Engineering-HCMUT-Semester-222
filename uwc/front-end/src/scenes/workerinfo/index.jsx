@@ -94,10 +94,9 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
       handleGrantPermission(row.idUser);
     }; 
 
-    const isAdmin = user?.type === "Admin";
     const isCurrentRowAdmin = row.type === "Admin";
 
-    if (buttonFunc === "Phân quyền" && isCurrentRowAdmin) {
+    if (isCurrentRowAdmin) {
       // Do not render the button
       return null;
     }

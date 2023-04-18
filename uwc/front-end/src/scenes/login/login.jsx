@@ -8,7 +8,7 @@ import axios from "axios";
 import '../../components/Login/./login.css';
 import '../../components/Worker/./glassmorphism.css';
 
-const LoginPage = ( { setAuthenticated, setUserID, setAllUserAccount, setUserLogin, setUserAccount, setUser } ) => {
+const LoginPage = ( { setAuthenticated, setUserID, setAllUserAccount, setUserLogin, setUserAccount, setUser, setVehicle } ) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [account, setAccount] = useState([]); 
@@ -22,6 +22,15 @@ const LoginPage = ( { setAuthenticated, setUserID, setAllUserAccount, setUserLog
       .then(res => res.json())
       .then(data => {
         setAccount(data.data);
+    })
+    .catch(err => console.error(err));
+
+    fetch('http://localhost:5000/uwc/vehicle', {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(data => {
+        setVehicle(data.data);
     })
     .catch(err => console.error(err));
 

@@ -1,4 +1,4 @@
-import { Box, IconButton, useTheme } from "@mui/material";
+import { Box, IconButton, useTheme, Badge } from "@mui/material";
 import { useContext, useState } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 import InputBase from "@mui/material/InputBase";
@@ -54,17 +54,35 @@ const Topbar = ({setAuthenticated }) => {
             <LightModeOutlinedIcon />
           )}
         </IconButton>
-        <IconButton>
+        <IconButton
+              size="large"
+              aria-label="show 5 new notifications"
+              color="inherit"
+            >
+              <Badge badgeContent={5} color="error">
+                <NotificationsOutlinedIcon />
+              </Badge>
+        </IconButton>
+        {/* <IconButton>
           <NotificationsOutlinedIcon />
-        </IconButton>
-        <IconButton >
-          <Link to="/chat" style={{ color: 'inherit' }}>
-            <BsChatDots />
-          </Link>
+        </IconButton> */}
+        <IconButton
+            size="medium"
+            aria-label="show 2 new notifications"
+            color="inherit"
+         >
+          <Badge badgeContent={1} color="error">
+            <Link to="/chat" style={{ color: 'inherit' }}>
+              <BsChatDots />
+            </Link>
+          </Badge>
         </IconButton>
 
 
-       <IconButton onMouseEnter={handleSettingsHover}>
+       <IconButton 
+          size='string'
+          onMouseEnter={handleSettingsHover}
+        >
           <SettingsOutlinedIcon/>
         </IconButton> 
 

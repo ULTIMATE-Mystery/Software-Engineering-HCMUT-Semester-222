@@ -41,8 +41,7 @@ client.connect((err) => {
   app.put('/uwc/worker/:id', async (req, res) => {
     const newData = req.body;
     if (req.body._id) delete req.body._id;
-
-    console.log(newData);
+    
     try {
       const database = client.db('uwc');
       const collection = database.collection('worker');
@@ -91,6 +90,32 @@ client.connect((err) => {
       // return res.json(workers);
       // console.log(workers);
       return res.send({ data: workers });
+
+    } catch (err) {
+      return res.sendStatus(500);
+    }
+  });
+
+  app.get('/uwc/vehicle', async (req, res) => {
+    console.log('Accessed /uwc/vehicle route'); // added line
+    try {
+      const database = client.db('uwc');
+      const collection = database.collection('vehicle');
+      const vehicle = await collection.find().toArray();
+      return res.send({ data: vehicle });
+
+    } catch (err) {
+      return res.sendStatus(500);
+    }
+  });
+
+  app.get('/uwc/mcps', async (req, res) => {
+    console.log('Accessed /uwc/mcps route'); // added line
+    try {
+      const database = client.db('uwc');
+      const collection = database.collection('mcps');
+      const mcps = await collection.find().toArray();
+      return res.send({ data: mcps });
 
     } catch (err) {
       return res.sendStatus(500);

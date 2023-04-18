@@ -28,6 +28,7 @@
     "chart.js": "^3.9.1",
     "formik": "^2.2.9",
     "prop-types": "^15.8.1",
+    "react-avatar": "^5.0.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-chartjs-2": "^4.3.1",
@@ -41,7 +42,6 @@
     "react-scripts": "5.0.1",
     "react-social-icons": "^5.15.0",
     "react-toastify": "^9.1.2",
-    "shards-react": "darizabalo/shards-react#master",
     "styled-components": "^5.3.9",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
@@ -50,6 +50,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "preview": "react-scripts preview",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
