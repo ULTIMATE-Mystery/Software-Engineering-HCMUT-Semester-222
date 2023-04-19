@@ -54,9 +54,6 @@ const VehicleHistory = ({ selectedRowData }) => {
       gridRow="span 2"
       p="15px"
       >
-      <Typography variant="h4" gutterBottom textAlign={"center"} sx={{ color: colors.greenAccent[400] }}>
-        TỔNG QUAN
-      </Typography>
       {/* General personal information */}
       <Grid container spacing={1}>       
         <Grid item xs = {6}>

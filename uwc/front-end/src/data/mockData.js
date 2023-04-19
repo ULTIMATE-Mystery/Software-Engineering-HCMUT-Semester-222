@@ -235,7 +235,7 @@ export const mockDataVehicle = [
     damage:"0%",
     yearOfMake:"2022",
     worker:"Nguyến Văn A",
-    image:"https://thegioixechuyendung.vn/wp-content/uploads/2021/01/hyundai-ex8-ep-rac2.jpg",
+    image:"https://data.thegioixetai.vn/product/dongfeng/b180/cho-rac/xe-cho-rac-dongfeng-b180-2.jpg",
     maintenanceHistory: [
       {
         id: 1,
@@ -346,7 +346,7 @@ export const mockDataVehicle = [
     damage:"0%",
     yearOfMake:"2022",
     worker:"Nguyến Văn B",
-    image:"https://thegioixechuyendung.vn/wp-content/uploads/2021/01/hyundai-ex8-ep-rac2.jpg",
+    image:"https://thuanthienplastic.com/wp-content/uploads/2020/12/Xe-thu-gom-rac-660lit.jpg",
     maintenanceHistory: [
       {
         id: 1,
@@ -457,7 +457,7 @@ export const mockDataVehicle = [
     damage:"0%",
     yearOfMake:"2022",
     worker:"Trịnh Troller",
-    image:"https://thegioixechuyendung.vn/wp-content/uploads/2021/01/hyundai-ex8-ep-rac2.jpg",
+    image:"https://thuanthienplastic.com/wp-content/uploads/2020/12/Xe-thu-gom-rac-660lit.jpgi",
     maintenanceHistory: [
       {
         id: 1,
