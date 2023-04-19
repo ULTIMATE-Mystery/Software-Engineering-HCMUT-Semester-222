@@ -1,4 +1,6 @@
 import { useState } from "react";
+
+
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
@@ -17,7 +19,9 @@ import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
 import SelectWorker from "./scenes/select";
 import ViewTask from "./scenes/viewtask";
-
+import Vehicle from "./scenes/vehicle";
+import WorkerInfo from "./scenes/workerinfo";
+import MCPs from "./scenes/mcp";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -45,6 +49,9 @@ function App() {
               <Route path="/geography" element={<Geography />} />
               <Route path="/select" element={<SelectWorker />} />
               <Route path="/viewtask" element={<ViewTask />} />
+              <Route path="/vehicle" element={<Vehicle />} />
+              <Route path="/workerinfo" element={<WorkerInfo />} />
+              <Route path="/mcp" element={<MCPs />} />
               
             </Routes>
           </main>

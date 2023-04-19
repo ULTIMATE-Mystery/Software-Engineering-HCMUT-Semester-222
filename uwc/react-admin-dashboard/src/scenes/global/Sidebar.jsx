@@ -165,21 +165,21 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="Thông tin nhân viên"
-              to="/Worker"
+              to="/calendar"
               icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Thông tin MCPs"
-              to="/MCP>"
+              to="/mcp"
               icon={<TravelExploreIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Thông tin phương tiện"
-              to="/Vehicle"
+              to="/vehicle"
               icon={<LocalShippingIcon />}
               selected={selected}
               setSelected={setSelected}

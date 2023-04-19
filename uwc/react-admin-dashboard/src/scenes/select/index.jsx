@@ -1,11 +1,13 @@
 import {
   Box, FormGroup
-  // , colors 
 } from "@mui/material";
 import Header from "../../components/Header";
 import "./index.css"
 import React, { useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
+// import fs from "graceful-fs"
+// import RNFS from "react-native-fs";
+
 // import { Formik } from "formik";
 // import * as yup from "yup";
 // import Select from 'react-select';
@@ -14,11 +16,16 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 // import { useDispatch } from "react-redux";
 // import FormContainer from "../../components/FormContainer";
 
-import { Form, Button } from 'react-bootstrap'
-import { type } from "@testing-library/user-event/dist/type";
+import { Form, Button } from 'react-bootstrap';
+// import { type } from "@testing-library/user-event/dist/type";
+
+// import form from "../../data/AssignTask"
 // import { date } from "yup";
 // import { red } from "@mui/material/colors";
 // import { MultiSelect } from "react-multi-select-component";
+// import { writeFile } from 'react-native-fs';
+
+// 
 
 
 const SelectWorker = () => {
@@ -47,7 +54,7 @@ const SelectWorker = () => {
 
 
 
-  const onClear = () => {
+  const onClear = (e) => {
     setForm({
       mcp: '',
       locate: '',
@@ -61,7 +68,7 @@ const SelectWorker = () => {
 
 
     })
-
+    // e.target.reset();
     // setForm=null
 
   }
@@ -93,6 +100,12 @@ const SelectWorker = () => {
   const success = document.getElementById('success');
   const fail = document.getElementById('fail');
 
+  // let jsonile = require('jsonfile');
+
+  // for (const i = 0; i < 11; i++) {
+  //     jsonFile.writeFile('data.json', "id :" + i + " square :" + i * i);
+  // }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     // setMessage('')
@@ -105,8 +118,8 @@ const SelectWorker = () => {
       // setMessage('Whoops, please check for errors below highlighted in red')
     }
     else {
-      console.log("form submitted")
-      console.log(form)
+
+      console.log("form submitted", form)
 
 
       setTimeout(() => {
@@ -118,7 +131,7 @@ const SelectWorker = () => {
           vehicle: '',
           userId: '',
           note: '',
-          status: 'Đang thực hiện',
+          status: "Đang thực hiện",
           endTime: ''
         })
       }, 2000);
@@ -257,9 +270,56 @@ const SelectWorker = () => {
 
   ]
 
+  // var obj = {
+  //   Form: []
+  // };
 
+//   var fs = require('fs');
 
+//   fs.readFile('data.json', 'utf8', function readFileCallback(err, data){
+//     if (err){
+//         console.log(err);
+//     } else {
+//     obj = JSON.parse(data); //now it an object
+//     obj.Form.push({
+//       "Date": "2023-04-06",
+//       "locate": "Route 6",
+//       "mcp": "MCP 6",
+//       "note": "Thoi tiet xau",
+//       "startTime": "20: 26",
+//       "userId": "Collector 6",
+//       "vehicle": "Vehicle 6"
+//     }
+//       ); //add some data
+//     json = JSON.stringify(obj); //convert it back to json
+//     fs.writeFile('data.json', json, 'utf8', callback); // write it back 
+// }});
 
+  // const handleSaveToPC = (jsonData,filename) => {
+  //   const fileData = JSON.stringify(jsonData);
+  //   const blob = new Blob([fileData], {type: "text/plain"});
+  //   const url = URL.createObjectURL(blob);
+  //   const link = document.createElement('a');
+  //   link.download = `${filename}.json`;
+  //   link.href = url;
+  //   link.click();
+  // }
+
+  
+
+  // const writeToJSON = (data) => {
+    
+
+  //   const DATA_PATH = '../../data/AssignTask.json';
+  //   fs.writeFile(
+  //     DATA_PATH,
+  //     JSON.stringify(data),
+  //     (err) => {
+  //       if (err) return console.error(err)
+  //       console.log('Write data to ', DATA_PATH)
+  //     },
+  //   )
+  // }
 
   return (
 

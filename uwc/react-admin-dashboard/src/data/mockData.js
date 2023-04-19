@@ -1281,3 +1281,520 @@ export const mockGeographyData = [
     value: 171135,
   },
 ];
+
+
+export const mockDataWorkerInfo = [
+  {
+    idUser: 1,
+    name: "Nguyễn Phúc Tiến",
+    gender: "Nam",
+    dob: "01/01/2002",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    idcard: "0123456789",
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Collector",
+    status: "Đang hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
+  },
+  {
+    idUser: 2,
+    name: "Nguyễn Minh Tiến",
+    gender: "Nam",
+    dob: "01/01/2002",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    idcard: "0123456789",
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Collector",
+    status: "Đang hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
+  },
+  {
+    idUser: 3,
+    name: "Nguyễn Văn Thịnh",
+    gender: "Nam",
+    dob: "01/01/2002",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    idcard: "0123456789",
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Janitor",
+    status: "Không hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
+  },
+  {
+    idUser: 4,
+    name: "Nguyễn Xuân Triều",
+    dob: "01/01/2002",
+    gender: "Nam",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    idcard: "0123456789",
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Janitor",
+    status: "Không hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
+  },
+  {
+    idUser: 5,
+    name: "Lê Viễn Du",
+    dob: "01/01/2002",
+    gender: "Nam",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    idcard: "0123456789",
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Collector",
+    status: "Đang hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
+  },
+  {
+    idUser: 6,
+    name: "Phạm Duy Quang",
+    dob: "01/01/2002",
+    gender: "Nam",
+    email: "temp@hcmut.edu.vn",
+    idcard: "0123456789",
+    age: 35,
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Collector",
+    status: "Đang hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
+  },
+  {
+    idUser: 7,
+    name: "Nguyễn Hữu Hiếu",
+    dob: "01/01/2002",
+    gender: "Nam",
+    email: "temp@hcmut.edu.vn",
+    idcard: "0123456789",
+    age: 35,
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Janitor",
+    status: "Đang hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
+  },
+  {
+    idUser: 8,
+    name: "Nguyễn Văn A",
+    dob: "01/01/2002",
+    gender: "Nam",
+    email: "temp@hcmut.edu.vn",
+    idcard: "0123456789",
+    age: 35,
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Collector",
+    status: "Không hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
+  },
+  {
+    idUser: 9,
+    name: "Nguyễn Thị B",
+    gender: "Nữ",
+    dob: "01/01/2002",
+    email: "temp@hcmut.edu.vn",
+    age: 35,
+    idcard: "0123456789",
+    phone: "0909090909",
+    address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM",
+    type: "Janitor",
+    status: "Không hoạt động",
+    taskHistory: [
+      {
+        id: 1,
+        startTime: "20/2/2023 15:00",
+        endTime: "20/2/2023 16:30",
+        completedStatus: "Đang thực hiện",
+        note: ""
+      },
+      {
+        id: 2,
+        startTime: "6/2/2023 5:00",
+        endTime: "6/2/2023 6:30",
+        completedStatus: "Không hoàn thành",
+        note: "Thời tiết xấu"
+      },
+      {
+        id: 3,
+        startTime: "5/2/2023 7:00",
+        endTime: "5/2/2023 9:30",
+        completedStatus: "Không hoàn thành",
+        note: "Xe hư hỏng"
+      },
+      {
+        id: 4,
+        startTime: "27/1/2023 15:00",
+        endTime: "27/1/2023 16:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 5,
+        startTime: "25/1/2023 04:00",
+        endTime: "25/1/2023 6:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+      {
+        id: 6,
+        startTime: "20/1/2023 7:00",
+        endTime: "20/1/2023 9:30",
+        completedStatus: "Hoàn thành",
+        note: ""
+      },
+    ]
+  },
+];
