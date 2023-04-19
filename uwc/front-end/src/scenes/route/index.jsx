@@ -1,8 +1,29 @@
-import { Button, Box, Typography, useTheme, Grid } from "@mui/material";
+import {
+  Button,
+  Box,
+  Typography,
+  useTheme,
+  Grid,
+  TableContainer,
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+  TableFooter,
+  TablePagination,
+  Paper,
+} from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataRoute } from "../../data/mockData";
 import "./glassmorphism.css";
+import IconButton from "@mui/material/IconButton";
+import FirstPageIcon from "@mui/icons-material/FirstPage";
+import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import LastPageIcon from "@mui/icons-material/LastPage";
+import PropTypes from "prop-types";
 
 // import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 // import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
@@ -11,6 +32,8 @@ import Header from "../../components/Header";
 import MapContainer from "./map";
 import handleShowRoute from "./map";
 import { useState } from "react";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import { DirectionsService, DirectionsRenderer } from "google-maps-react";
 
 // import { useLoadScript, useJsApiLoader } from "@react-google-maps/api";
@@ -33,7 +56,92 @@ import { DirectionsService, DirectionsRenderer } from "google-maps-react";
 
 // }
 
+const useStyles = makeStyles((theme) => ({
+  textField: {
+    marginBottom: theme.spacing(2),
+  },
+  button: {
+    marginTop: theme.spacing(2),
+  },
+  tableCell: {
+    borderBottom: "none",
+  },
+  // tableHeader: {
+  //   backgroundColor: colors.blueAccent[100]
+  // },
+}));
+
+function TablePaginationActions(props) {
+  const theme = useTheme();
+  const { count, page, rowsPerPage, onPageChange } = props;
+
+  const handleFirstPageButtonClick = (event) => {
+    onPageChange(event, 0);
+  };
+
+  const handleBackButtonClick = (event) => {
+    onPageChange(event, page - 1);
+  };
+
+  const handleNextButtonClick = (event) => {
+    onPageChange(event, page + 1);
+  };
+
+  const handleLastPageButtonClick = (event) => {
+    onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
+  };
+
+  return (
+    <Box sx={{ flexShrink: 0, ml: 2.5 }}>
+      <IconButton
+        onClick={handleFirstPageButtonClick}
+        disabled={page === 0}
+        aria-label="first page"
+      >
+        {theme.direction === "rtl" ? <LastPageIcon /> : <FirstPageIcon />}
+      </IconButton>
+      <IconButton
+        onClick={handleBackButtonClick}
+        disabled={page === 0}
+        aria-label="previous page"
+      >
+        {theme.direction === "rtl" ? (
+          <KeyboardArrowRight />
+        ) : (
+          <KeyboardArrowLeft />
+        )}
+      </IconButton>
+      <IconButton
+        onClick={handleNextButtonClick}
+        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+        aria-label="next page"
+      >
+        {theme.direction === "rtl" ? (
+          <KeyboardArrowLeft />
+        ) : (
+          <KeyboardArrowRight />
+        )}
+      </IconButton>
+      <IconButton
+        onClick={handleLastPageButtonClick}
+        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+        aria-label="last page"
+      >
+        {theme.direction === "rtl" ? <FirstPageIcon /> : <LastPageIcon />}
+      </IconButton>
+    </Box>
+  );
+}
+
+TablePaginationActions.propTypes = {
+  count: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
+  rowsPerPage: PropTypes.number.isRequired,
+};
+
 const RouteMap = () => {
+  const classes = useStyles();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
@@ -63,18 +171,36 @@ const RouteMap = () => {
     handleShowRoute(setDirections);
   };
 
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
+  // Avoid a layout jump when reaching the last page with empty rows.
+  const emptyRows =
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - mockDataRoute.length) : 0;
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
   return (
     <Box m="20px">
       <Header title="Tuyến đường" subtitle="Danh sách tuyến đường" />
-      <Grid container>
+      <Grid container columnSpacing={2}>
         <Grid item xs={4}>
           <Box
             m="40px 0 0 0"
-            height="75vh"
-            // className="glassmorphism"
-            // gap="20px"
-            // gridColumn="span 4"
-            // gridRow="span 2"
+            display="flex"
+            // height="75vh"
+            className="glassmorphism"
+            // marginBottom="20px"
+            gap="20px"
+            gridColumn="span 4"
+            gridRow="span 2"
             p="15px"
             sx={{
               "& .MuiDataGrid-root": {
@@ -96,28 +222,129 @@ const RouteMap = () => {
               "& .MuiDataGrid-footerContainer": {
                 borderTop: "none",
                 backgroundColor: colors.blueAccent[700],
+                position: "sticky",
+                bottom: 0,
+                zIndex: 1,
               },
               "& .MuiCheckbox-root": {
                 color: `${colors.greenAccent[200]} !important`,
               },
             }}
           >
-            <DataGrid
+            {/* <DataGrid
               checkboxSelection
               rows={mockDataRoute}
               columns={columns}
-            />
+            /> */}
+            <TableContainer
+              sx={{
+                maxHeight: "70vh",
+              }}
+            >
+              <Table aria-label="simple table" stickyHeader>
+                <TableHead>
+                  <TableRow
+                    sx={{
+                      backgroundColor: colors.blueAccent[800],
+                      mx: "30px",
+                    }}
+                  >
+                    <TableCell>
+                      <Typography variant="h6">ID</Typography>
+                    </TableCell>
+                    <TableCell align="left">
+                      <Typography variant="h6">Tên</Typography>
+                    </TableCell>
+                    <TableCell align="left">
+                      <Typography variant="h6">Tình trạng</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="h6">Độ dài</Typography>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {(rowsPerPage > 0
+                    ? mockDataRoute.slice(
+                        page * rowsPerPage,
+                        page * rowsPerPage + rowsPerPage
+                      )
+                    : mockDataRoute
+                  ).map((row) => (
+                    <TableRow key={row.id}>
+                      <TableCell className={classes.tableCell}>
+                        {row.id}
+                      </TableCell>
+                      <TableCell className={classes.tableCell}>
+                        {row.name}
+                      </TableCell>
+                      <TableCell
+                        className={classes.tableCell}
+                        style={
+                          row.status === "Đang thực hiện"
+                            ? { color: colors.greenAccent[400] }
+                            : row.status === "Chưa thực hiện"
+                            ? { color: colors.redAccent[400] }
+                            : { color: colors.grey[300] }
+                        }
+                      >
+                        {row.status}
+                      </TableCell>
+                      <TableCell className={classes.tableCell}>
+                        {row.length}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                  {emptyRows > 0 && (
+                    <TableRow style={{ height: 53 * emptyRows }}>
+                      <TableCell colSpan={6} />
+                    </TableRow>
+                  )}
+                </TableBody>
+                <TableFooter
+                  sx={{
+                    position: "sticky",
+                    bottom: 0,
+                    zIndex: 1,
+                  }}
+                >
+                  <TableRow align="right">
+                    <TablePagination
+                      rowsPerPageOptions={[
+                        5,
+                        10,
+                        25,
+                        { label: "All", value: -1 },
+                      ]}
+                      colSpan={4}
+                      count={mockDataRoute.length}
+                      rowsPerPage={rowsPerPage}
+                      page={page}
+                      SelectProps={{
+                        inputProps: {
+                          "aria-label": "rows per page",
+                        },
+                        native: true,
+                      }}
+                      onPageChange={handleChangePage}
+                      onRowsPerPageChange={handleChangeRowsPerPage}
+                      ActionsComponent={TablePaginationActions}
+                    />
+                  </TableRow>
+                </TableFooter>
+              </Table>
+            </TableContainer>
           </Box>
         </Grid>
         <Grid item xs={8}>
           <Box
             m="40px 0 0 0"
-            height="75vh"
+            height="73.5vh"
             p="15px"
-            // className="glassmorphism"
-            // gap="20px"
-            // gridColumn="span 4"
-            // gridRow="span 2"
+            className="glassmorphism"
+            gap="20px"
+            gridColumn="span 4"
+            gridRow="span 2"
             sx={{
               position: "relative",
               display: "flex",

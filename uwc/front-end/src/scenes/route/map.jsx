@@ -3,8 +3,8 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 import { DirectionsService, DirectionsRenderer } from "google-maps-react";
 import "./glassmorphism.css";
 const mapStyles = {
-  width: "98%",
-  height: "96%",
+  width: "97%",
+  height: "70vh",
 };
 
 const MapContainer = (props) => {
