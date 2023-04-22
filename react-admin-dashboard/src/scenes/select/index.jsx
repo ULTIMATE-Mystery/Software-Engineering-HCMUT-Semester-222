@@ -23,9 +23,11 @@ const SelectWorker = () => {
   const [selectedRoute, setSelectedRoute] = useState([]);
   const [selectedVehicle, setSelectedVehicle] = useState([]);
   const [selectedCollector, setSelectedCollector] = useState([]);
+
   const [selectedJanitor, setSelectedJanitor] = useState([]);
   const [selectedArea, setSelectedArea] = useState([]);
   const [selectedTroller, setSelectedTroller] = useState([]);
+
   const [Date, setDate] = useState([]);
   const [Time, setTime] = useState([]);
   const [note, setNote] = useState([]);
@@ -54,17 +56,24 @@ const SelectWorker = () => {
     console.log(e.target.value);
 
     setSelected(e.target.value);
+    form.type=e.target.value;
+    // console.log(form.type);
   };
+
+
 
   function handleChangeMCP(data) {
     console.log(data);
     setSelectedMCP(data);
+    form.mcp= data.label;
+    // form.type=selected.text;
     // setField("mcp", selectedMCP.value)
   }
 
   function handleChangeRoute(data) {
     console.log(data);
     setSelectedRoute(data);
+    form.locate = data.label;
   }
 
 
@@ -72,42 +81,55 @@ const SelectWorker = () => {
   function handleChangeVehicle(data) {
     console.log(data);
     setSelectedVehicle(data);
+    form.vehicle = data.label;
   }
 
   function handleChangeCollector(data) {
     console.log(data);
     setSelectedCollector(data);
+    form.userId=data.label;
   }
   function handleChangeArea(data) {
     console.log(data);
     setSelectedArea(data);
+    form.locate = data.label;
   }
 
   function handleChangeTroller(data) {
     console.log(data);
     setSelectedTroller(data);
+    form.vehicle = data.label;
   }
 
   function handleChangeJanitor(data) {
     console.log(data);
     setSelectedJanitor(data);
+    form.userId = data.label;
   }
 
   const handleChangeDate = (e) => {
     console.log(e.target.value);
     setDate(e.target.value);
+    form.Date = e.target.value;
   }
 
   const handleChangeTime = (e) => {
     console.log(e.target.value);
     setTime(e.target.value);
+    form.startTime= e.target.value;
   }
 
   const handleChangeNote = (e) => {
     console.log(e.target.value);
     setNote(e.target.value);
+    form.note= e.target.value;
   }
 
+  const options = [
+    { value: 'Initial', text: 'Chọn loại' },
+    { value: 'Collector', text: 'Collector' },
+    { value: 'Janitor', text: 'Janitor' },
+  ];
 
   const [form, setForm] = useState({
     mcp: '',
@@ -118,7 +140,8 @@ const SelectWorker = () => {
     vehicle: '',
     userId: '',
     note: '',
-    status: ''
+    status: '',
+    type: ''
   })
 
   const [errors, setErrors] = useState({})
@@ -138,7 +161,7 @@ const SelectWorker = () => {
 
   const validateForm = () => {
     const {
-      mcp, Date, locate, startTime, vehicle, userId, note, endTime, status
+      mcp, Date, locate, startTime, vehicle, userId, note, endTime, status, type
     } = form
 
     const newErrors = {}
@@ -166,13 +189,13 @@ const SelectWorker = () => {
   const fail = document.getElementById('fail');
 
   const handleFormSubmit = (e) => {
-
-    form.mcp = selectedMCP.label;
-    form.Date = Date;
-    form.locate = selectedRoute.label;
-    form.startTime = Time;
-    form.vehicle = selectedVehicle.label;
-    form.userId = selectedCollector.label;
+    // form.type = selected.text;
+    // form.mcp = selectedMCP.label;
+    // form.Date = Date;
+    // form.locate = selectedRoute.label;
+    // form.startTime = Time;
+    // form.vehicle = selectedVehicle.label;
+    // form.userId = selectedCollector.label;
     // if (!selectedMCP) {
     //   form.mcp = '';
     // }
@@ -223,6 +246,7 @@ const SelectWorker = () => {
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors)
       fail.style.display = 'block';
+      console.log("form error: ", form)
       // setMessage('Whoops, please check for errors below highlighted in red')
     }
     else {
@@ -241,7 +265,9 @@ const SelectWorker = () => {
           userId: '',
           note: '',
           status: "Đang thực hiện",
-          endTime: ''
+          endTime: '',
+          type: selected,
+
         })
         setSelectedMCP("");
         setSelectedRoute("");
@@ -270,11 +296,7 @@ const SelectWorker = () => {
 
 
 
-  const options = [
-    { value: 'Initial', text: 'Chọn loại' },
-    { value: 'collector', text: 'Collector' },
-    { value: 'janitor', text: 'Janitor' },
-  ];
+
 
 
 
@@ -314,11 +336,14 @@ const validate = form => {
       </div>
 
 
-      {selected === "collector" ?
+      {selected === "Collector" ?
+
 
         <div>
 
+
           <form onSubmit={handleFormSubmit}>
+            
             <div className="box-assign">
               <Box
                 color="white"
@@ -346,14 +371,14 @@ const validate = form => {
                       isSearchable={true}
 
                       // isOptionDisabled={() => selectedMCP.length >= 3}
-                      isInvalid={!!errors.mcp}
+                      // isInvalid={!!errors.mcp}
 
                     />
 
-                    <div className="mcp-error">
+                    {/* <div className="mcp-error">
                       <span type='invalid'> {errors.mcp}
                       </span>
-                    </div>
+                    </div> */}
                     {/* {Formik.errors.selectedMCP ? <div>"Nhập dữ liệu" </div> : null} */}
 
                   </div>
@@ -370,16 +395,16 @@ const validate = form => {
                         value={Date}
 
                         onChange={(handleChangeDate)}
-                        isInvalid={!!errors.Date}
+                        // isInvalid={!!errors.Date}
                       />
 
 
                     </div>
-
+{/* 
                     <div className="date-error">
                       <span type='invalid' aria-disabled> {errors.Date}
                       </span>
-                    </div>
+                    </div> */}
 
                   </div>
                 </div>
@@ -396,13 +421,13 @@ const validate = form => {
 
 
                       isSearchable={true}
-                      isInvalid={!!errors.locate}
+                      // isInvalid={!!errors.locate}
                     />
 
-                    <div className="locate-error">
+                    {/* <div className="locate-error">
                       <span type='invalid' aria-disabled="false"> {errors.locate}
                       </span>
-                    </div>
+                    </div> */}
 
                   </div>
 
@@ -415,13 +440,13 @@ const validate = form => {
                         type="time"
                         value={Time}
                         onChange={handleChangeTime}
-                        isInvalid={!!errors.startTime}
+                        // isInvalid={!!errors.startTime}
 
                       />
-                      <div className="time-error">
+                      {/* <div className="time-error">
                         <span type='invalid' aria-disabled> {errors.startTime}
                         </span>
-                      </div>
+                      </div> */}
 
                     </div>
 
@@ -439,12 +464,12 @@ const validate = form => {
                     onChange={handleChangeVehicle}
 
                     isSearchable={true}
-                    isInvalid={!!errors.vehicle}
+                    // isInvalid={!!errors.vehicle}
                   />
-                  <div className="vehicle-error">
+                  {/* <div className="vehicle-error">
                     <span type='invalid' aria-disabled> {errors.vehicle}
                     </span>
-                  </div>
+                  </div> */}
 
                 </div>
 
@@ -461,13 +486,13 @@ const validate = form => {
                     // isClearable={true}
                     isSearchable={true}
                     // isOptionDisabled={() => selectedCollector.length >= 2}
-                    isInvalid={!!errors.userId}
+                    // isInvalid={!!errors.userId}
 
                   />
-                  <div className="collector-error">
+                  {/* <div className="collector-error">
                     <span type='invalid' aria-disabled> {errors.userId}
                     </span>
-                  </div>
+                  </div> */}
 
 
                 </div>
@@ -520,7 +545,7 @@ const validate = form => {
         : ""}
 
 
-      {selected === "janitor" ?
+      {selected === "Janitor" ?
         <div>
           <form onSubmit={handleFormSubmit}>
             <div className="box-assign">
@@ -550,14 +575,14 @@ const validate = form => {
                       isSearchable={true}
 
                       // isOptionDisabled={() => selectedMCP.length >= 3}
-                      isInvalid={!!errors.mcp}
+                      // isInvalid={!!errors.mcp}
 
                     />
 
-                    <div className="mcp-error">
+                    {/* <div className="mcp-error">
                       <span type='invalid'> {errors.mcp}
                       </span>
-                    </div>
+                    </div> */}
 
                   </div>
 
@@ -573,16 +598,16 @@ const validate = form => {
                         value={Date}
 
                         onChange={(handleChangeDate)}
-                        isInvalid={!!errors.Date}
+                        // isInvalid={!!errors.Date}
                       />
 
 
                     </div>
-
+{/* 
                     <div className="date-error">
                       <span type='invalid' aria-disabled> {errors.Date}
                       </span>
-                    </div>
+                    </div> */}
 
                   </div>
                 </div>
@@ -599,13 +624,13 @@ const validate = form => {
 
 
                       isSearchable={true}
-                      isInvalid={!!errors.locate}
+                      // isInvalid={!!errors.locate}
                     />
-
+{/* 
                     <div className="locate-error">
                       <span type='invalid' aria-disabled="false"> {errors.locate}
                       </span>
-                    </div>
+                    </div> */}
 
                   </div>
 
@@ -618,13 +643,13 @@ const validate = form => {
                         type="time"
                         value={Time}
                         onChange={handleChangeTime}
-                        isInvalid={!!errors.startTime}
+                        // isInvalid={!!errors.startTime}
 
                       />
-                      <div className="time-error">
+                      {/* <div className="time-error">
                         <span type='invalid' aria-disabled> {errors.startTime}
                         </span>
-                      </div>
+                      </div> */}
 
                     </div>
 
@@ -642,12 +667,12 @@ const validate = form => {
                     onChange={handleChangeTroller}
 
                     isSearchable={true}
-                    isInvalid={!!errors.vehicle}
+                    // isInvalid={!!errors.vehicle}
                   />
-                  <div className="vehicle-error">
+                  {/* <div className="vehicle-error">
                     <span type='invalid' aria-disabled> {errors.vehicle}
                     </span>
-                  </div>
+                  </div> */}
 
                 </div>
 
@@ -664,13 +689,13 @@ const validate = form => {
                     // isClearable={true}
                     isSearchable={true}
                     // isOptionDisabled={() => selectedCollector.length >= 2}
-                    isInvalid={!!errors.userId}
+                    // isInvalid={!!errors.userId}
 
                   />
-                  <div className="collector-error">
+                  {/* <div className="collector-error">
                     <span type='invalid' aria-disabled> {errors.userId}
                     </span>
-                  </div>
+                  </div> */}
 
 
                 </div>
