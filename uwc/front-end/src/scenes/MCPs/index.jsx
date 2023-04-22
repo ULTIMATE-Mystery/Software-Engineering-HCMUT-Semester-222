@@ -81,14 +81,20 @@ export const MCPs = () => {
                   <Grid item sm={6} xs={13} md={6} lg={4.7} >
                       <Card style={{height: '650px', borderRadius: "1rem", boxShadow: "5px 5px 15px 0px rgba(0, 0, 0, 0.1)"}}>
                               <CardContent >
-                                
-                                  <CustomColor>
+                            
                                   <Typography gutterBottom variant="h5" sx={{ display: 'flex', alignItems: 'center' }}>
                                         <header style={{fontSize: '1.5rem', fontWeight: '500', marginRight: '1rem'}}>MCPs</header>
-                                        <TextField id="outlined-basic" label="Search" variant="outlined" />
+                                        <TextField
+                                         id="outlined-basic"
+                                          label="Search" 
+                                          variant="outlined"
+                                          InputProps={{
+                                            style: { color: 'white' }
+                                          }}
+                                         />
                                         <div>
                                             <FormControl sx={{ m: 1, width: 100 }}>
-                                                <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
+                                                <InputLabel id="demo-multiple-checkbox-label">Lọc</InputLabel>
                                                 <Select
                                                     labelId="demo-multiple-checkbox-label"
                                                     id="demo-multiple-checkbox"
@@ -110,7 +116,7 @@ export const MCPs = () => {
                                         </div>
                                     </Typography>
                                       
-                                  </CustomColor>
+                                
                                   {MCPSList.map((info,index) => (
                                       <div key={index} style={(selected === index) ? active : inactive} 
                                           onClick={()=>{
