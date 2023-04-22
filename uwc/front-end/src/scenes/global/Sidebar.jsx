@@ -41,6 +41,7 @@ const Sidebar = ({userLogin}) => {
 
   return (
     <Box
+      maxHeight='100%'
       sx={{
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
@@ -59,6 +60,7 @@ const Sidebar = ({userLogin}) => {
         },
         // position: "fixed",
         // width: 240,
+        height: '100%'
         // overflow: "hidden",
       }}
     >

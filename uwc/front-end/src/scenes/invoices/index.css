@@ -1,0 +1,283 @@
+.header-custom {
+    margin: 20px 20px;
+
+}
+/* Chon loai hinh nhan vien */
+.custom-select {
+    margin: auto;
+    position: relative;
+
+
+}
+
+.text-select {
+    position: absolute;
+    margin: -30px 20px;
+    font-size: x-large;
+    font-weight: 700;
+    color: #07e37e;
+    top: 2px;
+}
+
+.select-worker {
+    position: absolute;
+    width: 200px;
+    margin: 10px 0px;
+    height: auto;
+    cursor: pointer;
+    font-size: large;
+    left: 250px;
+    top: -30px;
+}
+
+/* Chon loai hinh nhan vien */
+
+
+/* grid-layout start */
+
+.grid-layout{
+    margin: 0px 15px;
+    color: white;
+  /* background: rgba(45, 73, 100, 0.2);
+
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(130, 172, 214, 0.43); */
+}
+
+/* grid-layout end */
+.mcp-and-date-container{
+    position: relative;
+    margin: 60px 0px;
+ 
+}
+    /* MCP css start*/
+.mcp-container{
+    position: absolute;
+    width: 45%;
+    
+
+}
+
+.text-mcp{
+    font-size: large;
+    color:#07e37e;
+}
+.select-mcp{
+    color: black;
+    font-size: large;
+    height: 38px;
+    
+
+}
+.mcp-error{
+    color: red;
+}
+/* MCP css end*/
+
+
+/* date css start*/
+.date-container{
+    position: absolute;
+    right: 0px;
+    width: 45%;
+    
+}
+.text-date{
+    text-align: left;
+    font-size: large;
+    color:#07e37e;
+    
+}
+
+.select-date{
+    width: -webkit-fill-available;
+    height: 40px;
+
+    font-size: large;
+    cursor: pointer;
+    font-family: cursive;
+}
+.date-error{
+    color: red;
+}
+/* date css end*/
+
+
+.locate-and-time-container{
+    margin-top: 15px;
+    position: relative;
+    margin-bottom: 60px;
+ 
+}
+
+.locate-container{
+    position: absolute;
+    width: 45%;
+
+}
+
+/* locate css start*/
+.text-locate{
+    
+    font-size: large;
+    color:#07e37e;
+}
+.select-locate{
+    color: black;
+    font-size: large;
+    height: 38px;
+ 
+}
+.locate-error{
+    color: red;
+}
+/* locate css end*/
+
+.time-container{
+    position: absolute;
+    right: 0px;
+    width: 45%;
+}
+/* time css start*/
+.text-hour{
+    
+    font-size: large;
+    color:#07e37e;
+}
+.select-hour{
+    width: -webkit-fill-available;
+    height: 40px;
+
+    font-size: large;
+    cursor: pointer;
+    font-family: cursive;
+}
+.time-error{
+    color: red;
+}
+/* time css end*/
+
+/* vehicle css start*/
+.vehicle-container{
+    margin-top: 20px;
+}
+.text-vehicle{
+    
+    font-size: large;
+    color:#07e37e;
+}
+.select-vehicle{
+    color: black;
+    font-size: large;
+    text-align: left;
+    height: 38px;
+
+}
+.vehicle-error{
+    color: red;
+}
+/* vehicle  css end*/
+
+/* collector css start*/
+.collector-container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.text-collector{
+    
+    font-size: large;
+    color:#07e37e;
+}
+.select-collector{
+    color: black;
+    font-size: large;
+    height: 38px;
+
+
+}
+.collector-error{
+    color: red;
+}
+/* collector  css end*/
+
+/* note css start*/
+.text-note{
+    
+    font-size: large;
+    color:#07e37e;
+}
+.select-note{
+    width: -webkit-fill-available;
+    height: 40px;
+    color: black;
+    font-size: large;
+
+}
+/* note  css end*/
+
+
+/* button*/
+.button-container{
+    position: relative;
+}
+.submit-container{
+    position: absolute;
+    right: 15px;
+}
+.cancel-container{
+    position: absolute;
+    right: 150px;
+
+}
+.cancel-button{
+    font-size: large;
+    height: 45px;
+    width: 100px;
+    background: red;
+    border-radius: 10px ;
+
+}
+
+
+.submit-button{
+    font-size: large;
+    height: 45px;
+    width: 100px;
+    background: #07e37e;
+    border-radius: 10px ;
+}
+
+.success{
+
+    animation: buttons .4s linear;
+    margin-top: 0px;
+    font-size: large;
+    color: #07e37e;
+    text-align: center;
+    display: none;
+}
+
+.fail{
+    animation: buttons .4s linear;
+    margin-top: 0px;
+    font-size: large;
+    color: #a72520;
+    text-align: center;
+    display: none;
+}
+@keyframes buttons{
+    0%{
+        transform: scale(0.1);
+    }
+    50%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+/* button*/
