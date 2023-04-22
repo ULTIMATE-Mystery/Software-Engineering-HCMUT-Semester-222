@@ -1,50 +1,59 @@
-import { Box, Typography, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { Box } from "@mui/material";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataInvoices } from "../../data/mockData";
+import { DataTaskView} from "../../data/DataTask";
 import Header from "../../components/Header";
+import { useTheme } from "@mui/material";
 
-const Invoices = () => {
+const ViewTask = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
   const columns = [
-    { field: "id", headerName: "ID" },
+    { field: "id", headerName: "Số thứ tự", flex: 0.5 },
+    { field: "registerId", headerName: "Mã đăng ký" },
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Tên nhân viên",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "phone",
-      headerName: "Phone Number",
+      field: "worker",
+      headerName: "Loại nhân viên",
+    //   type: "number",
+      headerAlign: "left",
+      align: "left",
+    },
+    {
+      field: "vehicle",
+      headerName: "Phương tiện",
       flex: 1,
     },
     {
-      field: "email",
-      headerName: "Email",
+      field: "task",
+      headerName: "Nhiệm vụ",
       flex: 1,
     },
     {
-      field: "cost",
-      headerName: "Cost",
+      field: "status",
+      headerName: "Trạng thái",
       flex: 1,
-      renderCell: (params) => (
-        <Typography color={colors.greenAccent[500]}>
-          ${params.row.cost}
-        </Typography>
-      ),
     },
     {
-      field: "date",
-      headerName: "Date",
-      flex: 1,
-    },
+        field: "note",
+        headerName: "Ghi chú",
+        flex: 1,
+      },
+
   ];
 
   return (
     <Box m="20px">
-      <Header title="INVOICES" subtitle="List of Invoice Balances" />
+      <Header
+        title="DANH SÁCH NHIỆM VỤ"
+        subtitle="Chi tiết danh sách từng nhiệm vụ"
+      />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -72,12 +81,21 @@ const Invoices = () => {
           "& .MuiCheckbox-root": {
             color: `${colors.greenAccent[200]} !important`,
           },
+          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+            color: `${colors.greenAccent[200]} !important`,
+          
+
+          },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataInvoices} columns={columns} />
+        <DataGrid
+          rows={DataTaskView}
+          columns={columns}
+          components={{ Toolbar: GridToolbar }}
+        />
       </Box>
     </Box>
   );
 };
 
-export default Invoices;
+export default ViewTask;

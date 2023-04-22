@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './calendar.css';
+import './index.css';
 import data from './data.json'
 
 import GroupTasks from '../../components/Calendar/GroupTasks';
@@ -80,7 +80,7 @@ const Calendar = () => {
 
 
   const deleteTask = () => {
-    if (window.confirm("You are about to delete a task")) {
+    if (window.confirm("You are about to delete an task :(")) {
       setTasks([...tasks.filter((task) => task.id !== currentTask.id)]);
       setShowModal(false);
     }

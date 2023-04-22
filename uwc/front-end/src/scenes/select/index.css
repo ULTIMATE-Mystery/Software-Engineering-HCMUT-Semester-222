@@ -1,12 +1,14 @@
 .header-custom {
-    margin: 20px 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 
 }
 /* Chon loai hinh nhan vien */
 .custom-select {
-    margin: auto;
+    margin-top: 30px;
     position: relative;
-
+    margin-bottom: 40px;
 
 }
 
@@ -28,16 +30,37 @@
     font-size: large;
     left: 250px;
     top: -30px;
+    -webkit-text-fill-color: black;
 }
 
 /* Chon loai hinh nhan vien */
 
 
 /* grid-layout start */
+.select-assign{
+    margin-bottom: 10px;
 
+}
+.box-assign{
+    margin-top: 60px;
+    
+}
 .grid-layout{
-    margin: 0px 15px;
-    color: white;
+    
+
+    background: rgba(45, 73, 100, 0.2);
+    /* background: rgba(205, 221, 185, 0.2); */
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 2px black;
+    padding-top: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+
+    
   /* background: rgba(45, 73, 100, 0.2);
 
   border-radius: 16px;
@@ -47,30 +70,45 @@
   border: 1px solid rgba(130, 172, 214, 0.43); */
 }
 
+.text-attribute{
+    text-align: center;
+    font-size: xx-large;
+    color: antiquewhite;
+}
+
 /* grid-layout end */
 .mcp-and-date-container{
     position: relative;
-    margin: 60px 0px;
+    /* margin: 60px 0px; */
+    margin-top: 40px;
+    margin-bottom: 60px;
+
  
 }
     /* MCP css start*/
 .mcp-container{
     position: absolute;
     width: 45%;
-    
+
 
 }
 
 .text-mcp{
     font-size: large;
     color:#07e37e;
+
 }
 .select-mcp{
-    color: black;
+    color: transparent;
     font-size: large;
     height: 38px;
-    
 
+    font-family: 'Source Sans Pro';
+    cursor: pointer;
+    background-color: aquamarine;
+    /* background:rgb(255, 0, 0); */
+    -webkit-text-fill-color: black;
+    
 }
 .mcp-error{
     color: red;
@@ -99,6 +137,9 @@
     font-size: large;
     cursor: pointer;
     font-family: cursive;
+
+    font-family: 'Source Sans Pro';
+    -webkit-text-fill-color: black;
 }
 .date-error{
     color: red;
@@ -116,23 +157,27 @@
 .locate-container{
     position: absolute;
     width: 45%;
-
-}
+    color: transparent;
+}   
 
 /* locate css start*/
 .text-locate{
-    
+
     font-size: large;
     color:#07e37e;
 }
 .select-locate{
+
     color: black;
     font-size: large;
     height: 38px;
- 
+
+    font-family: 'Source Sans Pro';
+    -webkit-text-fill-color: black;
 }
 .locate-error{
     color: red;
+
 }
 /* locate css end*/
 
@@ -154,6 +199,9 @@
     font-size: large;
     cursor: pointer;
     font-family: cursive;
+
+    font-family: 'Source Sans Pro';
+    -webkit-text-fill-color: black;
 }
 .time-error{
     color: red;
@@ -174,6 +222,9 @@
     font-size: large;
     text-align: left;
     height: 38px;
+
+    font-family: 'Source Sans Pro';
+    -webkit-text-fill-color: black;
 
 }
 .vehicle-error{
@@ -197,6 +248,8 @@
     font-size: large;
     height: 38px;
 
+    font-family: 'Source Sans Pro';
+    -webkit-text-fill-color: black;
 
 }
 .collector-error{
@@ -216,6 +269,8 @@
     color: black;
     font-size: large;
 
+    font-family: 'Source Sans Pro';
+    -webkit-text-fill-color: black;
 }
 /* note  css end*/
 

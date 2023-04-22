@@ -80,7 +80,7 @@ const Calendar = () => {
 
 
   const deleteTask = () => {
-    if (window.confirm("You are about to delete a task")) {
+    if (window.confirm("You are about to delete an task :(")) {
       setTasks([...tasks.filter((task) => task.id !== currentTask.id)]);
       setShowModal(false);
     }

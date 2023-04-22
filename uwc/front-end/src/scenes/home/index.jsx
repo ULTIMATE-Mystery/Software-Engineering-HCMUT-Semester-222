@@ -101,7 +101,7 @@ const HomePage = ({allUserAccount, vehicle}) => {
               size="small"
               color="secondary"
               variant="outlined"
-              onClick={() => navigate('/workerinfo')}
+              onClick={() => navigate('/vehicle')}
               style={{
                 backgroundColor: colors.greenAccent[600],
                 marginRight: '30px',

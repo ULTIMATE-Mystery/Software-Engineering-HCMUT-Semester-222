@@ -3,8 +3,16 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
+// import React, { useState } from "react";
+// import { MultiSelect } from "react-multi-select-component";
 
 const Form = () => {
+  // const options = [
+  //   { label: "Grapes 🍇", value: "grapes" },
+  //   { label: "Mango 🥭", value: "mango" },
+  //   { label: "Strawberry 🍓", value: "strawberry" },
+  // ];
+  // const [selected, setSelected] = useState([]);
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = (values) => {
@@ -13,7 +21,7 @@ const Form = () => {
 
   return (
     <Box m="20px">
-      <Header title="CREATE USER" subtitle="Create a New User Profile" />
+      <Header title="TẠO - GÁN CÔNG VIỆC" subtitle="Chọn loại hình nhân viên" />
 
       <Formik
         onSubmit={handleFormSubmit}
@@ -37,6 +45,9 @@ const Form = () => {
                 "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
               }}
             >
+              
+
+
               <TextField
                 fullWidth
                 variant="filled"
@@ -50,6 +61,7 @@ const Form = () => {
                 helperText={touched.firstName && errors.firstName}
                 sx={{ gridColumn: "span 2" }}
               />
+
               <TextField
                 fullWidth
                 variant="filled"
@@ -74,7 +86,7 @@ const Form = () => {
                 name="email"
                 error={!!touched.email && !!errors.email}
                 helperText={touched.email && errors.email}
-                sx={{ gridColumn: "span 4" }}
+                sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 fullWidth
@@ -87,7 +99,7 @@ const Form = () => {
                 name="contact"
                 error={!!touched.contact && !!errors.contact}
                 helperText={touched.contact && errors.contact}
-                sx={{ gridColumn: "span 4" }}
+                sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 fullWidth

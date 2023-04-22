@@ -1,202 +1,980 @@
 import { tokens } from "../theme";
 
-export const mockDataTeam = [
+export const DataTaskView = [
   {
-    id: 1,
-    name: "Jon Snow",
-    email: "jonsnow@gmail.com",
-    age: 35,
-    phone: "(665)121-5454",
-    access: "admin",
+    Date: "2023-04-25",
+    endTime: "",
+    locate: "R11-A",
+    mcp: "Lê Văn Sỹ",
+    note: "Kiểm tra xe trước khi thu gom",
+    startTime: "00:00",
+    status: "Chưa thực hiện",
+    userId: "Quách Tĩnh",
+    vehicle: "THACO TOWNER800-CB",
+    type: "Collector"
+
   },
   {
-    id: 2,
-    name: "Cersei Lannister",
-    email: "cerseilannister@gmail.com",
-    age: 42,
-    phone: "(421)314-2288",
-    access: "manager",
+    Date: "2023-04-25",
+    endTime: "",
+    locate: "R14-A",
+    mcp: "Nguyễn Thái Sơn",
+    note: "Thoi tiet xau",
+    startTime: "01:00",
+    status: "Chưa thực hiện",
+    userId: "Đoàn Dự",
+    vehicle: "THACO TOWNER800-CD",
+    type: "Collector"
+  },
+
+  {
+    Date: "2023-04-24",
+    endTime: "",
+    locate: "R14-B",
+    mcp: "Hoàng Văn Thụ",
+    note: "Trời có thể mưa",
+    startTime: "04:00",
+    status: "Đang thực hiện",
+    userId: "Âu Dương Phong",
+    vehicle: "THACO TOWNER800-CS",
+    type: "Collector"
+  },
+
+  {
+    Date: "2023-04-24",
+    endTime: "",
+    locate: "R14-B",
+    mcp: "Mai Chí Thọ",
+    note: "",
+    startTime: "02:00",
+    status: "Đang thực hiện",
+    userId: "Doãn Chí Bình",
+    vehicle: "THACO TOWNER800-CE",
+    type: "Collector"
+  },
+
+
+  {
+    Date: "2023-04-24",
+    endTime: "",
+    locate: "Khu vực 3",
+    mcp: "Võ Văn Ngân",
+    note: "",
+    startTime: "01:00",
+    status: "Đang thực hiện",
+    userId: "Đông Phương Bất Bại",
+    vehicle: "Xe gom 3",
+    type: "Janitor"
+  },
+
+  {
+    Date: "2023-04-08",
+    endTime: "",
+    locate: "R14-B",
+    mcp: "Phan Đình Phùng",
+    note: "",
+    startTime: "04:15",
+    status: "Đang thực hiện",
+    userId: "Châu Bá Thông",
+    vehicle: "THACO TOWNER800-CX",
+    type: "Collector"
   },
   {
-    id: 3,
-    name: "Jaime Lannister",
-    email: "jaimelannister@gmail.com",
-    age: 45,
-    phone: "(422)982-6739",
-    access: "user",
+    Date: "2023-04-08",
+    endTime: "",
+    locate: "R14-B",
+    mcp: "Phan Xích Long",
+    note: "",
+    startTime: "03:15",
+    status: "Đang thực hiện",
+    userId: "Quách Tĩnh",
+    vehicle: "THACO TOWNER800-CA",
+    type: "Collector"
+  }
+  ,
+  {
+    Date: "2023-02-15",
+    endTime: "",
+    locate: "Khu vực 4",
+    mcp: "Võ Văn Ngân",
+    note: "",
+    startTime: "02:15",
+    status: "Đã hoàn thành",
+    userId: "Cô Cô",
+    vehicle: "Xe gom 4",
+    type: "Janitor"
+  }  ,
+
+  {
+    Date: "2023-04-22",
+    endTime: "",
+    locate: "Khu vực 1",
+    mcp: "Võ Văn Ngân",
+    note: "",
+    startTime: "03:00",
+    status: "Đã hoàn thành",
+    userId: "Dương Quá",
+    vehicle: "Xe gom 1",
+    type: "Janitor"
+  }
+  ,
+  {
+    Date: "2023-04-22",
+    endTime: "",
+    locate: "Khu vực 2",
+    mcp: "Nguyễn Thiện Thuật",
+    note: "",
+    startTime: "03:00",
+    status: "Đã hoàn thành",
+    userId: "Trương Vô Kỵ",
+    vehicle: "Xe gom 2",
+    type: "Janitor"
+  },
+
+
+
+  {
+    Date: "2023-02-15",
+    endTime: "",
+    locate: "Khu vực 6",
+    mcp: "Võ Văn Ngân",
+    note: "",
+    startTime: "04:30",
+    status: "Đã hoàn thành",
+    userId: "Dương Quá",
+    vehicle: "Xe gom 5",
+    type: "Janitor"
+  }
+
+  ,
+  {
+    Date: "2023-02-15",
+    endTime: "",
+    locate: "Khu vực 7",
+    mcp: "Võ Văn Ngân",
+    note: "",
+    startTime: "02:30",
+    status: "Đã hoàn thành",
+    userId: "Dương Quá",
+    vehicle: "Xe gom 6",
+    type: "Janitor"
+  }  ,
+
+
+  {
+    Date: "2023-04-10",
+    endTime: "",
+    locate: "R14-B",
+    mcp: "Điện Biên Phủ",
+    note: "",
+    startTime: "01:00",
+    status: "Đã hoàn thành",
+    userId: "Dương Quá",
+    vehicle: "THACO TOWNER800-CM",
+    type: "Collector"
   },
   {
-    id: 4,
-    name: "Anya Stark",
-    email: "anyastark@gmail.com",
-    age: 16,
-    phone: "(921)425-6742",
-    access: "admin",
+    Date: "2023-02-15",
+    endTime: "",
+    locate: "R14-B",
+    mcp: "Lý Thường Kiệt",
+    note: "",
+    startTime: "16:15",
+    status: "Đã hoàn thành",
+    userId: "Dương Quá",
+    vehicle: "THACO TOWNER800-CB",
+    type: "Collector"
   },
   {
-    id: 5,
-    name: "Daenerys Targaryen",
-    email: "daenerystargaryen@gmail.com",
-    age: 31,
-    phone: "(421)445-1189",
-    access: "user",
+    Date: "2023-02-15",
+    endTime: "",
+    locate: "R14-B",
+    mcp: "Võ Văn Ngân",
+    note: "",
+    startTime: "16:15",
+    status: "Đã hoàn thành",
+    userId: "Dương Quá",
+    vehicle: "THACO TOWNER800-CB",
+    type: "Collector"
+  }
+  
+  ,
+  
+
+  {
+    Date: "2023-02-15",
+    endTime: "",
+    locate: "Khu vực 8",
+    mcp: "Võ Văn Ngân",
+    note: "",
+    startTime: "16:15",
+    status: "Đã hoàn thành",
+    userId: "Dương Quá",
+    vehicle: "Xe gom 7",
+    type: "Janitor"
+  }
+
+]; 
+
+export const selectMCP = [
+
+  { value: 'MCP 1', label: 'Nguyễn Thái Sơn' },
+  { value: 'MCP 2', label: 'Võ Văn Ngân' },
+  { value: 'MCP 3', label: 'Lê Văn Sỹ' },
+  { value: 'MCP 4', label: 'Lý Thường Kiệt' },
+  { value: 'MCP 5', label: 'Điện Biên Phủ' },
+  { value: 'MCP 6', label: 'Mai Chí Thọ' },
+  { value: 'MCP 7', label: 'Hoàng Văn Thụ' },
+  { value: 'MCP 8', label: 'Phan Xích Long' },
+  { value: 'MCP 9', label: 'Phan Đình Phùng' },
+  { value: 'MCP 10', label: 'Phan Đăng Lưu' },
+  { value: 'MCP 11', label: 'Hồ Văn Huê' },
+  { value: 'MCP 12', label: 'Trường Sa' },
+  { value: 'MCP 13', label: 'Lê Quang Định' },
+  { value: 'MCP 14', label: 'Nguyễn Thiện Thuật' },
+  { value: 'MCP 15', label: 'Nguyễn Thị Tú' },
+  { value: 'MCP 16', label: 'Trần Văn Kỷ' },
+  { value: 'MCP 17', label: 'Ung Văn Khiêm' },
+  { value: 'MCP 18', label: 'Xô Viết Nghệ Tĩnh' },
+
+
+];
+
+export const selectRoute = [
+
+  { value: 'Route 1', label: 'R11-A' },
+  { value: 'Route 2', label: 'R11-B' },
+  { value: 'Route 3', label: 'R12-A' },
+  { value: 'Route 4', label: 'R12-B' },
+  { value: 'Route 5', label: 'R14-A' },
+  { value: 'Route 6', label: 'R15-B' },
+  { value: 'Route 7', label: 'R18-A' }
+
+];
+
+export const selectVehicle = [
+
+  { value: 'Vehicle 1', label: 'THACO TOWNER800-CA' },
+  { value: 'Vehicle 2', label: 'THACO TOWNER800-CD' },
+  { value: 'Vehicle 3', label: 'THACO TOWNER800-CE' },
+  { value: 'Vehicle 4', label: 'THACO TOWNER800-CS' },
+  { value: 'Vehicle 5', label: 'THACO TOWNER800-CM' },
+  { value: 'Vehicle 6', label: 'THACO TOWNER800-CN' },
+  { value: 'Vehicle 7', label: 'THACO TOWNER800-CX' }
+
+];
+
+export const selectCollector = [
+  { value: 'Collector 1', label: 'Doãn Chí Bình' },
+  { value: 'Collector 2', label: 'Âu Dương Phong' },
+  { value: 'Collector 3', label: 'Quách Tĩnh' },
+  { value: 'Collector 4', label: 'Châu Bá Thông' },
+  { value: 'Collector 5', label: 'Châu Tình Trì' },
+  { value: 'Collector 6', label: 'Kim Dung' },
+  { value: 'Collector 7', label: 'Đoàn Dự' }
+
+];
+
+export const selectArea = [
+
+  { value: 'Area 1', label: 'Khu vực 1' },
+  { value: 'Area 2', label: 'Khu vực 2' },
+  { value: 'Area 3', label: 'Khu vực 3' },
+  { value: 'Area 4', label: 'Khu vực 4' },
+  { value: 'Area 5', label: 'Khu vực 5' },
+  { value: 'Area 6', label: 'Khu vực 6' },
+  { value: 'Area 7', label: 'Khu vực 7' }
+
+];
+
+export const selectTroller = [
+
+  { value: 'Troller 1', label: 'Xe gom 1' },
+  { value: 'Troller 2', label: 'Xe gom 2' },
+  { value: 'Troller 3', label: 'Xe gom 3' },
+  { value: 'Troller 4', label: 'Xe gom 4' },
+  { value: 'Troller 5', label: 'Xe gom 5' },
+  { value: 'Troller 6', label: 'Xe gom 6' },
+  { value: 'Troller 7', label: 'Xe gom 7' },
+  { value: 'Troller 8', label: 'Xe gom 8' },
+  { value: 'Troller 9', label: 'Xe gom 9' },
+  { value: 'Troller 10', label: 'Xe gom 10' }
+
+];
+
+export const selectJanitor = [
+
+  { value: 'Janitor 1', label: 'Dương Quá' },
+  { value: 'Janitor 2', label: 'Cô Cô' },
+  { value: 'Janitor 3', label: 'Đông Phương Bất Bại' },
+  { value: 'Janitor 4', label: 'Trương Vô Kỵ' },
+  { value: 'Janitor 5', label: 'Hồng Thất Công' },
+  { value: 'Janitor 6', label: 'Kiều Phong' },
+  { value: 'Janitor 7', label: 'Mộ Dung Phục' },
+  { value: 'Janitor 8', label: 'Nhậm Doanh Doanh' },
+  { value: 'Janitor 9', label: 'Chu Chỉ Nhược' },
+  { value: 'Janitor 10', label: 'Lý Mạc Sầu' },
+  { value: 'Janitor 11', label: 'Diệt Tuyệt Sư Thái' },
+  { value: 'Janitor 12', label: 'Tạ Tốn' },
+  { value: 'Janitor 13', label: 'Kỳ Hiểu Phù' }
+
+];
+
+export const mockDataRoute = [
+  {
+    id: "R11-A",
+    name: "Tuyến Thủ Đức 01",
+    status: "Chưa thực hiện",
+    length: "30km",
   },
   {
-    id: 6,
-    name: "Ever Melisandre",
-    email: "evermelisandre@gmail.com",
-    age: 150,
-    phone: "(232)545-6483",
-    access: "manager",
+    id: "R11-B",
+    name: "Tuyến Thủ Đức 02",
+    status: "Đang thực hiện",
+    length: "69km",
   },
   {
-    id: 7,
-    name: "Ferrara Clifford",
-    email: "ferraraclifford@gmail.com",
-    age: 44,
-    phone: "(543)124-0123",
-    access: "user",
+    id: "R12-A",
+    name: "Tuyến Dĩ An 01",
+    status: "Đang thực hiện",
+    length: "25km",
   },
   {
-    id: 8,
-    name: "Rossini Frances",
-    email: "rossinifrances@gmail.com",
-    age: 36,
-    phone: "(222)444-5555",
-    access: "user",
+    id: "R12-B",
+    name: "Tuyến Dĩ An 02",
+    status: "Đang thực hiện",
+    length: "69km",
   },
   {
-    id: 9,
-    name: "Harvey Roxie",
-    email: "harveyroxie@gmail.com",
-    age: 65,
-    phone: "(444)555-6239",
-    access: "admin",
+    id: "R13-A",
+    name: "Tuyến Gò Vấp 01",
+    status: "Chưa thực hiện",
+    length: "10km",
+  },
+  {
+    id: "R13-B",
+    name: "Tuyến Gò Vấp 02",
+    status: "Đang thực hiện",
+    length: "15km",
+  },
+  {
+    id: "R14-A",
+    name: "Tuyến Gò Vấp 02",
+    status: "Đang thực hiện",
+    length: "15km",
+  },
+  {
+    id: "R14-B",
+    name: "Tuyến Gò Vấp 02",
+    status: "Chưa thực hiện",
+    length: "15km",
+  },
+  {
+    id: "R15-A",
+    name: "Tuyến Gò Vấp 02",
+    status: "Đang thực hiện",
+    length: "15km",
+  },
+  {
+    id: "R15-B",
+    name: "Tuyến Gò Vấp 02",
+    status: "Đang thực hiện",
+    length: "15km",
+  },
+  {
+    id: "R16-A",
+    name: "Tuyến Gò Vấp 02",
+    status: "Đang thực hiện",
+    length: "15km",
+  },
+  {
+    id: "R16-B",
+    name: "Tuyến Gò Vấp 02",
+    status: "Đang thực hiện",
+    length: "15km",
+  },
+  {
+    id: "R17-A",
+    name: "Tuyến Gò Vấp 02",
+    status: "Đang thực hiện",
+    length: "15km",
+  },
+  {
+    id: "R17-B",
+    name: "Tuyến Gò Vấp 02",
+    status: "Đang thực hiện",
+    length: "15km",
+  },
+  {
+    id: "R18-A",
+    name: "Tuyến Gò Vấp 02",
+    status: "Đang thực hiện",
+    length: "15km",
+  },
+  {
+    id: "R18-B",
+    name: "Tuyến Gò Vấp 02",
+    status: "Đang thực hiện",
+    length: "15km",
   },
 ];
 
-export const mockDataContacts = [
-  {
-    id: 1,
-    name: "Jon Snow",
-    email: "jonsnow@gmail.com",
-    age: 35,
-    phone: "(665)121-5454",
-    address: "0912 Won Street, Alabama, SY 10001",
-    city: "New York",
-    zipCode: "10001",
-    registrarId: 123512,
+export const mockDataVehicle = [
+  { 
+    id : 10021,
+    typeCar: "Garbage truck 1",
+    Status : "Đang sử dụng",
+    color : "Xanh",
+    plateNumber:"60 - M2 06002",
+    frameNumber:"1VKJ029HN78",
+    capacity:"1000 l",
+    fuel:"8l/100km",
+    damage:"0%",
+    yearOfMake:"2021",
+    worker:"Nguyến Văn X",
+    image:"https://thegioixechuyendung.vn/wp-content/uploads/2021/01/hyundai-ex8-ep-rac2.jpg",
+    maintenanceHistory: [
+      {
+        id: 1,
+        time: "20/2/2023 15:00",
+        gara: "Gara Tiến Bình",
+        cost : "4.850.000 VND",
+        purpose:"Thay lốp bên trái",
+        note: "không"
+      },
+      {
+        id: 2,
+        time: "6/2/2023 5:00",
+        gara: "Gara Tiến Bình",
+        cost : "9.880.000 VND",
+        purpose:"Động cơ ép rác",
+        note: "Chỉ ép khi rác đầy"
+      },
+      {
+        id: 3,
+        time: "5/2/2023 7:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 4,
+        time: "27/1/2023 15:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 5,
+        time: "25/1/2023 04:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 6,
+        time: "20/1/2023 7:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+    ],
+    userHistory :[
+      {
+        id : 1,
+        worker :"Nguyễn Thái Sơn",
+        MCPs : "Thủ Đức 1",
+        checkIn : "13/02/2023 6:00",
+        checkOut: "14/02/2023 18:00",
+        statusReceived : "Ổn định",
+        statusGiveback : "Ổn định",
+      },
+      {
+        id : 2,
+        worker :"Nguyễn Thái Sơn",
+        MCPs : "Thủ Đức 1",
+        checkIn : "15/02/2023 6:00",
+        checkOut: "16/02/2023 18:00",
+        statusReceived : "Ổn định",
+        statusGiveback : "Ổn định",
+      },
+      {
+        id : 3,
+        worker :"Nguyễn Thái Sơn",
+        MCPs : "Thủ Đức 1",
+        checkIn : "17/02/2023 6:00",
+        checkOut: "18/02/2023 18:00",
+        statusReceived : "Ổn định",
+        statusGiveback : "Ổn định",
+      },
+      {
+        id : 4,
+        worker :"Nguyễn Thái Sơn",
+        MCPs : "Thủ Đức 1",
+        checkIn : "19/02/2023 6:00",
+        checkOut: "20/02/2023 18:00",
+        statusReceived : "Ổn định",
+        statusGiveback : "Ổn định",
+      },
+      {
+        id : 5,
+        worker :"Nguyễn Thái Sơn",
+        MCPs : "Thủ Đức 1",
+        checkIn : "21/02/2023 6:00",
+        checkOut: "22/02/2023 18:00",
+        statusReceived : "Ổn định",
+        statusGiveback : "Ổn định",
+      }
+    ]
   },
   {
-    id: 2,
-    name: "Cersei Lannister",
-    email: "cerseilannister@gmail.com",
-    age: 42,
-    phone: "(421)314-2288",
-    address: "1234 Main Street, New York, NY 10001",
-    city: "New York",
-    zipCode: "13151",
-    registrarId: 123512,
+    id:20023,
+    typeCar: "Garbage truck 2",
+    Status : "Có thể sử dụng",
+    color : "Xanh",
+    plateNumber:"60 - M1 56302",
+    frameNumber:"1VJFC029HN78",
+    capacity:"1000 l",
+    fuel:"8l/100km",
+    damage:"10%",
+    yearOfMake:"2021",
+    worker:"Không",
+    image:"https://thegioixechuyendung.vn/wp-content/uploads/2021/01/hyundai-ex8-ep-rac2.jpg",
+    maintenanceHistory: [
+      {
+        id: 1,
+        tme: "20/2/2023 15:00",
+        gara: "Gara Tiến Bình",
+        cost : "4.850.000 VND",
+        purpose:"Thay lốp bên trái",
+        note: "không"
+      },
+      {
+        id: 2,
+        time: "6/2/2023 5:00",
+        gara: "Gara Tiến Bình",
+        cost : "9.880.000 VND",
+        purpose:"Động cơ ép rác",
+        note: "Chỉ ép khi rác đầy"
+      },
+      {
+        id: 3,
+        time: "5/2/2023 7:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 4,
+        time: "27/1/2023 15:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 5,
+        time: "25/1/2023 04:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 6,
+        time: "20/1/2023 7:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+    ],
+      userHistory :[
+      {
+        id : 1,
+        worker :"Nguyễn Văn Quyền",
+        MCPs : "Thủ Đức 3",
+        checkIn : "13/02/2023 6:00",
+        checkOut: "14/02/2023 18:00",
+        statusReceived : "Ổn định",
+        statusGiveback : "Ổn định",
+      },
+      {
+        id : 2,
+        worker :"Nguyễn Văn Quyền",
+        MCPs : "Thủ Đức 3",
+        checkIn : "15/02/2023 6:00",
+        checkOut: "16/02/2023 18:00",
+        statusReceived : "Ổn định",
+        statusGiveback : "Ổn định",
+      },
+      {
+        id : 3,
+        worker :"Nguyễn Văn Quyền",
+        MCPs : "Thủ Đức 3",
+        checkIn : "17/02/2023 6:00",
+        checkOut: "18/02/2023 18:00",
+        statusReceived : "Ổn định",
+        statusGiveback : "Ổn định",
+      },
+      {
+        id : 4,
+        worker :"Nguyễn Văn Quyền",
+        MCPs : "Thủ Đức 3",
+        checkIn : "19/02/2023 6:00",
+        checkOut: "20/02/2023 18:00",
+        statusReceived : "Ổn định",
+        statusGiveback : "Ổn định",
+      },
+      {
+        id : 5,
+        worker :"Nguyễn Văn Quyền",
+        MCPs : "Thủ Đức 3",
+        checkIn : "21/02/2023 6:00",
+        checkOut: "22/02/2023 18:00",
+        statusReceived : "Ổn định",
+        statusGiveback : "Ổn định",
+      }
+    ],
   },
   {
-    id: 3,
-    name: "Jaime Lannister",
-    email: "jaimelannister@gmail.com",
-    age: 45,
-    phone: "(422)982-6739",
-    address: "3333 Want Blvd, Estanza, NAY 42125",
-    city: "New York",
-    zipCode: "87281",
-    registrarId: 4132513,
+    id:30041,
+    typeCar: "Garbage truck 3",
+    Status : "Đang sử dụng",
+    color : "Xanh",
+    plateNumber:"60 - M2 9820",
+    frameNumber:"2KAVK78UJK",
+    capacity:"1000 l",
+    fuel:"8l/100km",
+    damage:"0%",
+    yearOfMake:"2022",
+    worker:"Nguyến Văn A",
+    image:"https://data.thegioixetai.vn/product/dongfeng/b180/cho-rac/xe-cho-rac-dongfeng-b180-2.jpg",
+    maintenanceHistory: [
+      {
+        id: 1,
+        time: "20/2/2023 15:00",
+        gara: "Gara Tiến Bình",
+        cost : "4.850.000 VND",
+        purpose:"Thay lốp bên trái",
+        note: "không"
+      },
+      {
+        id: 2,
+        time: "6/2/2023 5:00",
+        gara: "Gara Tiến Bình",
+        cost : "9.880.000 VND",
+        purpose:"Động cơ ép rác",
+        note: "Chỉ ép khi rác đầy"
+      },
+      {
+        id: 3,
+        time: "5/2/2023 7:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 4,
+        time: "27/1/2023 15:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 5,
+        time: "25/1/2023 04:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 6,
+        time: "20/1/2023 7:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+    ],
+    userHistory :[
+    {
+      id : 1,
+      worker :"Nguyễn Thực Đăng",
+      MCPs : "Thủ Đức 3",
+      checkIn : "13/02/2023 6:00",
+      checkOut: "14/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    },
+    {
+      id : 2,
+      worker :"Nguyễn Thực Đăng",
+      MCPs : "Thủ Đức 3",
+      checkIn : "15/02/2023 6:00",
+      checkOut: "16/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    },
+    {
+      id : 3,
+      worker :"Nguyễn Thực Đăng",
+      MCPs : "Thủ Đức 3",
+      checkIn : "17/02/2023 6:00",
+      checkOut: "18/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    },
+    {
+      id : 4,
+      worker :"Nguyễn Thực Đăng",
+      MCPs : "Thủ Đức 3",
+      checkIn : "19/02/2023 6:00",
+      checkOut: "20/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    },
+    {
+      id : 5,
+      worker :"Nguyễn Thực Đăng",
+      MCPs : "Thủ Đức 3",
+      checkIn : "21/02/2023 6:00",
+      checkOut: "22/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    }
+  ],
   },
   {
-    id: 4,
-    name: "Anya Stark",
-    email: "anyastark@gmail.com",
-    age: 16,
-    phone: "(921)425-6742",
-    address: "1514 Main Street, New York, NY 22298",
-    city: "New York",
-    zipCode: "15551",
-    registrarId: 123512,
+    id:40021,
+    typeCar: "Troller 1",
+    Status : "Đang sử dụng",
+    color : "Xanh",
+    plateNumber:"60 - M2 98722",
+    frameNumber:"3KAVHEHJ",
+    capacity:"1000 l",
+    fuel:"8l/100km",
+    damage:"0%",
+    yearOfMake:"2022",
+    worker:"Nguyến Văn B",
+    image:"https://thuanthienplastic.com/wp-content/uploads/2020/12/Xe-thu-gom-rac-660lit.jpg",
+    maintenanceHistory: [
+      {
+        id: 1,
+        time: "20/2/2023 15:00",
+        gara: "Gara Tiến Bình",
+        cost : "4.850.000 VND",
+        purpose:"Thay lốp bên trái",
+        note: "không"
+      },
+      {
+        id: 2,
+        time: "6/2/2023 5:00",
+        gara: "Gara Tiến Bình",
+        cost : "9.880.000 VND",
+        purpose:"Động cơ ép rác",
+        note: "Chỉ ép khi rác đầy"
+      },
+      {
+        id: 3,
+        time: "5/2/2023 7:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 4,
+        time: "27/1/2023 15:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 5,
+        time: "25/1/2023 04:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 6,
+        time: "20/1/2023 7:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+    ],
+    userHistory :[
+    {
+      id : 1,
+      worker :"Đặng Minh Thục",
+      MCPs : "Thủ Đức 3",
+      checkIn : "13/02/2023 6:00",
+      checkOut: "14/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    },
+    {
+      id : 2,
+      worker :"Đặng Minh Thục",
+      MCPs : "Thủ Đức 3",
+      checkIn : "15/02/2023 6:00",
+      checkOut: "16/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    },
+    {
+      id : 3,
+      worker :"Đặng Minh Thục",
+      MCPs : "Thủ Đức 3",
+      checkIn : "17/02/2023 6:00",
+      checkOut: "18/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    },
+    {
+      id : 4,
+      worker :"Đặng Minh Thục",
+      MCPs : "Thủ Đức 3",
+      checkIn : "19/02/2023 6:00",
+      checkOut: "20/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    },
+    {
+      id : 5,
+      worker :"Đặng Minh Thục",
+      MCPs : "Thủ Đức 3",
+      checkIn : "21/02/2023 6:00",
+      checkOut: "22/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Không Ổn định",
+    }
+  ]
   },
   {
-    id: 5,
-    name: "Daenerys Targaryen",
-    email: "daenerystargaryen@gmail.com",
-    age: 31,
-    phone: "(421)445-1189",
-    address: "11122 Welping Ave, Tenting, CD 21321",
-    city: "Tenting",
-    zipCode: "14215",
-    registrarId: 123512,
-  },
-  {
-    id: 6,
-    name: "Ever Melisandre",
-    email: "evermelisandre@gmail.com",
-    age: 150,
-    phone: "(232)545-6483",
-    address: "1234 Canvile Street, Esvazark, NY 10001",
-    city: "Esvazark",
-    zipCode: "10001",
-    registrarId: 123512,
-  },
-  {
-    id: 7,
-    name: "Ferrara Clifford",
-    email: "ferraraclifford@gmail.com",
-    age: 44,
-    phone: "(543)124-0123",
-    address: "22215 Super Street, Everting, ZO 515234",
-    city: "Evertin",
-    zipCode: "51523",
-    registrarId: 123512,
-  },
-  {
-    id: 8,
-    name: "Rossini Frances",
-    email: "rossinifrances@gmail.com",
-    age: 36,
-    phone: "(222)444-5555",
-    address: "4123 Ever Blvd, Wentington, AD 142213",
-    city: "Esteras",
-    zipCode: "44215",
-    registrarId: 512315,
-  },
-  {
-    id: 9,
-    name: "Harvey Roxie",
-    email: "harveyroxie@gmail.com",
-    age: 65,
-    phone: "(444)555-6239",
-    address: "51234 Avery Street, Cantory, ND 212412",
-    city: "Colunza",
-    zipCode: "111234",
-    registrarId: 928397,
-  },
-  {
-    id: 10,
-    name: "Enteri Redack",
-    email: "enteriredack@gmail.com",
-    age: 42,
-    phone: "(222)444-5555",
-    address: "4123 Easer Blvd, Wentington, AD 142213",
-    city: "Esteras",
-    zipCode: "44215",
-    registrarId: 533215,
-  },
-  {
-    id: 11,
-    name: "Steve Goodman",
-    email: "stevegoodmane@gmail.com",
-    age: 11,
-    phone: "(444)555-6239",
-    address: "51234 Fiveton Street, CunFory, ND 212412",
-    city: "Colunza",
-    zipCode: "1234",
-    registrarId: 92197,
-  },
+    id:50098,
+    typeCar: "Troller 2",
+    Status : "Đang sử dụng",
+    color : "Xanh",
+    plateNumber:"60 - M2 354230",
+    frameNumber:"3KHBAFG21",
+    capacity:"1000 l",
+    fuel:"8l/100km",
+    damage:"0%",
+    yearOfMake:"2022",
+    worker:"Trịnh Troller",
+    image:"https://thuanthienplastic.com/wp-content/uploads/2020/12/Xe-thu-gom-rac-660lit.jpgi",
+    maintenanceHistory: [
+      {
+        id: 1,
+        time: "20/2/2023 15:00",
+        gara: "Gara Tiến Bình",
+        cost : "4.850.000 VND",
+        purpose:"Thay lốp bên trái",
+        note: "không"
+      },
+      {
+        id: 2,
+        time: "6/2/2023 5:00",
+        gara: "Gara Tiến Bình",
+        cost : "9.880.000 VND",
+        purpose:"Động cơ ép rác",
+        note: "Chỉ ép khi rác đầy"
+      },
+      {
+        id: 3,
+        time: "5/2/2023 7:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 4,
+        time: "27/1/2023 15:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 5,
+        time: "25/1/2023 04:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      },
+      {
+        id: 6,
+        time: "20/1/2023 7:00",
+        gara: "Gara Tiến Thành Bình",
+        cost : "1.560.000 VND",
+        purpose:"Bảo dưỡng định kỳ",
+        note: ""
+      }
+    ],
+    userHistory :[
+    {
+      id : 1,
+      worker :"Đoàn Quang Minh",
+      MCPs : "Thủ Đức 3",
+      checkIn : "13/02/2023 6:00",
+      checkOut: "14/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    },
+    {
+      id : 2,
+      worker :"Đoàn Quang Minh",
+      MCPs : "Thủ Đức 3",
+      checkIn : "15/02/2023 6:00",
+      checkOut: "16/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    },
+    {
+      id : 3,
+      worker :"Đoàn Quang Minh",
+      MCPs : "Thủ Đức 3",
+      checkIn : "17/02/2023 6:00",
+      checkOut: "18/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    },
+    {
+      id : 4,
+      worker :"Đoàn Quang Minh",
+      MCPs : "Thủ Đức 3",
+      checkIn : "19/02/2023 6:00",
+      checkOut: "20/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    },
+    {
+      id : 5,
+      worker :"Đoàn Quang Minh",
+      MCPs : "Thủ Đức 3",
+      checkIn : "21/02/2023 6:00",
+      checkOut: "22/02/2023 18:00",
+      statusReceived : "Ổn định",
+      statusGiveback : "Ổn định",
+    }
+    ]
+  }
 ];
 
 export const mockDataWorkerInfo = [
