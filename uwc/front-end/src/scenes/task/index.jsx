@@ -233,31 +233,31 @@ const Task = () => {
                 }}
               >
                 <TableCell>
-                  <Typography variant="h6">Khu vực hoặc Tuyến Đường</Typography>
+                  <Typography variant="h6">Khu Vực/Tuyến Đường</Typography>
                 </TableCell>
                 <TableCell align="left">
                   <Typography variant="h6">MCP</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography variant="h6">Tên nhân viên</Typography>
+                  <Typography variant="h6">Tên Nhân Viên</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography variant="h6">Loại nhân viên</Typography>
+                  <Typography variant="h6">Loại Nhân Viên</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography variant="h6">Tình trạng</Typography>
+                  <Typography variant="h6">Tình Trạng</Typography>
                 </TableCell>
                 <TableCell>
                   <Typography variant="h6">Phương Tiện</Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="h6">Giờ bắt đầu</Typography>
+                  <Typography variant="h6">Giờ Bắt Đầu</Typography>
                 </TableCell>
                 <TableCell>
                   <Typography variant="h6">Ngày</Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="h6">Ghi chú</Typography>
+                  <Typography variant="h6">Ghi Chú</Typography>
                 </TableCell>
               </TableRow>
             </TableHead>

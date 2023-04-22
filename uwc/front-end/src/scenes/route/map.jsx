@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 import { DirectionsService, DirectionsRenderer } from "google-maps-react";
 import "./glassmorphism.css";
 const mapStyles = {
   width: "97%",
-  height: "70vh",
+  height: "73vh",
 };
 
 const MapContainer = (props) => {
@@ -30,7 +30,22 @@ const MapContainer = (props) => {
     }
   };
 
+  useEffect(() => {
+    if (props.directions) {
+      setDirections(props.directions);
+    } else {
+      setDirections(null);
+    }
+  }, [props.directions]);
+
   const [directions, setDirections] = useState(null);
+
+  // useEffect(() => {
+  //   // put your data fetching or side effect code here
+  //   // for example, you could call an API to get data
+  //   // or add an event listener
+  //   setDirections(directions);
+  // }, [directions]);
 
   // const handleShowRoute = () => {
   //   const directionsService = new window.google.maps.DirectionsService();
@@ -97,6 +112,8 @@ const MapContainer = (props) => {
 };
 
 export const handleShowRoute = (setDirections) => {
+  let mounted = true;
+
   const directionsService = new window.google.maps.DirectionsService();
   const origin = new window.google.maps.LatLng(
     10.880092172933786,
@@ -118,8 +135,12 @@ export const handleShowRoute = (setDirections) => {
       setDirections(result);
     }
   });
+  return () => {
+    mounted = false;
+  };
 };
 
 export default GoogleApiWrapper({
-  apiKey: process.env.GG_MAP_API,
+  // apiKey: "AIzaSyBaPvigINOVlPFJQLG9BbA3CoMkLj8rXCo",
+  apiKey: process.env.REACT_APP_API_KEY,
 })(MapContainer);

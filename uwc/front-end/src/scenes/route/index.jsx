@@ -25,16 +25,13 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import PropTypes from "prop-types";
 
-// import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-// import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-// import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
 import MapContainer from "./map";
-import handleShowRoute from "./map";
-import { useState } from "react";
+import { handleShowRoute } from "./map";
+import { useState, useEffect } from "react";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { DirectionsService, DirectionsRenderer } from "google-maps-react";
+import { DirectionsRenderer } from "google-maps-react";
 
 // import { useLoadScript, useJsApiLoader } from "@react-google-maps/api";
 // import Map from "./mapv2";
@@ -171,6 +168,13 @@ const RouteMap = () => {
     handleShowRoute(setDirections);
   };
 
+  // useEffect(() => {
+  //   // put your data fetching or side effect code here
+  //   // for example, you could call an API to get data
+  //   // or add an event listener
+  //   setDirections(directions);
+  // }, [directions]);
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -201,6 +205,7 @@ const RouteMap = () => {
             gap="20px"
             gridColumn="span 4"
             gridRow="span 2"
+            flexDirection="column"
             p="15px"
             sx={{
               "& .MuiDataGrid-root": {
@@ -238,7 +243,7 @@ const RouteMap = () => {
             /> */}
             <TableContainer
               sx={{
-                maxHeight: "70vh",
+                maxHeight: "65vh",
               }}
             >
               <Table aria-label="simple table" stickyHeader>
@@ -260,6 +265,9 @@ const RouteMap = () => {
                     </TableCell>
                     <TableCell>
                       <Typography variant="h6">Độ dài</Typography>
+                    </TableCell>
+                    <TableCell>
+                      {/* <Typography variant="h6">Độ dài</Typography> */}
                     </TableCell>
                   </TableRow>
                 </TableHead>
@@ -293,6 +301,14 @@ const RouteMap = () => {
                       <TableCell className={classes.tableCell}>
                         {row.length}
                       </TableCell>
+                      <TableCell className={classes.tableCell}>
+                        <Button
+                          variant="contained"
+                          onClick={() => handleClick()}
+                        >
+                          Show Route
+                        </Button>
+                      </TableCell>
                     </TableRow>
                   ))}
                   {emptyRows > 0 && (
@@ -301,7 +317,7 @@ const RouteMap = () => {
                     </TableRow>
                   )}
                 </TableBody>
-                <TableFooter
+                {/* <TableFooter
                   sx={{
                     position: "sticky",
                     bottom: 0,
@@ -309,37 +325,34 @@ const RouteMap = () => {
                   }}
                 >
                   <TableRow align="right">
-                    <TablePagination
-                      rowsPerPageOptions={[
-                        5,
-                        10,
-                        25,
-                        { label: "All", value: -1 },
-                      ]}
-                      colSpan={4}
-                      count={mockDataRoute.length}
-                      rowsPerPage={rowsPerPage}
-                      page={page}
-                      SelectProps={{
-                        inputProps: {
-                          "aria-label": "rows per page",
-                        },
-                        native: true,
-                      }}
-                      onPageChange={handleChangePage}
-                      onRowsPerPageChange={handleChangeRowsPerPage}
-                      ActionsComponent={TablePaginationActions}
-                    />
+
                   </TableRow>
                 </TableFooter>
+                 */}
               </Table>
             </TableContainer>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
+              colSpan={4}
+              count={mockDataRoute.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              SelectProps={{
+                inputProps: {
+                  "aria-label": "rows per page",
+                },
+                native: true,
+              }}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+              ActionsComponent={TablePaginationActions}
+            />
           </Box>
         </Grid>
         <Grid item xs={8}>
           <Box
             m="40px 0 0 0"
-            height="73.5vh"
+            height="76vh"
             p="15px"
             className="glassmorphism"
             gap="20px"
@@ -357,11 +370,7 @@ const RouteMap = () => {
             <MapContainer
               style={{ position: "absolute", top: 0, height: "100%" }}
             />
-            {/* 
-            <Button variant="contained" onClick={handleClick}>
-              Show Route
-            </Button> */}
-            {/* {directions && (
+            {directions && (
               <DirectionsRenderer
                 directions={directions}
                 options={{
@@ -372,7 +381,7 @@ const RouteMap = () => {
                   },
                 }}
               />
-            )} */}
+            )}
           </Box>
         </Grid>
       </Grid>
