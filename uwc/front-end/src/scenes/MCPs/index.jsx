@@ -86,7 +86,7 @@ export const MCPs = () => {
                                         <header style={{fontSize: '1.5rem', fontWeight: '500', marginRight: '1rem'}}>MCPs</header>
                                         <TextField
                                          id="outlined-basic"
-                                          label="Search" 
+                                          label="Tìm kiếm" 
                                           variant="outlined"
                                           InputProps={{
                                             style: { color: 'white' }
