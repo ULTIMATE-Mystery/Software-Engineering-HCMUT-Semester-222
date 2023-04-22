@@ -16,13 +16,13 @@ import FAQ from "./scenes/faq";
 import Geography from "./scenes/geography";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
-import Calendar from "./scenes/calendar/calendar";
+// import Calendar from "./scenes/calendar/calendar";
 import SelectWorker from "./scenes/select";
 import ViewTask from "./scenes/viewtask";
 import Vehicle from "./scenes/vehicle";
-import WorkerInfo from "./scenes/workerinfo";
+// import WorkerInfo from "./scenes/workerinfo";
 import MCPs from "./scenes/mcp";
-
+// import Calendar from "./scenes/Schedule";
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
@@ -45,13 +45,14 @@ function App() {
               <Route path="/pie" element={<Pie />} />
               <Route path="/line" element={<Line />} />
               <Route path="/faq" element={<FAQ />} />
-              <Route path="/calendar" element={<Calendar />} />
+              {/* <Route path="/calendar" element={<Calendar />} /> */}
               <Route path="/geography" element={<Geography />} />
               <Route path="/select" element={<SelectWorker />} />
               <Route path="/viewtask" element={<ViewTask />} />
               <Route path="/vehicle" element={<Vehicle />} />
-              <Route path="/workerinfo" element={<WorkerInfo />} />
+              {/* <Route path="/workerinfo" element={<WorkerInfo />} /> */}
               <Route path="/mcp" element={<MCPs />} />
+              {/* <Route path="/Schedule" element={<Calendar />} /> */}
               
             </Routes>
           </main>

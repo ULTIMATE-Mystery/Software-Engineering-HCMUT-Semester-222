@@ -310,10 +310,13 @@ const validate = form => {
 
   return (
 
-    <div>
+    <Box m='20px'>
 
       <div className="header-custom">
-        <Header title="TẠO - GÁN CÔNG VIỆC" />
+        <Header title="TẠO - GÁN CÔNG VIỆC" 
+         subtitle="Chọn loại hình nhân viên"
+        />
+        
       </div >
 
 
@@ -323,6 +326,7 @@ const validate = form => {
         </div>
         <div>
           <select value={selected} onChange={(e) => handleChange(e)} className="select-worker"
+
           >
 
             {options.map(option => (
@@ -346,15 +350,18 @@ const validate = form => {
             
             <div className="box-assign">
               <Box
+                m = "40px 25px 10px 25px"
+                height="65vh"
                 color="white"
                 className="grid-layout"
                 display="grid"
-                gap="10px"
+                gap="20px"
                 gridTemplateColumns="repeat(4, minmax(2, 4fr))"
                 sx={{
                   "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
                 }}
               >
+                {/* <span className="text-attribute">Các thông số</span> */}
                 <div className="mcp-and-date-container">
                   <div className="mcp-container">
                     <label className="text-mcp">Bãi tập kết rác</label>
@@ -410,7 +417,7 @@ const validate = form => {
                 </div>
 
                 <div className="locate-and-time-container">
-                  <div className="locate-container">
+                  <div className="locate-container" >
                     <label className="text-locate">Tuyến đường</label>
                     <Select
                       className="select-locate"
@@ -418,6 +425,8 @@ const validate = form => {
                       placeholder="Chọn tuyến đường"
                       value={selectedRoute}
                       onChange={handleChangeRoute}
+
+
 
 
                       isSearchable={true}
@@ -550,10 +559,12 @@ const validate = form => {
           <form onSubmit={handleFormSubmit}>
             <div className="box-assign">
               <Box
+                m = "40px 25px 10px 25px"
+                height="65vh"
                 color="white"
                 className="grid-layout"
                 display="grid"
-                gap="10px"
+                gap="20px"
                 gridTemplateColumns="repeat(4, minmax(2, 4fr))"
                 sx={{
                   "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
@@ -751,7 +762,7 @@ const validate = form => {
       <div className="fail" id="fail"> Tạo nhiệm vụ thất bại</div>
 
 
-    </div>
+    </Box>
   );
 
 };
