@@ -11,6 +11,33 @@ import ProgressBar from 'react-animated-progress-bar';
 import { useState } from "react";
 import { DataGrid } from '@mui/x-data-grid';
 import { MCPSList } from "../../data/MCPlist";
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import ListItemText from '@mui/material/ListItemText';
+import Select from '@mui/material/Select';
+import Checkbox from '@mui/material/Checkbox';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+const names = [
+    'None',
+    'Capacity < 50%',
+    'Capacity >= 50% and < 75%',
+    'Capacity >=  95%',
+];
 
 const CustomColor = styled('div')({
   background: 'linear-gradient(180deg, rgba(66,109,236,1) 0%, rgba(134,201,145,1) 100%)',
@@ -28,6 +55,18 @@ export const MCPs = () => {
   const handleClick = (divNum) => {
       setSelected(divNum);
   };
+  const [personName, setPersonName] = React.useState([]);
+
+  const handleChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setPersonName(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+
   return (
       <div id="MCPSPage">
           <Box sx={{ flexGrow: 1 }} >
@@ -42,10 +81,35 @@ export const MCPs = () => {
                   <Grid item sm={6} xs={13} md={6} lg={4.7} >
                       <Card style={{height: '650px', borderRadius: "1rem", boxShadow: "5px 5px 15px 0px rgba(0, 0, 0, 0.1)"}}>
                               <CardContent >
+                                
                                   <CustomColor>
-                                      <Typography gutterBottom variant="h5" >
-                                          <strong>MCPs</strong>
-                                      </Typography>
+                                  <Typography gutterBottom variant="h5" sx={{ display: 'flex', alignItems: 'center' }}>
+                                        <header style={{fontSize: '1.5rem', fontWeight: '500', marginRight: '1rem'}}>MCPs</header>
+                                        <TextField id="outlined-basic" label="Search" variant="outlined" />
+                                        <div>
+                                            <FormControl sx={{ m: 1, width: 100 }}>
+                                                <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
+                                                <Select
+                                                    labelId="demo-multiple-checkbox-label"
+                                                    id="demo-multiple-checkbox"
+                                                    multiple
+                                                    value={personName}
+                                                    onChange={handleChange}
+                                                    input={<OutlinedInput label="F" />}
+                                                    renderValue={(selected) => selected.join(', ')}
+                                                    MenuProps={MenuProps}
+                                                >
+                                                    {names.map((name) => (
+                                                        <MenuItem key={name} value={name}>
+                                                            <Checkbox checked={personName.indexOf(name) > -1} />
+                                                            <ListItemText primary={name} />
+                                                        </MenuItem>
+                                                    ))}
+                                                </Select>
+                                            </FormControl>
+                                        </div>
+                                    </Typography>
+                                      
                                   </CustomColor>
                                   {MCPSList.map((info,index) => (
                                       <div key={index} style={(selected === index) ? active : inactive} 
