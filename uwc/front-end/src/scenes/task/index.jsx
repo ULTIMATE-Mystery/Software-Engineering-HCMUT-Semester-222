@@ -186,6 +186,7 @@ const Task = () => {
         gap="20px"
         gridColumn="span 4"
         gridRow="span 2"
+        flexDirection="column"
         p="15px"
         sx={{
           "& .MuiDataGrid-root": {
@@ -232,10 +233,10 @@ const Task = () => {
                 }}
               >
                 <TableCell>
-                  <Typography variant="h6">ID</Typography>
+                  <Typography variant="h6">Khu vực hoặc Tuyến Đường</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography variant="h6">Tên nhiệm vụ</Typography>
+                  <Typography variant="h6">MCP</Typography>
                 </TableCell>
                 <TableCell align="left">
                   <Typography variant="h6">Tên nhân viên</Typography>
@@ -250,7 +251,10 @@ const Task = () => {
                   <Typography variant="h6">Phương Tiện</Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="h6">ID đăng ký</Typography>
+                  <Typography variant="h6">Giờ bắt đầu</Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="h6">Ngày</Typography>
                 </TableCell>
                 <TableCell>
                   <Typography variant="h6">Ghi chú</Typography>
@@ -266,15 +270,15 @@ const Task = () => {
                 : DataTaskView
               ).map((row) => (
                 <TableRow key={row.id}>
-                  <TableCell className={classes.tableCell}>{row.id}</TableCell>
+                  <TableCell className={classes.tableCell}>{row.locate}</TableCell>
                   <TableCell className={classes.tableCell}>
-                    {row.task}
+                    {row.mcp}
                   </TableCell>
                   <TableCell className={classes.tableCell}>
-                    {row.name}
+                    {row.userId}
                   </TableCell>
                   <TableCell className={classes.tableCell}>
-                    {row.worker}
+                    {row.type}
                   </TableCell>
                   <TableCell
                     className={classes.tableCell}
@@ -287,12 +291,16 @@ const Task = () => {
                     }
                   >
                     {row.status}
+
                   </TableCell>
                   <TableCell className={classes.tableCell}>
                     {row.vehicle}
                   </TableCell>
                   <TableCell className={classes.tableCell}>
-                    {row.registerId}
+                    {row.startTime}
+                  </TableCell>
+                  <TableCell className={classes.tableCell}>
+                    {row.Date}
                   </TableCell>
                   <TableCell className={classes.tableCell}>
                     {row.note}
@@ -312,27 +320,28 @@ const Task = () => {
                 zIndex: 1,
               }}
             >
-              <TableRow align="left">
-                <TablePagination
-                  rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-                  colSpan={12}
-                  count={DataTaskView.length}
-                  rowsPerPage={rowsPerPage}
-                  page={page}
-                  SelectProps={{
-                    inputProps: {
-                      "aria-label": "rows per page",
-                    },
-                    native: true,
-                  }}
-                  onPageChange={handleChangePage}
-                  onRowsPerPageChange={handleChangeRowsPerPage}
-                  ActionsComponent={TablePaginationActions}
-                />
-              </TableRow>
+              {/* <TableRow align="left"> */}
+
+              {/* </TableRow> */}
             </TableFooter>
           </Table>
         </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
+          colSpan={12}
+          count={DataTaskView.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          SelectProps={{
+            inputProps: {
+              "aria-label": "rows per page",
+            },
+            native: true,
+          }}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+          ActionsComponent={TablePaginationActions}
+        />
       </Box>
     </Box>
   );
