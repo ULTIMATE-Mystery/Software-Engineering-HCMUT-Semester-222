@@ -18,7 +18,6 @@ import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import Select from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
-import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 
 const ITEM_HEIGHT = 48;
