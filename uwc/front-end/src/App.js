@@ -3,15 +3,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import HomePage from "./scenes/home";
-import Team from "./scenes/team";
-import Invoices from "./scenes/invoices";
 import WorkerInfo from "./scenes/workerinfo";
-import Bar from "./scenes/bar";
-import Form from "./scenes/form";
-import Line from "./scenes/line";
-import Pie from "./scenes/pie";
 import FAQ from "./scenes/faq";
-import Geography from "./scenes/geography";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
@@ -19,7 +12,7 @@ import LoginPage from "./scenes/login/login";
 import EditInfor from "./scenes/account";
 import SignUpPage from "./scenes/signup/signup";
 import ChatsPage from "./scenes/chat/chat";
-import WorkerPermission from "./components/Worker/workerPermission";
+import Vehicle from "./scenes/vehicles";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -99,16 +92,6 @@ function App() {
               />
 
               <Route
-                path="/team"
-                element={
-                  authenticated ? (
-                    <Team />
-                  ) : (
-                    <Navigate to="/login" replace state={{ from: '/' }} />
-                  )
-                }
-              />
-              <Route
                 path="/workerinfo"
                 element={
                   authenticated ? (
@@ -123,6 +106,16 @@ function App() {
                 }
               />
 
+              <Route
+                path="/vehicle"
+                element={
+                  authenticated ? (
+                    <Vehicle />
+                  ) : (
+                    <Navigate to="/login" replace state={{ from: '/' }} />
+                  )
+                }
+              />
               {/* <Route
                 path="/worker_permission"
                 element={
@@ -133,57 +126,6 @@ function App() {
                   )
                 }
               /> */}
-
-              <Route
-                path="/invoices"
-                element={
-                  authenticated ? (
-                    <Invoices />
-                  ) : (
-                    <Navigate to="/login" replace state={{ from: '/' }} />
-                  )
-                }
-              />
-              <Route
-                path="/form"
-                element={
-                  authenticated ? (
-                    <Form />
-                  ) : (
-                    <Navigate to="/login" replace state={{ from: '/' }} />
-                  )
-                }
-              />
-              <Route
-                path="/bar"
-                element={
-                  authenticated ? (
-                    <Bar />
-                  ) : (
-                    <Navigate to="/login" replace state={{ from: '/' }} />
-                  )
-                }
-              />
-              <Route
-                path="/pie"
-                element={
-                  authenticated ? (
-                    <Pie />
-                  ) : (
-                    <Navigate to="/login" replace state={{ from: '/' }} />
-                  )
-                }
-              />
-              <Route
-                path="/line"
-                element={
-                  authenticated ? (
-                    <Line />
-                  ) : (
-                    <Navigate to="/login" replace state={{ from: '/' }} />
-                  )
-                }
-              />
               <Route
                 path="/faq"
                 element={
@@ -204,16 +146,7 @@ function App() {
                   )
                 }
               />
-              <Route
-                path="/geography"
-                element={
-                  authenticated ? (
-                    <Geography />
-                  ) : (
-                    <Navigate to="/login" replace state={{ from: '/' }} />
-                  )
-                }
-              />
+
             </Routes>
           </main>
         </div>

@@ -180,7 +180,7 @@ const Sidebar = ({userLogin}) => {
             />
             <Item
               title="Thông tin phương tiện"
-              to="/form"
+              to="/vehicle"
               icon={<FaCarAlt size={20}/>}
               selected={selected}
               setSelected={setSelected}
