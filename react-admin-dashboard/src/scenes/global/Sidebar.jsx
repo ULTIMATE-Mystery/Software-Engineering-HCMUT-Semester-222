@@ -165,7 +165,7 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="Thông tin nhân viên"
-              to="/calendar"
+              to="/workerinfo"
               icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
