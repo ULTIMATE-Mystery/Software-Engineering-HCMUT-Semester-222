@@ -15,6 +15,7 @@ import ChatsPage from "./scenes/chat/chat";
 import Vehicle from "./scenes/vehicles";
 import Task from "./scenes/task";
 import RouteMap from "./scenes/route";
+import SelectWorker from "./scenes/select";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -102,6 +103,17 @@ function App() {
                     setUserLogin={setUserLogin}
                     userID={userID}
                     />
+                  ) : (
+                    <Navigate to="/login" replace state={{ from: '/' }} />
+                  )
+                }
+              />
+
+              <Route
+                path="/select"
+                element={
+                  authenticated ? (
+                    <SelectWorker />
                   ) : (
                     <Navigate to="/login" replace state={{ from: '/' }} />
                   )

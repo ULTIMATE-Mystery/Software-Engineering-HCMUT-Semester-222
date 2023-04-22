@@ -137,7 +137,7 @@ const Sidebar = ({userLogin}) => {
             </Typography>
             <Item
               title="Tạo - gán công việc"
-              to="/team"
+              to="/select"
               icon={<MdAssignmentAdd size={20}/>}
               selected={selected}
               setSelected={setSelected}
