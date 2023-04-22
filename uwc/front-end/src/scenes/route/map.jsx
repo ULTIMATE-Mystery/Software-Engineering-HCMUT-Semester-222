@@ -142,5 +142,5 @@ export const handleShowRoute = (setDirections) => {
 
 export default GoogleApiWrapper({
   // apiKey: "AIzaSyBaPvigINOVlPFJQLG9BbA3CoMkLj8rXCo",
-  apiKey: process.env.REACT_APP_API_KEY,
+  apiKey: "AIzaSyBaPvigINOVlPFJQLG9BbA3CoMkLj8rXCo"
 })(MapContainer);

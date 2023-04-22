@@ -13,6 +13,8 @@ import EditInfor from "./scenes/account";
 import SignUpPage from "./scenes/signup/signup";
 import ChatsPage from "./scenes/chat/chat";
 import Vehicle from "./scenes/vehicles";
+import Task from "./scenes/task";
+import RouteMap from "./scenes/route";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -111,6 +113,28 @@ function App() {
                 element={
                   authenticated ? (
                     <Vehicle />
+                  ) : (
+                    <Navigate to="/login" replace state={{ from: '/' }} />
+                  )
+                }
+              />
+
+              <Route
+                path="/task"
+                element={
+                  authenticated ? (
+                    <Task />
+                  ) : (
+                    <Navigate to="/login" replace state={{ from: '/' }} />
+                  )
+                }
+              />
+
+              <Route
+                path="/route"
+                element={
+                  authenticated ? (
+                    <RouteMap />
                   ) : (
                     <Navigate to="/login" replace state={{ from: '/' }} />
                   )

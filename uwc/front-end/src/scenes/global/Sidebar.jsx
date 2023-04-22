@@ -144,14 +144,14 @@ const Sidebar = ({userLogin}) => {
             />
             <Item
               title="Xem nhiệm vụ"
-              to="/invoices"
+              to="/task"
               icon={<Icon icon="carbon:task-view" width="25" height="25"/>}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Xem tuyến đường"
-              to="/invoices"
+              to="/route"
               icon={<FaRoute size={20}/>}
               selected={selected}
               setSelected={setSelected}
