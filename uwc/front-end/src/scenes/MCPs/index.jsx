@@ -1,15 +1,43 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-// import Paper from '@mui/material/Paper';
+import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
-// import { makeStyles } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import ProgressBar from 'react-animated-progress-bar';
 import { useState } from "react";
 import { DataGrid } from '@mui/x-data-grid';
+import { MCPSList } from "../../data/MCPlist";
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import ListItemText from '@mui/material/ListItemText';
+import Select from '@mui/material/Select';
+import Checkbox from '@mui/material/Checkbox';
+import TextField from '@mui/material/TextField';
+import '../../components/Worker/./glassmorphism.css';
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+const names = [
+    'None',
+    'Capacity < 50%',
+    'Capacity >= 50% and < 75%',
+    'Capacity >=  95%',
+];
 
 const CustomColor = styled('div')({
   background: 'linear-gradient(180deg, rgba(66,109,236,1) 0%, rgba(134,201,145,1) 100%)',
@@ -18,155 +46,7 @@ const CustomColor = styled('div')({
   
 });
 
-const MCPSList = [
-  { key: 1, name: "Nguyễn Thái Sơn", percentage: "25", color_bar: '#97E075',
-      ID: 333444555, year: 2021, status: "Đang sử dụng", capacity: "1500L", inUse: "1350L", color: "Vàng", address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM", 
-      columns: [{ headerName: "Id Task", field: 'id', width: "100", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Thời gian bắt đầu', field: 'starttime', width: "200", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Thời gian kết thúc', field: 'endtime', width: "200", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Tình trạng', field: 'status', width: "170", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Ghi chú', field: 'note', width: "188", headerClassName: 'super-app-theme--header'}],
-      data: [{
-          "id":1234,
-          "starttime":"12/10/2022 16:00",
-          "endtime":"12/10/2022 17:00",
-          "status":"Đang thực hiện",
-          "note": ""
-       },
-       {
-           "id":1231,
-           "starttime":"11/10/2022 16:00",
-           "endtime":"11/10/2022 17:00",
-           "status":"Hoãn",
-           "note": "Lý do thời tiết"
-       },
-       {
-           "id":1220,
-           "starttime":"11/10/2022 15:00",
-           "endtime":"11/10/2022 16:00",
-           "status":"Đã hoàn thành",
-           "note": ""
-       }]
-  },
-  { key: 2, name: "Võ Văn Ngân", percentage: "97", color_bar: '#D94949',
-  ID: 777888999, year: 2020, status: "Đang sử dụng", capacity: "1000L", inUse: "400L", color: "Xanh lá", address: "Võ Văn Ngân, Phường Bình Thọ, Quận Thủ Đức, TP.HCM", 
-      columns: [{ headerName: 'Id Task', field: 'id', width: "100", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Thời gian bắt đầu', field: 'starttime', width: "200", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Thời gian kết thúc', field: 'endtime', width: "200", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Tình trạng', field: 'status', width: "170", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Ghi chú', field: 'note', width: "188", headerClassName: 'super-app-theme--header'}],
-      data: [{
-          "id":2232,
-          "starttime":"13/11/2022 16:00",
-          "endtime":"13/11/2022 17:00",
-          "status":"Đang thực hiện",
-          "note": ""
-       },
-       {
-           "id":2230,
-           "starttime":"12/11/2022 16:00",
-           "endtime":"12/11/2022 17:00",
-           "status":"Đã hoàn thành",
-           "note": ""
-       },
-       {
-           "id":2210,
-           "starttime":"11/11/2022 16:00",
-           "endtime":"11/11/2022 17:00",
-           "status":"Đã hoàn thành",
-           "note": ""
-       }]
-  },
-  { key: 3, name: "Lê Văn Sỹ", percentage: "60", color_bar: '#FFE76B',
-      ID: 123456789, year: 2018, status: "Đang sử dụng", capacity: "1000L", inUse: "800L", color: "Xanh lá", address: "268 Lý Thường Kiệt, Phường 14, Quận 10, TP. HCM", 
-      columns: [{ headerName: 'Id Task', field: 'id', width: "100", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Thời gian bắt đầu', field: 'starttime', width: "200", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Thời gian kết thúc', field: 'endtime', width: "200", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Tình trạng', field: 'status', width: "170", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Ghi chú', field: 'note', width: "188", headerClassName: 'super-app-theme--header'}],
-      data: [{
-          "id":3210,
-          "starttime":"13/11/2022 16:00",
-          "endtime":"13/11/2022 17:00",
-          "status":"Đang thực hiện",
-          "note": ""
-       },
-       {
-           "id":3200,
-           "starttime":"12/11/2022 16:00",
-           "endtime":"12/11/2022 17:00",
-           "status":"Hoãn",
-           "note": "Lý do thời tiết"
-       },
-       {
-           "id":3190,
-           "starttime":"11/11/2022 16:00",
-           "endtime":"11/11/2022 17:00",
-           "status":"Đã hoàn thành",
-           "note": ""
-       }]
-  },
-  { key: 4, name: "Lý Thường Kiệt", percentage: "38", color_bar: '#FFE76B',
-  ID: 444555999, year: 2020, status: "Đang sử dụng", capacity: "1000L", inUse: "500L", color: "Xanh lá", address: "59C Nguyễn Đình Chiểu, Quận 3, TP. HCM", 
-      columns: [{ headerName: 'Id Task', field: 'id', width: "100", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Thời gian bắt đầu', field: 'starttime', width: "200", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Thời gian kết thúc', field: 'endtime', width: "200", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Tình trạng', field: 'status', width: "170", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Ghi chú', field: 'note', width: "188", headerClassName: 'super-app-theme--header'}],
-      data: [{
-          "id":4234,
-          "starttime":"13/11/2022 16:00",
-          "endtime":"13/11/2022 17:00",
-          "status":"Đang thực hiện",
-          "note": ""
-       },
-       {
-           "id":4232,
-           "starttime":"12/11/2022 16:00",
-           "endtime":"12/11/2022 17:00",
-           "status":"Hoãn",
-           "note": "Thiếu nhân lực"
-       },
-       {
-           "id":4230,
-           "starttime":"11/11/2022 16:00",
-           "endtime":"11/11/2022 17:00",
-           "status":"Đã hoàn thành",
-           "note": ""
-       }]
-  },
-  { key: 5, name: "Điện Biên Phủ", percentage: "73", color_bar: '#FFE76B',
-  ID: 222333444, year: 2019, status: "Đang sử dụng", capacity: "1500L", inUse: "300L", color: "Xanh lá", address: "167 Lý Thường Kiệt, KP Thắng Lợi 2, P. Dĩ An, TX. Dĩ An, Bình Dương", 
-      columns: [{ headerName: 'Id Task', field: 'id', width: "100", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Thời gian bắt đầu', field: 'starttime', width: "200", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Thời gian kết thúc', field: 'endtime', width: "200", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Tình trạng', field: 'status', width: "170", headerClassName: 'super-app-theme--header'},
-              { headerName: 'Ghi chú', field: 'note', width: "188", headerClassName: 'super-app-theme--header'}],
-      data: [{
-          "id":5231,
-          "starttime":"13/11/2022 16:00",
-          "endtime":"13/11/2022 17:00",
-          "status":"Đang thực hiện",
-          "note": ""
-       },
-       {
-           "id":5230,
-           "starttime":"12/11/2022 16:00",
-           "endtime":"12/11/2022 17:00",
-           "status":"Đã hoàn thành",
-           "note": ""
-       },
-       {
-           "id":5220,
-           "starttime":"11/11/2022 16:00",
-           "endtime":"11/11/2022 17:00",
-           "status":"Đã hoàn thành",
-           "note": ""
-       }]
-  }
-];
-
-const active = {backgroundColor: '#a88a8a', borderRadius: '1rem', height: '62px', width: '330px'}
+const active = {backgroundColor: '#708090', borderRadius: '1rem', height: '62px', width: '330px'}
 const inactive = {}
 
 export const MCPs = () => {
@@ -175,6 +55,18 @@ export const MCPs = () => {
   const handleClick = (divNum) => {
       setSelected(divNum);
   };
+  const [personName, setPersonName] = React.useState([]);
+
+  const handleChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setPersonName(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+
   return (
       <div id="MCPSPage">
           <Box sx={{ flexGrow: 1 }} >
@@ -187,13 +79,44 @@ export const MCPs = () => {
                   columnSpacing={3}
               >
                   <Grid item sm={6} xs={13} md={6} lg={4.7} >
-                      <Card style={{height: '560px', borderRadius: "1rem", boxShadow: "5px 5px 15px 0px rgba(0, 0, 0, 0.1)"}}>
+                      <Card style={{height: '650px', borderRadius: "1rem", boxShadow: "5px 5px 15px 0px rgba(0, 0, 0, 0.1)"}} className="glassmorphism">
                               <CardContent >
-                                  <CustomColor>
-                                      <Typography gutterBottom variant="h5" >
-                                          <strong>MCPs</strong>
-                                      </Typography>
-                                  </CustomColor>
+                            
+                                  <Typography gutterBottom variant="h5" sx={{ display: 'flex', alignItems: 'center' }}>
+                                        <header style={{fontSize: '1.5rem', fontWeight: '500', marginRight: '1rem'}}>MCPs</header>
+                                        <TextField
+                                         id="outlined-basic"
+                                          label="Tìm kiếm" 
+                                          variant="outlined"
+                                          InputProps={{
+                                            style: { color: 'white' }
+                                          }}
+                                         />
+                                        <div>
+                                            <FormControl sx={{ m: 1, width: 100 }}>
+                                                <InputLabel id="demo-multiple-checkbox-label">Lọc</InputLabel>
+                                                <Select
+                                                    labelId="demo-multiple-checkbox-label"
+                                                    id="demo-multiple-checkbox"
+                                                    multiple
+                                                    value={personName}
+                                                    onChange={handleChange}
+                                                    input={<OutlinedInput label="F" />}
+                                                    renderValue={(selected) => selected.join(', ')}
+                                                    MenuProps={MenuProps}
+                                                >
+                                                    {names.map((name) => (
+                                                        <MenuItem key={name} value={name}>
+                                                            <Checkbox checked={personName.indexOf(name) > -1} />
+                                                            <ListItemText primary={name} />
+                                                        </MenuItem>
+                                                    ))}
+                                                </Select>
+                                            </FormControl>
+                                        </div>
+                                    </Typography>
+                                      
+                                
                                   {MCPSList.map((info,index) => (
                                       <div key={index} style={(selected === index) ? active : inactive} 
                                           onClick={()=>{
@@ -228,7 +151,7 @@ export const MCPs = () => {
                       </Card>
                   </Grid>
                   <Grid item xs={15} sm={10} md={10} lg={11.2}>
-                      <Card style={{height: '560px', borderRadius: "1rem", boxShadow: "5px 5px 15px 0px rgba(0, 0, 0, 0.1)"}}>
+                      <Card style={{height: '650px', borderRadius: "1rem", boxShadow: "5px 5px 15px 0px rgba(0, 0, 0, 0.1)"}}>
                               <CardContent>
                               <Grid container columns={9.5} spacing={5}>
                                   <Grid item container columns={9.5} spacing={2}>
@@ -286,15 +209,14 @@ export const MCPs = () => {
                                               </Typography>
                                           </Grid>
                                           <Grid item sm={9.5} xs={9.5} md={9.5} lg={9.5}>
-                                              <Box sx={{ height: 256, width: '100%', '& .super-app-theme--header': {backgroundColor: '#4d77f0'},}} >
+                                              <Box sx={{ height: 450, width: '100%', '& .super-app-theme--header': {backgroundColor: '#708090'},}} >
                                                   <DataGrid
                                                       rows={chosenMCP.data}
                                                       columns={chosenMCP.columns}
-                                                      //pageSize={3}
                                                       rowsPerPageOptions={[3]}
                                                       disableSelectionOnClick
                                                       experimentalFeatures={{ newEditingApi: true }}
-                                                      rowHeight={39}
+                                                      rowHeight={50}
                                                   />
                                               </Box>
                                           </Grid> 
