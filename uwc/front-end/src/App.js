@@ -16,6 +16,7 @@ import Vehicle from "./scenes/vehicles";
 import Task from "./scenes/task";
 import RouteMap from "./scenes/route";
 import SelectWorker from "./scenes/select";
+import MCPs from "./scenes/MCPs";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -103,6 +104,17 @@ function App() {
                     setUserLogin={setUserLogin}
                     userID={userID}
                     />
+                  ) : (
+                    <Navigate to="/login" replace state={{ from: '/' }} />
+                  )
+                }
+              />
+
+            <Route
+                path="/mcps"
+                element={
+                  authenticated ? (
+                    <MCPs />
                   ) : (
                     <Navigate to="/login" replace state={{ from: '/' }} />
                   )

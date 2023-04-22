@@ -1,4 +1,3 @@
-
 export const MCPSList = [
     { key: 1, name: "Nguyễn Thái Sơn", percentage: "25", color_bar: '#97E075',
         ID: 333444555, year: 2021, status: "Đang sử dụng", capacity: "1500L", inUse: "1350L", color: "Vàng", address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM", 

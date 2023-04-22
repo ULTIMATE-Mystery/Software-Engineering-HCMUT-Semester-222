@@ -173,7 +173,7 @@ const Sidebar = ({userLogin}) => {
             />
             <Item
               title="Thông tin MCPs"
-              to="/form"
+              to="/mcps"
               icon={<BsTrash size={20}/>}
               selected={selected}
               setSelected={setSelected}
