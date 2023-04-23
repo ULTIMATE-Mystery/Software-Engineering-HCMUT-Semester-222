@@ -1,0 +1,26 @@
+.ProgressBar-Create{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    /* background-color: #007bff; */
+    transition: width .6s ease;
+}
+
+.working-green{
+    color: green;
+    font-size: large;
+}
+.glassmorphism-new{
+    background: rgba(45, 73, 100, 0.2);
+    /* background: rgba(205, 221, 185, 0.2); */
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(130, 172, 214, 0.43);
+    height: 650px;
+}
