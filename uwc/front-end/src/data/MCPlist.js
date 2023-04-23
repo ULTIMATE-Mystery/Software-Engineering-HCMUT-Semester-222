@@ -1,7 +1,7 @@
 
 export const MCPSList = [
     { key: 1, name: "Nguyễn Thái Sơn", percentage: "25", color_bar: '#97E075',
-        ID: 333444555, year: 2021, status: "Đang sử dụng", capacity: "1500L", inUse: "1350L", color: "Vàng", address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM", 
+        ID: 333444555, year: 2021, status: "Đang sử dụng", capacity: "1500L", inUse: "375", color: "Vàng", address: "Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TP.HCM", 
         columns: [{ headerName: "Id Task", field: 'id', width: "100", headerClassName: 'super-app-theme--header'},
                 { headerName: 'Thời gian bắt đầu', field: 'starttime', width: "200", headerClassName: 'super-app-theme--header'},
                 { headerName: 'Thời gian kết thúc', field: 'endtime', width: "200", headerClassName: 'super-app-theme--header'},
@@ -100,7 +100,7 @@ export const MCPSList = [
         }
     ]
     },
-    { key: 2, name: "Võ Văn Ngân", percentage: "97", color_bar: '#D94949',
+    { key: 2, name: "Võ Văn Ngân", percentage: "40", color_bar: '#D94949',
     ID: 777888999, year: 2020, status: "Đang sử dụng", capacity: "1000L", inUse: "400L", color: "Xanh lá", address: "Võ Văn Ngân, Phường Bình Thọ, Quận Thủ Đức, TP.HCM", 
         columns: [{ headerName: 'Id Task', field: 'id', width: "100", headerClassName: 'super-app-theme--header'},
                 { headerName: 'Thời gian bắt đầu', field: 'starttime', width: "200", headerClassName: 'super-app-theme--header'},
@@ -129,7 +129,7 @@ export const MCPSList = [
              "note": ""
          }]
     },
-    { key: 3, name: "Lê Văn Sỹ", percentage: "60", color_bar: '#FFE76B',
+    { key: 3, name: "Lê Văn Sỹ", percentage: "80", color_bar: '#FFE76B',
         ID: 123456789, year: 2018, status: "Đang sử dụng", capacity: "1000L", inUse: "800L", color: "Xanh lá", address: "268 Lý Thường Kiệt, Phường 14, Quận 10, TP. HCM", 
         columns: [{ headerName: 'Id Task', field: 'id', width: "100", headerClassName: 'super-app-theme--header'},
                 { headerName: 'Thời gian bắt đầu', field: 'starttime', width: "200", headerClassName: 'super-app-theme--header'},
@@ -158,7 +158,7 @@ export const MCPSList = [
              "note": ""
          }]
     },
-    { key: 4, name: "Lý Thường Kiệt", percentage: "38", color_bar: '#FFE76B',
+    { key: 4, name: "Lý Thường Kiệt", percentage: "50", color_bar: '#FFE76B',
     ID: 444555999, year: 2020, status: "Đang sử dụng", capacity: "1000L", inUse: "500L", color: "Xanh lá", address: "59C Nguyễn Đình Chiểu, Quận 3, TP. HCM", 
         columns: [{ headerName: 'Id Task', field: 'id', width: "100", headerClassName: 'super-app-theme--header'},
                 { headerName: 'Thời gian bắt đầu', field: 'starttime', width: "200", headerClassName: 'super-app-theme--header'},
@@ -187,7 +187,7 @@ export const MCPSList = [
              "note": ""
          }]
     },
-    { key: 5, name: "Điện Biên Phủ", percentage: "73", color_bar: '#FFE76B',
+    { key: 5, name: "Điện Biên Phủ", percentage: "20", color_bar: '#FFE76B',
     ID: 222333444, year: 2019, status: "Đang sử dụng", capacity: "1500L", inUse: "300L", color: "Xanh lá", address: "167 Lý Thường Kiệt, KP Thắng Lợi 2, P. Dĩ An, TX. Dĩ An, Bình Dương", 
         columns: [{ headerName: 'Id Task', field: 'id', width: "100", headerClassName: 'super-app-theme--header'},
                 { headerName: 'Thời gian bắt đầu', field: 'starttime', width: "200", headerClassName: 'super-app-theme--header'},
