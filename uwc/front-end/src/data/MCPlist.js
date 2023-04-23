@@ -10,7 +10,7 @@ export const MCPSList = [
         data: [{
             "id":1,
             "starttime":"12/10/2022 16:00",
-            "endtime":"12/10/2022 17:00",
+            "endtime":"",
             "status":"Đang thực hiện",
             "note": ""
          },
@@ -110,7 +110,7 @@ export const MCPSList = [
         data: [{
             "id":2232,
             "starttime":"13/11/2022 16:00",
-            "endtime":"13/11/2022 17:00",
+            "endtime":"",
             "status":"Đang thực hiện",
             "note": ""
          },
@@ -139,7 +139,7 @@ export const MCPSList = [
         data: [{
             "id":3210,
             "starttime":"13/11/2022 16:00",
-            "endtime":"13/11/2022 17:00",
+            "endtime":"",
             "status":"Đang thực hiện",
             "note": ""
          },
@@ -168,7 +168,7 @@ export const MCPSList = [
         data: [{
             "id":4234,
             "starttime":"13/11/2022 16:00",
-            "endtime":"13/11/2022 17:00",
+            "endtime":"",
             "status":"Đang thực hiện",
             "note": ""
          },
@@ -197,7 +197,7 @@ export const MCPSList = [
         data: [{
             "id":5231,
             "starttime":"13/11/2022 16:00",
-            "endtime":"13/11/2022 17:00",
+            "endtime":"",
             "status":"Đang thực hiện",
             "note": ""
          },
