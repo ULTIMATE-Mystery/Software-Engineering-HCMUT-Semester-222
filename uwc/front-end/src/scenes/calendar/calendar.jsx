@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './calendar.css';
 import data from './data.json'
+import Header from "../../components/Header";
+import { Box, Button, Typography, useTheme, Grid } from "@mui/material";
 
 import GroupTasks from '../../components/Calendar/GroupTasks';
 import ShowTaskModal from '../../components/Calendar/ShowTaskModal';
@@ -92,6 +94,11 @@ const Calendar = () => {
   const dMonth = monthListVi[curMonth - 1];
 
   return (
+    <Box m="20px">
+    {/* HEADER */}
+    <Box display="flex" justifyContent="space-between" alignItems="center">
+    <Header title="LỊCH LÀM VIỆC" subtitle="Trang lịch chi tiết" />
+    </Box>
     <div className="container" id="CALENDAR">
       <ShowTaskModal
         visible={showModal}
@@ -184,6 +191,7 @@ const Calendar = () => {
         </div>
       </div>
     </div>
+    </Box>
   );
 };
 export default Calendar;

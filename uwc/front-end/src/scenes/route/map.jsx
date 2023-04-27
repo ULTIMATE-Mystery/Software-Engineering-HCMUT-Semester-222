@@ -112,7 +112,7 @@ const MapContainer = (props) => {
 };
 
 export const handleShowRoute = (setDirections) => {
-  let mounted = true;
+  // let mounted = true;
 
   const directionsService = new window.google.maps.DirectionsService();
   const origin = new window.google.maps.LatLng(
@@ -135,9 +135,9 @@ export const handleShowRoute = (setDirections) => {
       setDirections(result);
     }
   });
-  return () => {
-    mounted = false;
-  };
+  // return () => {
+  //   mounted = false;
+  // };
 };
 
 export default GoogleApiWrapper({
