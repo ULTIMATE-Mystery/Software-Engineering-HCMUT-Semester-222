@@ -38,7 +38,7 @@ const WorkerEdit = ( {selectedRowData, userID} ) => {
     function handleApplyChange() {
         toast.success("Thay đổi thông tin thành công", { position: toast.POSITION.TOP_RIGHT });
 
-        fetch(`http://localhost:5000/uwc/worker/${formValues._id}`, {
+        fetch(`https://uwc-backend-74hn.onrender.com/uwc/worker/${formValues._id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

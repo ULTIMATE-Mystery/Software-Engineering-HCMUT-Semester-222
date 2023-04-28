@@ -58,7 +58,7 @@ const WorkerPermission = ({powerPermission, userRowType, userID}) => {
             "type": result ? result : 'User',
         }
 
-        fetch(`http://localhost:5000/uwc/worker/${userID}`, {
+        fetch(`https://uwc-backend-74hn.onrender.com/uwc/worker/${userID}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
