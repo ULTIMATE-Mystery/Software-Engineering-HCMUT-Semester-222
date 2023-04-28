@@ -37,7 +37,7 @@ const WorkerInfo = ({setAllUserAccount, setUserLogin, userID}) => {
   useEffect(() => {
     const fetchWorkers = async () => {
       try {
-        const res = await fetch('http://localhost:5000/uwc/worker', {
+        const res = await fetch('https://uwc-backend-74hn.onrender.com/uwc/worker', {
           method: "GET",
         });
         const data = await res.json();

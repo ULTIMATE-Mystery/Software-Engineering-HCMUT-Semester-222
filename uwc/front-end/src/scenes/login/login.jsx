@@ -16,7 +16,8 @@ const LoginPage = ( { setAuthenticated, setUserID, setAllUserAccount, setUserLog
 
   useEffect(() => {
     // get all account from mongo
-    fetch('http://localhost:5000/uwc/account', {
+    fetch('https://uwc-backend-74hn.onrender.com/uwc/account'
+    , {
       method: "GET",
     })
       .then(res => res.json())
@@ -25,7 +26,7 @@ const LoginPage = ( { setAuthenticated, setUserID, setAllUserAccount, setUserLog
     })
     .catch(err => console.error(err));
 
-    fetch('http://localhost:5000/uwc/vehicle', {
+    fetch('https://uwc-backend-74hn.onrender.com/uwc/vehicle', {
       method: "GET",
     })
       .then(res => res.json())
@@ -34,7 +35,7 @@ const LoginPage = ( { setAuthenticated, setUserID, setAllUserAccount, setUserLog
     })
     .catch(err => console.error(err));
 
-    fetch('http://localhost:5000/uwc/worker', {
+    fetch('https://uwc-backend-74hn.onrender.com/uwc/worker', {
       method: "GET",
     })
       .then(res => res.json())
@@ -53,7 +54,7 @@ const LoginPage = ( { setAuthenticated, setUserID, setAllUserAccount, setUserLog
   const onSubmit = (event) => {
     
     axios
-      .post("http://localhost:5000/authenticate", { username: email })
+      .post("https://uwc-backend-74hn.onrender.com/authenticate", { username: email })
       .then((r) => setUser({ ...r.data, secret: email }) )
       .catch((e) => console.log("Auth Error", e));
 

@@ -24,7 +24,7 @@ function insertDataWorker(account, nOfUser) {
         status: "Đang hoạt động",
         taskHistory: [],
     }
-    fetch(`http://localhost:5000/uwc/worker/`, {
+    fetch(`https://uwc-backend-74hn.onrender.com/uwc/worker/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ function insertUser(account, getCollectionID) {
         workerID: getCollectionID,
     }
 
-    fetch(`http://localhost:5000/uwc/account/`, {
+    fetch(`https://uwc-backend-74hn.onrender.com/uwc/account/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -107,7 +107,7 @@ const SignUpPage = ( {nOfUser} ) => {
 const onSubmit = (event) => {
     event.preventDefault();
 
-    fetch('http://localhost:5000/uwc/account', {
+    fetch('https://uwc-backend-74hn.onrender.com/uwc/account', {
     method: "GET",
     })
     .then(res => res.json())
