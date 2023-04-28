@@ -64,7 +64,7 @@ const EditInfor = ( {userAccount, setUserAccount} ) => {
           autoClose: 3000,
         });
       } else {
-        fetch(`http://localhost:5000/uwc/account/${formValues._id}`, {
+        fetch(`https://uwc-backend-74hn.onrender.com/uwc/account/${formValues._id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
